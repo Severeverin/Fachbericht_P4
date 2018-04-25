@@ -39,16 +39,24 @@ Studiengang: \> Elektro- und Informationstechnik\\[2ex]
 }
 
 
+\hbox{}
 \clearpage
 
+
+%%%%%%%%%%%%%%%%%%%Abstract%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{input/Abstract}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{tocdepth}{2} 
 \tableofcontents
- 
-\clearpage
+\newpage
 
 %Input Files
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\input{input/Einleitung}
+\newpage
 \input{input/Gesamtkonzept}
 \input{input/Funktionsweise}
 \input{input/Ladeablauf}
@@ -64,11 +72,13 @@ Studiengang: \> Elektro- und Informationstechnik\\[2ex]
 \input{input/SDKarte}
 \input{input/AudioPWM}
 \input{input/TestkonzeptSoftware}
+\newpage
 \input{input/Ehrlichkeitserklaerung}
 \bibliographystyle{IEEEtran}
 \bibliography{quelle}
 \newpage
 \listoffigures
+\newpage
 \begin{appendix}
 \input{input/Anhang}
 \end{appendix}
