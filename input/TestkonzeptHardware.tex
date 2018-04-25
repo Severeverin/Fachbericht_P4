@@ -1,2 +1,13 @@
 \subsection{Testkonzept}
+Damit ein reibungsloser Betrieb möglich ist, müssen die einzelnen Hardware Komponenten auf Herz und Nieren geprüft werden. Nachfolgend werden die Testverfahren genauer beschrieben und die Testergebnisse aufgelistet.
+
+\subsubsection{Batterie}
+Die Batterie weist einige Schutzmechanismen auf, welche alle getestet werden müssen. Als erstes wurde der Tiefentladungsschutz geprüft. Um dies zu testen wurde ein Winderstand der Dimension 9$\Omega$ angeschlossen, wobei gemäss Berechnung \ref{fig:Entladestrom} ein Entladestrom von rund 400mA resultierte.
+
+\begin{equation}
+I_{entlade}=\frac{U}{R}=\frac{3.7V}{9\Omega }= 411mA
+\label{fig:Entladestrom}
+\end{equation}
+
+Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spannung bis 2.5V absank und danach durch den integrierten Batterieschutz die Spannungsversorgung abbrach.
 
