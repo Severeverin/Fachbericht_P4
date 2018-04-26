@@ -1,7 +1,6 @@
 \subsection{User Cycle}\label{sec:ladeablauf}
 
-Um einen lückenlosen Betrieb zu gewährleisten, ist ein Ablauf für den Gebrauch des Dojos notwendig. Dieser Ablauf wird in vier Schritte unterteilt und ist in Abbildung \ref{fig:Ladezyklus Dojo} ersichtlich.
-Die Betriebszeit des Dojos ermöglicht eine Betriebszeit von fünf Stunden, wobei durch Ladezyklen zwischen den Besuchen eine ganztägiger Betrieb ermöglicht wird. Darum wurde im Ziel 5.1 ein Arbeitstag genannt. Um dies zu veranschaulichen, gibt nachfolgende Abbildung \ref{fig:Ladezyklus Dojo} einen Einblick ins Konzept.
+Um einen lückenlosen Betrieb zu gewährleisten, ist ein Ablauf für den Gebrauch des Dojos notwendig. Dieser Ablauf kann zusammenfassend in vier Schritte unterteilt werden und ist nachfolgend in Abbildung \ref{fig:Ladezyklus Dojo} ersichtlich.
 
 \begin{figure}[H]
 	\begin{center}
@@ -11,7 +10,7 @@ Die Betriebszeit des Dojos ermöglicht eine Betriebszeit von fünf Stunden, wobe
 	\end{center}
 \end{figure}
 
-Der erste Schritt beinhaltet die Dojo Ausgabe beim Empfang. Hierbei wird bereits festgelegt welche Sprache verwendet und in welche Bereiche der Besucher Zutritt erhalten soll. Diese Einstellungen können von Besucher zu Besucher variieren. Zu beachten gilt es, dass jeweils die Geräte ausgegeben werden, welche sich am längsten in der Ladestation (Schritt 4) befinden. Bei einer Stückzahl welche grösser ist als die Besucherzahl, erlaubt dies einen lückenlosen Betrieb.
+Der erste Schritt beinhaltet die Dojo Ausgabe beim Empfang. Hierbei wird festgelegt zu welchen Bereichen der Besucher Zutritt erhalten soll. Dies ist abhängig von den Wünschen des Besuchers. Die Auswahl der Sprache wird später im Unterkapitel \ref{sec:sprachauswahl} beschrieben. Zu beachten gilt es, dass jeweils die Geräte ausgegeben werden, welche sich am längsten in der Ladestation (Schritt 4) befinden. Hierbei hilft eine Signal-LED am Dojo, welche den Ladestatus gemäss definiertem Farbschema ausgibt. Ein lückenloser Betrieb wird erreicht, wenn die Stückzahl der Audio-Guide Geräte in etwa der Anzahl der Besucher pro Tag entspricht.
 \\
 \\
 In Schritt 2 befindet sich der Besucher auf dem Rundgang mit dem Dojo als Audio-Guide. Der Nutzer hat hierbei die Möglichkeit während dem Rundgang Bilder zu \glqq liken\grqq . Weitere Funktionen und die Bedienung des Dojos selber, ist im vorherigen Unterkapitel \ref{sec:funktionsweise} beschrieben.
@@ -21,3 +20,18 @@ Die Abgabe erfolgt in Schritt 3. Hier hat der Besucher die Möglichkeit \glqq ge
 \\
 \\
 Sobald das Dojo entgegengenommen wurde und alle benötigten Informationen (\glqq likes\grqq) extrahiert wurden, wird es wie in Schritt 4 ersichtlich aufgeladen. Hierfür ist eine Ladestation verfügbar, wobei es lediglich notwendig ist die Dojos in die dafür vorgesehenen Ladebuchsen zustecken. Hierbei beginnt der induktive Ladezyklus sobald die in jedem Gerät eingebaute Signal-LED zu leuchten beginnt.
+\\
+\\
+\subsubsection{Sprachauswahl} \label{sec:sprachauswahl}
+
+Die Sprachauswahl wird durch den Besucher selbst eingestellt. Hierbei stehen ihm vier Bluetooth-Beacons zur Verfügung zu welchen er sein Dojo hinhalten kann. Die gewünschte Sprache ist hierbei durch die Landesflagge gekennzeichnet. Ein Beispiel einer solchen Anwendung ist nachfolgend in Abbildung \ref{fig:SprachauswahlBeacon} ersichtlich.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=140mm]{data/BeaconSpracherkennung.png}
+		\caption[Sprachauswahl mittels Bluetooth-Beacon]{Sprachauswahl mittels Bluetooth-Beacon} %picture caption
+		\label{fig:SprachauswahlBeacon}
+	\end{center}
+\end{figure}
+
+Es ist ersichtlich, dass eine Auswahl aus vier Sprachen möglich ist. Zudem ist ein Test-Beacon vorhanden, welches dem User ein kurzes Audio-Sample abspielt. Dies ist lediglich für die Gewissheit die richtige Sprache ausgewählt zu haben. Sobald die gewünschte Sprache geladen und getestet wurde, kann der Museumsbesuch gestartet werden.
