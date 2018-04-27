@@ -5,7 +5,7 @@ Der Dojo ist eine Art Audio-Guide welcher für Museen designt ist und diverse Fu
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=140mm]{data/Dojo.png}
-		\caption[Dojo]{Dojo} %picture caption
+		\caption[Dojo als Modell]{Dojo als Modell} %picture caption
 		\label{fig:Funktion Dojo}
 	\end{center}
 \end{figure}
@@ -20,9 +20,10 @@ Das Herzstück des Dojo ist ein NRF52 von Nordic Semiconductor mit integriertem 
 	\end{center}
 \end{figure}
 
-Die Funktion des Dojos sind in zwei Bereiche unterteilt. Im Abschnitt \ref{sec:funktionNutzer} sind die Funktionen für die Museumsbesucher beschrieben, welche nachfolgend als Nutzer bezeichnet werden. Zum anderen sind im Abschnitt \ref{sec:funktionBetreiber} die für die Museumsbetreiber relevanten Funktionen beschrieben. Diese werden nachfolgend als Betreiber bezeichnet.
+Die Funktion des Dojos sind in zwei Bereiche unterteilt. Im Abschnitt \nameref{sec:funktionNutzer} sind die Funktionen für die Museumsbesucher beschrieben, welche nachfolgend als User bezeichnet werden. Zum anderen sind im Abschnitt \nameref{sec:funktionBetreiber} die für die Museumsbetreiber relevanten Funktionen beschrieben. Diese werden nachfolgend als Betreiber bezeichnet.
 
-\subsubsection{Nutzer} \label{sec:funktionNutzer}
-Der Nutzer geht mit dem Dojo durch das Museum. Sobald die Bluetooth Beacons genug nahe sind, wird dem Nutzer ein Signal gesendet. Dies erfolgt durch Vibration oder mithilfe einer LED. Jetzt soll der Nutzer entscheiden ob er sich das zugehörige Audio-File anhören will. Will er das, kann er den Play-Button betätigen. Die Lautstärke kann über die Buttons justiert werden. Falls das Ausstellungsstück dem Nutzer gefallen hat, kann er die Merken-Taste betätigen. Diese speichert das Ausstellungsstück auf eine Liste im Dojo. Am Ende des Museumsbesuches kann diese Liste ausgewertet werden. Dies fällt aber nicht mehr in die zuvor definierten Systemgrenzen. Wir stellen nur sicher, dass die Liste exportiert werden kann.
-\subsubsection{Betreiber} \label{sec:funktionBetreiber}
+\subsubsection*{Nutzer} \label{sec:funktionNutzer}
+Der User geht mit dem Dojo durch das Museum. Sobald die Bluetooth Beacons genug nahe sind, wird dem Nutzer ein Signal gesendet. Dies erfolgt durch Vibration oder mithilfe einer LED. Jetzt soll der User entscheiden ob er sich das zugehörige Audio-File anhören will. Will er das, kann er den Play-Button betätigen. Die Lautstärke kann über die Buttons justiert werden. Falls das Ausstellungsstück dem Nutzer gefallen hat, kann er die Merken-Taste betätigen. Diese speichert das Ausstellungsstück auf eine Liste im Dojo. Am Ende des Museumsbesuches kann diese Liste ausgewertet werden, wobei die Anwendung dieser Daten in dieser Arbeit nicht weiter verfolgt wurden.
+
+\subsubsection*{Betreiber} \label{sec:funktionBetreiber}
 Der Betreiber muss den Dojo konfigurieren. Dies erfolgt über eine SD-Karte, welche mit dem Computer beladen wird. Anschliessend wird diese in den Dojo eingeführt. Das Nachladen des Akkumulator erfolgt über eine induktive Ladung. Die nächsten zwei Funktionen sind Wunschziele, die vor allem mit Rücksicht auf die Laufzeit realisiert werden. Den Bluetooth-Receiver könnte man kurzzeitig auf ein Bluetooth Beacon umschalten. Der Betreiber müsste nur noch einen Receiver pro Raum installieren. Damit könnte man die gewünschte HeatMap realisieren. Das zweite wäre die Möglichkeit per Bluetooth einzelne Audiofiles auf den Dojo zu übertragen, um im Falle einer Änderung der Austellung die Liste anzupassen.
