@@ -1,5 +1,16 @@
 \section{Software}\label{sec:software}
+%was ich sagen will
+%-aufspaltug des Programmes in verschieden Module
+%-sdk
+%-Nordic
+%-Programm typus (Pollend)
+%-Viele verweise auf andere Kapitel
+%-offene Punkte
+%-layer
 
-Beschreibt die einzelnen Softwareteile und welche Entwicklungstools benutzt werden und führt Lizenzen auf. Ausserdem wird die Softwarestruktur grob aufgezeigt und in den Unterthemen näher auf die jeweiligen Module eingegangen. Zudem werden Softwaretechnische Anforderungen an die Hardware, Datenstrukturen und Protokolle erläutert.
+%Software_Layers.PNG
 
-Einführung in die Software mit Modulbeschreibung!!!
+Es wird ein NRF52832 verwendet von Nordic Semiconductor. Dadurch liegt die Verwendung des Software Development Kit\ref{Nordic SDK} nahe. Dies ist eine Sammlung von Beispielen, Librarys und vorcompilierten Codes. Nachfolgend wird das Software Development Kit nur noch SDK genannt. Es wurde nRF5 SDK v12.3.0 verwendet. Wichtig ist die SDK für ihren integrierten Bluetooth-Stack der verwendet wird. Dieser ist im sogenannten Softdevice enthalten. Um ihn nutzen zu können verwenden wir den S132. Dieser und die nötige Initialisierungen des Bluetooth-Stacks waren in dem Beispielprojekt Uartc in der Central-Rolle vorhanden. Dadurch wurde das ganze Projekt auf diesem Beispiel aufgebaut. Der Softdevice und die SDK legen einige abstraktions Layer auf die Hardware. Diese sind in Abbildung \ref{fig:Software_Layers} visualisiert. Die Die wichtigsten Module des SDK werden im Kapitel \ref{sec:nordicsdk} erklärt, falls weitere Informationen gewünscht sind wird auf die offizielle Dokumentation verwiesen \ref{Nordic.info}.
+
+
+
