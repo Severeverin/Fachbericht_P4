@@ -1,7 +1,7 @@
 \subsection{Testkonzept Hardware}\label{sec:testkonzeptHardware}
 Damit ein reibungsloser Betrieb möglich ist, müssen die einzelnen Hardware Komponenten auf Herz und Nieren geprüft werden. Nachfolgend werden die Testverfahren genauer beschrieben und die Testergebnisse aufgelistet.
 
-\subsubsection{Batterie}\label{sec:batterie}
+\subsubsection*{Schutzmechanismen Batterie}\label{sec:batterie}
 Die Batterie weist einige Schutzmechanismen auf, welche alle getestet werden müssen. Als erstes wurde der Tiefentladungsschutz geprüft. Um dies zu testen wurde ein Winderstand der Dimension 9$\Omega$ angeschlossen, wobei gemäss Berechnung \ref{eq:Entladestrom} ein Entladestrom von rund 400mA resultierte.
 
 \begin{equation}
@@ -14,3 +14,27 @@ Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spann
 \\
 Als nächstes wurde ein Kurzschlusstest durchgeführt, wobei hier der Schwellenstrom gemäss Datenblatt bei 4.8 liegt. Gemäss dem U=R$\cdot$I Gesetz, wurde ein Widerstand der Grösse von 700m$\Omega$ verwendet damit der Grenzwert überschritten wird. Auch bei diesem Versuch, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung ab.
 
+\subsubsection*{Ladeschaltung der Batterie}\label{sec:batterie}
+Für die Ladeschaltung der Batterie wurde wie bereits im Kapitel \ref{sec:Energiespeicher} beim Abschnitt Schutzeinrichtungen ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von 4.2V den Strom auf 0A herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Die nachfolgende Abbildung \ref{fig:Ladekurve-LadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Strome (rote Kurve) in Abhängigkeit der Zeit.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=100mm]{data/Platzhalter.jpg}
+		\caption[Ladekurve Lade-IC]{Ladekurve Lade-IC} %picture caption
+		\label{fig:Ladekurve-LadeIC}
+	\end{center}
+\end{figure}
+
+
+\subsubsection*{induktive Ladeschaltung}\label{sec:batterie}
+In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsentiert. Nachfolgend zeigt Abbildung \ref{fig:InduzierterStrom} die Abhängigkeit zwischen induziertem Strom und der Distanz z zwischen den Induktionsspulen.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=100mm]{data/Platzhalter.jpg}
+		\caption[Induzierter Strom in Abhängigkeit der Distanz]{Induzierter Strom in Abhängigkeit der Distanz} %picture caption
+		\label{fig:InduzierterStrom}
+	\end{center}
+\end{figure}
+
+Eindrücklich ist hierbei dass zum Abstand der Primärspule, der Strom (lineaer, quadratisch, was auch immer) abnimmt. Aufgrund dieser Erkenntnis sind wir auch gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten. Wir verwenden hierbei einen Abstand von rund 1.5mm, welcher auch der Materialdicke des Dojos entspricht. Es resultiert also ein an die Sekundärspule gelieferter Strom von rund 50mA.
