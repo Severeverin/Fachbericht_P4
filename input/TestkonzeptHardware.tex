@@ -15,18 +15,19 @@ Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spann
 Als nächstes wurde ein Kurzschlusstest durchgeführt, wobei hier der Schwellenstrom gemäss Datenblatt bei 4.8 liegt. Gemäss dem U=R$\cdot$I Gesetz, wurde ein Widerstand der Grösse von 700m$\Omega$ verwendet damit der Grenzwert überschritten wird. Auch bei diesem Versuch, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung ab.
 
 \subsubsection*{Ladeschaltung der Batterie}\label{sec:batterie}
-Für die Ladeschaltung der Batterie wurde wie bereits im Kapitel \ref{sec:Energiespeicher} beim Abschnitt Schutzeinrichtungen ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von 4.2V den Strom auf 0A herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Die nachfolgende Abbildung \ref{fig:Ladekurve-LadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Strome (rote Kurve) in Abhängigkeit der Zeit.
+Für die Ladeschaltung der Batterie wurde wie bereits im Kapitel \ref{sec:Energiespeicher} beim Abschnitt Schutzeinrichtungen ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von 4.2V den Strom auf 0A herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs beschränkt und somit das Netzgerät \glqq Power Supply\grqq\space der Firma \glqq K. Witmer\grqq\space verwendet wurde. Aus diesem Grund ist auch ein Strom von 400mA wie auch eine Ladezeit von lediglich 270 Minuten (4.5h) ersichtlich was die effektiven Ladewerte mittels induktiver Ladung deutlich übertrumpfen. Die nachfolgende Abbildung \ref{fig:Ladekurve-LadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Strome (rote Kurve) in Abhängigkeit der Zeit.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=100mm]{data/Platzhalter.jpg}
+		\includegraphics[width=120mm]{data/LadekurveLadeIC.png}
 		\caption[Ladekurve Lade-IC]{Ladekurve Lade-IC} %picture caption
-		\label{fig:Ladekurve-LadeIC}
+		\label{fig:LadekurveLadeIC}
 	\end{center}
 \end{figure}
 
+Die oben genannten Vorgänge der Spannungs- und Stromregulierung sind in dieser Grafik gut ersichtlich wobei der Ladevorgang nach dem erreichen von rund 20mA als fertig betrachtet wurde.
 
-\subsubsection*{induktive Ladeschaltung}\label{sec:batterie}
+\subsubsection*{Induktive Ladeschaltung}\label{sec:batterie}
 In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsentiert. Nachfolgend zeigt Abbildung \ref{fig:InduzierterStrom} die Abhängigkeit zwischen induziertem Strom und der Distanz z zwischen den Induktionsspulen.
 
 \begin{figure}[H]
