@@ -46,24 +46,74 @@ Print \glqq Likes \grqq wurde nicht implementiert und das Hauptprogramm sprint i
 
 \subsubsection*{State: Wait}
 
-
+[Warte auf Infos Loosli/Elias, noch unklar]
 
 \subsubsection*{State: New Beacon}
 
+In diesem State wird der Ringbuffer ausgelesen. Dadurch lässt sich das Beacon mit dem stärksten Signal identifizieren. Ist das aktuelle Beacon immer noch das gleiche wie das alte Beacon, springt das Programm in den Wait State. Wenn es sich nicht um das gleiche Beacon handelt, wird über den lookup State überprpüft, ob eine entsprechende Übereinstimmung vorhanden ist.
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Data/NewBeacon_picture.pdf}
+	\caption[Statemachine: New Beacon]{Funktionsablauf im New Beacon State}
+	\label{fig:newBeaconState}
+\end{figure} 
+
 \subsubsection*{State: Like}
+
+Wird in diesem State über einen Button ein Like-Ereignis ausgelöst, springt das Programm in den Signal to User State. Findet kein Ereignis statt, dann wird in den Wait State gesprungen.
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Data/Like_picture.pdf}
+	\caption[Statemachine: Like]{Funktionsablauf im Like State}
+	\label{fig:likeState}
+\end{figure} 
 
 \subsubsection*{State: Signal to User}
 
+Dieser State hat die Aufgabe, dem Benutzer mitzuteilen, dass ein neues Audio-File verfügbar ist. Dabei blinkt eine dafür vorgesehene LED. Anschliessend springt die Software in den Wait State.
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.2\textwidth]{Data/SignalToUser_picture.pdf}
+	\caption[Statemachine: Signal to User]{Funktionsablauf im Signal to User State}
+	\label{fig:signalToUserState}
+\end{figure} 
+
 \subsubsection*{State: ADC Battery}
+
+[Mehr Informationen benötigt, gemäss Code passiert da gar nichts]
 
 \subsubsection*{State: Shutdown}
 
+[Mehr Informationen benötigt, gemäss Code passiert da gar nichts]
+
 \subsubsection*{State: Merken Liste löschen}
+
+Dieser State löscht die Likes, um für den nächsten User bereit zu sein. Anschliessend folgt der Charge State.
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.2\textwidth]{Data/MerkeListeLoeschen_picture.pdf}
+	\caption[Statemachine: Merke Liste löschen]{Funktionsablauf im Merke Liste löschen State}
+	\label{fig:merkeListeLoeschenState}
+\end{figure} 
 
 \subsubsection*{State: Charge}
 
+[Mehr Informationen benötigt, gemäss Code passiert da gar nichts]
+
 \subsubsection*{State: Pause}
+
+Dieser State pausiert das Sound-File und wartet auf ein weiteres Play-Event, um die Audiodatei wieder abzuspielen.
+
+[Infos von Elias benötigt um das Diagramm zu erstellen]
 
 \subsubsection*{State: Init Buffer}
 
+[Infos von Elias benötigt um das Diagramm zu erstellen]
+
 \subsubsection*{State: Bufferreload}
+
+[Infos von Elias/Loosli benötigt um das Diagramm zu erstellen]
