@@ -4,7 +4,7 @@ Nachdem mit dem Einleitungskapitel ein kurzer Überblick geschaffen wurde, kann 
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=1.15\textwidth]{Data/StateMachineFinal.pdf}
+	\includegraphics[width=1.01\textwidth]{Data/StateMachineFinal.pdf}
 	\caption[Statemachine-Diagramm]{Statemachine im Überblick mit den einzelnen States und den Parametern}
 	\label{fig:completeStateMachine}
 \end{figure} 
@@ -40,13 +40,20 @@ Dieser State ist für die Sprachauswahl verantwortlich. Aufgrund des Zahlenwerte
 	\label{fig:changeLanguageState}
 \end{figure} 
 
-\subsubsection*{State: Print \glqq Likes \grqq}
+\subsubsection*{State: Print \glqq Likes\grqq}
 
 Print \glqq Likes \grqq wurde nicht implementiert und das Hauptprogramm sprint in den Wait State. Das ist eine optionale Möglichkeit, die in einem weiteren Entwicklungskonzept bearbeitet werden kann. Die Software ermöglicht es aber diese Funktion noch einzubetten. Dabei könnte die Broschüre mit den interessanten Objekten direkt gedruckt werden und bereits für den Besucher am Ausgang des Museums bereit liegen.
 
 \subsubsection*{State: Wait}
 
-[Warte auf Infos Loosli/Elias, noch unklar]
+Dieser State ist die Ausgangslage des kompletten Ablaufs. Aufgrund von den in der Abbildung \ref{fig:waitState} ersichtlichen Bedingungen und sogenannten Flags, entscheidet das Hauptprogramm in welchen State zu switchen ist. Die Reihenfolge der Abfrage erfolgt nach dem Prioritätsprinzip.
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Data/Wait_picture.pdf}
+	\caption[Statemachine: Wait]{Funktionsablauf im Wait State}
+	\label{fig:waitState}
+\end{figure} 
 
 \subsubsection*{State: New Beacon}
 
@@ -83,11 +90,18 @@ Dieser State hat die Aufgabe, dem Benutzer mitzuteilen, dass ein neues Audio-Fil
 
 \subsubsection*{State: ADC Battery}
 
-[Mehr Informationen benötigt, gemäss Code passiert da gar nichts]
+Hier wird überprüft die Batterie auf ihren Ladezustand überprüft und entsprechend gehandelt. Wird die Batterie geladen, so wird die Like-Liste gelöscht. Anderenfalls wird das Programm in den Wait-State wechseln, oder bei ungenügendem Ladezustand das System herunterfahren.
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Data/ADC_Battery_picture.pdf}
+	\caption[Statemachine: ADC Battery]{Funktionsablauf im ADC Battery State}
+	\label{fig:adcBatteryState}
+\end{figure} 
 
 \subsubsection*{State: Shutdown}
 
-[Mehr Informationen benötigt, gemäss Code passiert da gar nichts]
+Dieser Arbeitsschritt benötigt kein Diagramm. Ist der Ladezustand des Geräts zu tief, wird das System gezwungenermassen heruntergefahren. Somit sollen Schäden an der Hardware und an der Software vermieden werden.
 
 \subsubsection*{State: Merken Liste löschen}
 
@@ -102,18 +116,18 @@ Dieser State löscht die Likes, um für den nächsten User bereit zu sein. Ansch
 
 \subsubsection*{State: Charge}
 
-[Mehr Informationen benötigt, gemäss Code passiert da gar nichts]
+Hier wird überprüft, ob ein Pause- oder Playevent vorliegt ist und dementsprechend gehandelt. 
+
+\begin{figure}[htbp!!!!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{Data/Charge_picture.pdf}
+	\caption[Statemachine: Charge]{Funktionsablauf im Charge State}
+	\label{fig:chargeState}
+\end{figure} 
 
 \subsubsection*{State: Pause}
 
 Dieser State pausiert das Sound-File und wartet auf ein weiteres Play-Event, um die Audiodatei wieder abzuspielen.
 
-[Infos von Elias benötigt um das Diagramm zu erstellen]
-
-\subsubsection*{State: Init Buffer}
-
-[Infos von Elias benötigt um das Diagramm zu erstellen]
-
-\subsubsection*{State: Bufferreload}
-
-[Infos von Elias/Loosli benötigt um das Diagramm zu erstellen]
+\subsubsection*{State: Init Buffer und Bufferreload}
+Diese beiden States sind für das Initialisieren des Buffers und für den Start der PWM-Funktion verantwortlich. Für weitere Informationen dazu, wird auf das Kapitel \ref{sec:sdKarte} verwiesen.
