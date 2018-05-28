@@ -6,7 +6,7 @@ Beim Induktionsladeprinzip wird Energie mithilfe von Spulen über eine kurze Dis
 
 \subsubsection*{Tranceiver}
 Der bereits erwähnte Pulsgenerator wird durch eine Timer-Schaltung erreicht. Verwendet wird hierbei das elektronische Bauelement NE555. Dieses bietet den Vorteil, dass er zum einen einfach einzustellen und andererseits das Pulssignal einfach erstellt werden kann. Der NE555 enthält eine monolithisch integrierte Zeitgeberschaltung, die sich aufgrund ihrer Eigenschaften als Taktgeber, Oszillator und für Zeitverzögerungen verwenden lässt. Das Funktionsprinzip des Timers ist, das mithilfe der extern angeschlossenen Elemente, welche aus Widerständen und Kondensatoren bestehen, verschiedene Spannungsschwellen erreicht werden müssen, bevor der Timer zu schalten beginnt. Dabei können mithilfe unterschiedlicher Verhältnisse der externen Elemente die Pulsdauer, die Frequenz und der Duty cycle eingestellt werden. Das entstehende Pulssignal speist schlussendlich das LC-Glied. Um dies zu ermöglichen wird das LC-Glied an die Versorgungsspannung gehängt und in Serie dazu der Collectoranschluss eines Leistungs NPN-Transistor angeschlossen. An dessen Emitter wird nun ein Niederohmiger Widerstand auf GND gehängt, wobei die über ihm abfallenden Spannung von einem weiteren Transistor überwacht wird und somit den Strom begrenzt. Dieser \glqq Strombegrenzungs-Transistor\grqq wird zwischen dem Pulssignal, welches den Leistungs-Transistor steuert, und GND gehängt. Wird nun der Strom und somit auch die Spannung über dem Widerstand zu hoch so schliesst der \glqq Strombegrenzungs-Transistor\grqq das Pulssignal kurz. Der Leistungstransistor wird nicht mehr sauber durchgesteuert und der Strom wird begrenzt. Die Strombegrenzung ist abhängig, welche Teile für das LC-Glied verwendet werden. Es ist darauf zu achten, welches der Beiden Elemente (LC-Glied/Leistungstransistor) weniger Strom verträgt. In diesem Fall ist dies die Spule, welche aufgrund ihrer geringen Baugrösse nur einen Strom von 1.1 A verträgt. Würden grössere Spulen verwendet, so ist eine Begrenzung von 15A notwendig, da dies die Belastungsgrenze für den Leistungstransistor ist.
-\newline
+\\\
 Das Pulssignal selber muss verschiedene Kriterien erfüllen. Zum einen sollte der Duty Cycle so nahe wie möglich an 50$\%$ sein. Um dies zu erreichen muss somit gelten: R2 >> R1. Das andere Kriterium ist, das die Resonanzfrequenz des LC-Gliedes getroffen werden sollte. Um das Pulssignal einzustellen, können folgende Richtlinien betrachtet werden:
 
 
@@ -17,17 +17,17 @@ Das Pulssignal selber muss verschiedene Kriterien erfüllen. Zum einen sollte de
 \end{description}
 
 Die exakte Berechnung lässt sich wie folgt beschreiben:
- \newline
-: \newline
-: \newline
+ \\
+: \\
+: \\
 Em Joscha sini Berechnig vo de Dimensionierig vo de Bauteili
- \newline
-: \newline
-: \newline
- \newline
+ \\
+: \\
+: \\
+ \\
 
 Nachdem nun die grobe Frequenz berechnet wurde, können die Elemente ausgesucht und eingebaut werden. Es ist zu beachte, dass Abweichungen sich unmittelbar auf die Frequenz des Pulssignales wie auch auf den Duty Cycle auswirken. Eine solche Abweichung kann bereits durch eine leicht abweichende Resonanzfrequenz des LC-Gliedes auftreten.
-\newline
+\\\
 Speziell ist, dass für die Energieübertragung als Sender- und Empfängerspule das selbe LC-Glied verwendet wurde. Dies wurde so gewählt, da das Energiefeld sehr klein ist und im Falle einer grösseren Spule das Receiver Glied nicht optimal ausgenutzt werden könnte. Wie der Receiver aufgebaut ist, wird im nachfolgenden Abschnitt genauer erläutert.
 
 \subsubsection*{Receiver}
