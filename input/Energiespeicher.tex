@@ -1,6 +1,6 @@
 \subsection{Energiespeicher}\label{sec:energiespeicher}
 
-Die gesamte Energiespeicherung erfolgt durch einen Lithium-Ionen-Akkumulator des Typs Emmerich LI14500. Dieser weist eine Kapazität von 800mAh bei einer Nominalspannung von 3.7V auf. Ausserdem weist der Akkumulator integrierte Schutzeinrichtungen auf, welche im Abschnitt \nameref{sec:schutzeinrichtung} weiter erläutert werden. Um eine Abschätzung über die Betriebszeit des Dojos zu erhalten, sind Faktoren wie maximaler Verbrauch, Nominalspannung und Kapazität notwendig. Die maximale Leistung des Dojos lässt sich durch Leistung des Knochenschallgebers und des Microcontrollers beschreiben. Alle anderen Komponenten können durch ihren geringen Betriebsstrom vernachlässigt werden. Der Knochenschallgeber weist gemäss eigenen Messungen eine maximale RMS Leistung von 214.5mW auf. Die Rechnung erfolgt mit einem Sicherheitswert von rund 0.35W und einer Betriebszeit von rund 80$\%$. Die Microcontrollerleistung lässt sich durch den Radio Strom (7.5mA) und einigen Mikroampere Systemstrom (gesamthaft ca. 100 $\mu$ A) multipliziert mit der Systemspannung von 3.6V bestimmen. Zur Berechnung wird noch ein Sicherheitsfaktor von 0.1W dazu addiert. Die Microcontrollerleistung wird durch die Nominalspannung multipliziert mit dem maximalen Microcontrollerstrom von 7.6mA berechnet. Somit wird maximal eine Leistung von 0.63W erreicht, wobei Nachfolgend die Berechnung der maximalen Leistung (Berechnung \ref{eq:MaxLeistung}) veranschaulicht wird.
+Die gesamte Energiespeicherung erfolgt durch einen Lithium-Ionen-Akkumulator des Typs Emmerich LI14500. Dieser weist eine Kapazität von 800mAh bei einer Nominalspannung von 3.7V auf. Ausserdem weist der Akkumulator integrierte Schutzeinrichtungen auf, welche später im Abschnitt \nameref{sec:schutzeinrichtung} (Kapitel \ref{sec:energiespeicher}) weiter erläutert werden. Um eine Abschätzung über die Betriebszeit des Dojos zu erhalten, sind Faktoren wie maximaler Verbrauch, Nominalspannung und Kapazität notwendig. Die maximale Leistung des Dojos lässt sich durch die Leistung des Knochenschallgebers und die des Microcontrollers beschreiben. Alle anderen Komponenten können durch ihren geringen Betriebsstrom durch einen Sichheitsfaktor von 0.1W dazu gerechnet werden. Der Knochenschallgeber weist gemäss eigenen Messungen eine maximale RMS Leistung von 214.5mW auf. Die Rechnung erfolgt mit einem Sicherheitswert von rund 0.35W und einer Betriebszeit von rund 80$\%$. Die Microcontrollerleistung lässt sich durch den Radio Strom (7.5mA) und einigen Mikroampere Systemstrom (gesamthaft ca. 100 $\mu$ A) multipliziert mit der Systemspannung von 3.6V bestimmen. Die Microcontrollerleistung wird durch die Nominalspannung multipliziert mit dem maximalen Microcontrollerstrom von 7.6mA berechnet. Somit wird maximal eine Leistung von 0.63W erreicht, wobei nachfolgend in Berechnung \ref{eq:MaxLeistung} die Herleitung der maximalen Leistung veranschaulicht wird.
 
 \begin{equation}
 \centering
@@ -8,7 +8,7 @@ P_{max}=\left(0.8\cdot P_{Kn}\right)+P_{MC}+P_{zus}=(0.8\cdot 0.5W)+(3.7V \cdot 
 \label{eq:MaxLeistung}
 \end{equation}
 
-Die darausfolgende minimale Zeit t kann gemäss nachfolgender Berechnung \ref{eq:Betriebszeit} berechnet werden.
+Die darausfolgende minimale Zeit t folgt durch nachfolgende Berechnung \ref{eq:Betriebszeit}.
 
 \begin{equation}
 \centering
@@ -16,6 +16,7 @@ t_{max}=\frac{W\cdot U}{P_{tot}}=\frac{800mAh \cdot 3.7V}{0.528W}=5.6h\approx 5h
 \label{eq:Betriebszeit}
 \end{equation}
 
+Bei ständigem Gebruach kann somit eine minimale Betriebszeit von rund 5.5 Stunden erreicht werden. Hierbei gilt es zu erwähnen, dass durch einen geschickte Anwendungsablauf (ersichtlich in Kapitel \ref{sec:anwendung} Anwendung) ein lückenloser Betrieb garantiert werden kann.
 
 
 \subsubsection*{Schutzeinrichtungen}\label{sec:schutzeinrichtung}

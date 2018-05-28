@@ -15,7 +15,7 @@ Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spann
 Als nächstes wurde ein Kurzschlusstest durchgeführt, wobei hier der Schwellenstrom gemäss Datenblatt bei 4.8 liegt. Gemäss dem U=R$\cdot$I Gesetz, wurde ein Widerstand der Grösse von 700m$\Omega$ verwendet damit der Grenzwert überschritten wird. Auch bei diesem Versuch, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung ab.
 
 \subsubsection*{Ladeschaltung der Batterie}\label{sec:batterie}
-Für die Ladeschaltung der Batterie wurde wie bereits im Kapitel \ref{sec:Energiespeicher} beim Abschnitt Schutzeinrichtungen ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von 4.2V den Strom auf 0A herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs beschränkt und somit das Netzgerät \glqq Power Supply\grqq\space der Firma \glqq K. Witmer\grqq\space verwendet wurde. Aus diesem Grund ist auch ein Strom von 400mA wie auch eine Ladezeit von lediglich 270 Minuten (4.5h) ersichtlich was die effektiven Ladewerte mittels induktiver Ladung deutlich übertrumpfen. Die nachfolgende Abbildung \ref{fig:Ladekurve-LadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Strome (rote Kurve) in Abhängigkeit der Zeit.
+Für die Ladeschaltung der Batterie wurde wie bereits im Kapitel \ref{sec:Energiespeicher} beim Abschnitt Schutzeinrichtungen ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von 4.2V den Strom auf 0A herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs beschränkt und somit das Netzgerät \glqq Power Supply\grqq\space der Firma \glqq K. Witmer\grqq\space verwendet wurde. Aus diesem Grund ist auch ein Strom von 400mA wie auch eine Ladezeit von lediglich 270 Minuten (4.5h) ersichtlich was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Die nachfolgende Abbildung \ref{fig:Ladekurve-LadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Strome (rote Kurve) in Abhängigkeit der Zeit in Minuten.
 
 \begin{figure}[H]
 	\begin{center}
@@ -38,4 +38,19 @@ In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsenti
 	\end{center}
 \end{figure}
 
-Eindrücklich ist hierbei dass zum Abstand der Primärspule, der Strom (lineaer, quadratisch, was auch immer) abnimmt. Aufgrund dieser Erkenntnis sind wir auch gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten. Wir verwenden hierbei einen Abstand von rund 1.5mm, welcher auch der Materialdicke des Dojos entspricht. Es resultiert also ein an die Sekundärspule gelieferter Strom von rund 50mA.
+Eindrücklich ist hierbei dass zum Abstand der Primärspule, der Strom (linear, quadratisch, was auch immer) abnimmt. Aufgrund dieser Erkenntnis sind wir auch gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten weshalb wir eine Ladestation entworfen haben, welche diese Kriterium garantiert. Der minimale Abstand welcher beim Ladezyklus erreicht werken kann beträgt rund 1.5mm. Dieser Abstand entspricht ziemlich genau der Wanddicke des Dojos. Bei diesem Abstand resultiert ein an die Batterie gelieferter Strom von 80mA, wobei eine Ladezeit von XXX Stunden resultiert. Die Ladezeit wurde hierbei während einem wie folgt herleiten. Während dem Ladezyklus mit einem Nennstrom von 80mA stieg die Spannung der Batterie während XX Minuten um XX V an. Da Die Batterie zuerst die minimale Spannung von 3.3V auf 4.2V regelt und der Strom linear ist, kann hierbei die notwendige Zeit linear hochgerechnet werden. 
+
+\begin{equation}
+\centering
+t_{charge_{1}}=\frac{1.1 V}{(\frac{XX V}{XX Minuten})}=XX Minuten= XX Stunden
+\label{eq:LadezeitSpannungsregelung}
+\end{equation}
+
+Für die Spannungsregelung sind somit XX Stunden notwendig. Da jedoch der Ladezyklus nach vollständiger Spannungsregelung noch nicht abgeschlossen ist, folgt noch die benötigte Zeit für die Stromregelung. Da diese nicht einfach berechnet werden kann, wurde dieser Prozess im Labor durchgeführt und gestoppt. Es ergab sich hierbei eine Zeit von:
+\begin{equation}
+\centering
+t_{charge_{2}}= XX Stunden
+\label{eq:LadezeitStromregelung}
+\end{equation}
+
+Der gesamte Ladezyklus benötigt somit XX Stunden um die Batterie vollständig aufzuladen.  
