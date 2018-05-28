@@ -1,5 +1,5 @@
 \subsection{Energieübertragung}\label{sec:energieuebertragung}
-Mit Hilfe des Induktionsprinzips wird der Dojo geladen und zwar ohne, dass dieser angeschlossen oder in einer anderen Form vorbereitet werden muss. Dank der induktiven Ladeschaltung, erfolgt der Ladezyklus sobald der Dojo in die dafür vorgesehene Ladebuchse eingeführt wird. Im folgenden Abschnitt wird die genaue Funktionsweise der Induktionsladeschaltung vorgestellt und analysiert:
+Mit Hilfe des Induktionsprinzips wird der Dōjō geladen und zwar ohne, dass dieser angeschlossen oder in einer anderen Form vorbereitet werden muss. Dank der induktiven Ladeschaltung, erfolgt der Ladezyklus sobald der Dōjō in die dafür vorgesehene Ladebuchse eingeführt wird. Im folgenden Abschnitt wird die genaue Funktionsweise der Induktionsladeschaltung vorgestellt und analysiert:
 
 \subsubsection*{Grundlegendes}
 Beim Induktionsladeprinzip wird Energie mithilfe von Spulen über eine kurze Distanz zwischen zwei Schaltungen transportiert. Die erste Schaltung, von welcher aus die Energie gesendet wird, wird Transceiver genannt. Diese Schaltung besteht im Grundsatz aus einem Pulsgenerator, mit welchem das LC-Glied gepulst wird. Sie macht den Hauptanteil einer solchen Induktiven Ladeschaltung aus. Die zweite, kleinere Schaltung, welche die Energie des Transceivers empfängt, wird Receiver genannt und besteht ebenfalls aus einem LC-Glied, ergänzt mit einem Gleichrichter.
@@ -31,40 +31,40 @@ Nachdem nun die grobe Frequenz berechnet wurde, können die Elemente ausgesucht 
 Speziell ist, dass für die Energieübertragung als Sender- und Empfängerspule das selbe LC-Glied verwendet wurde. Dies wurde so gewählt, da das Energiefeld sehr klein ist und im Falle einer grösseren Spule das Receiver Glied nicht optimal ausgenutzt werden könnte. Wie der Receiver aufgebaut ist, wird im nachfolgenden Abschnitt genauer erläutert.
 
 \subsubsection*{Receiver}
-Der Receiver besteht primär aus einem LC-Glied und einem Gleichrichter. Für die Spule des LC-Gliedes wurde eine kleine Flachspule verwendet, welche eine Dimension von 15mm Durchmesser und 2mm Höhe aufweist, und somit im inneren des Dojo’s am Boden montiert werden kann. Der notwendige Kondensator für die Vervollständigung des LC-Gliedes kann direkt hinter der Spule montiert werden. Die hochfrequente Wechselspannung welche nun gemessen werden kann, muss für die Speisung der Batterie noch gleichgerichtet werden. Verwendet werden hierbei sowhl Kondensatoren als auch spezielle Gleichrichterdioden, welche eine Abfallspannung von lediglich 0.1 V aufweisen. Anschliessend wird die gesamte Ladeschaltung gespiesen, welche den gesamten Ladeprozess des Akkus übernimmt. Einen Einblick in den gesamten Ladeprozess gibt das Kapitel \ref{sec:energiespeicher}.
+Der Receiver besteht primär aus einem LC-Glied und einem Gleichrichter. Für die Spule des LC-Gliedes wurde eine kleine Flachspule verwendet, welche eine Dimension von 15mm Durchmesser und 2mm Höhe aufweist, und somit im inneren des Dōjō’s am Boden montiert werden kann. Der notwendige Kondensator für die Vervollständigung des LC-Gliedes kann direkt hinter der Spule montiert werden. Die hochfrequente Wechselspannung welche nun gemessen werden kann, muss für die Speisung der Batterie noch gleichgerichtet werden. Verwendet werden hierbei sowhl Kondensatoren als auch spezielle Gleichrichterdioden, welche eine Abfallspannung von lediglich 0.1 V aufweisen. Anschliessend wird die gesamte Ladeschaltung gespiesen, welche den gesamten Ladeprozess des Akkus übernimmt. Einen Einblick in den gesamten Ladeprozess gibt das Kapitel \ref{sec:energiespeicher}.
 
 
 \subsubsection*{Ladestation}
 
-Nachdem die gesamte induktive Ladeschaltung beschrieben wurde, folgt die Beschreibung der Ladestation. Hierfür wurde ein Prototyp erstellt, welche zum einen die gesamte primäre induktive Ladeschaltung beinhaltet, zum anderen eine Aussparung, welche als Ladeeinrichtung für den Dojo dient, vorweist. Für den Prototypen wurde eine .stl Datei erstellt welche mit einem 3D-Drucker gedruckt wurde. Wichtig ist hierbei zu erwähnen, dass es sich bei nachfolgende Abbildungen \ref{fig:Prototyp Front} bis \ref{fig:Prototyp Down} nur um Prototypen handelt und es bei einer Weiterentwicklung noch Anpassungen geben kann. Da die Ladestation für Versuchszwecke betreffend der induktiven Ladeschaltung bereits erstellt wurde, ist das Design so gewählt, dass nur ein Dojo geladen werden kann. Dies könnte in einem weiteren Schritt auf mehrere Ladeaussparungen erweitert werden, wobei mehrere Dojos gleichzeitig pro Ladestation geladen werden können. 
+Nachdem die gesamte induktive Ladeschaltung beschrieben wurde, folgt die Beschreibung der Ladestation. Hierfür wurde ein Prototyp erstellt, welche zum einen die gesamte primäre induktive Ladeschaltung beinhaltet, zum anderen eine Aussparung, welche als Ladeeinrichtung für den Dōjō dient, vorweist. Für den Prototypen wurde eine .stl Datei erstellt welche mit einem 3D-Drucker gedruckt wurde. Wichtig ist hierbei zu erwähnen, dass es sich bei nachfolgende Abbildungen \ref{fig:Prototyp Front} bis \ref{fig:Prototyp Down} nur um Prototypen handelt und es bei einer Weiterentwicklung noch Anpassungen geben kann. Da die Ladestation für Versuchszwecke betreffend der induktiven Ladeschaltung bereits erstellt wurde, ist das Design so gewählt, dass nur ein Dōjō geladen werden kann. Dies könnte in einem weiteren Schritt auf mehrere Ladeaussparungen erweitert werden, wobei mehrere Dōjōs gleichzeitig pro Ladestation geladen werden können. 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=80mm]{data/DojoLadestation01.png}
-		\caption[Prototyp Ladestation Frontansicht]{Frontansicht - Ladestation Dojo} %picture caption
+		\includegraphics[width=80mm]{data/DōjōLadestation01.png}
+		\caption[Prototyp Ladestation Frontansicht]{Frontansicht - Ladestation Dōjō} %picture caption
 		\label{fig:Prototyp Front}
 	\end{center}
 \end{figure}
 
-Die oben gezeigte Abbildung gibt einen Einblick in das Design von vorne. Augenfällig ist die Öffnung für den Dojo selbst, welche zum einen als Standhalterung und zum anderen als korrekte Positionierung für die induktive Ladeschaltung dient. Die richtige Positionierung ist hierbei eines der wichtigsten Kriterien für einen optimalen Ladezyklus, da die Tranceiver- und Receiverspule direkt übereinanderliegend den besten Wirkungsgrad erzielen. Weiter ist in der Abbildung der Dojo Schriftzug ersichtlich, welcher bis in die dahinter liegende Kammer führt. Die Verwendung dieser Durchführung wird nachfolgend unter der Abbildung \ref{fig:Prototyp Down} weiter erklärt. 
+Die oben gezeigte Abbildung gibt einen Einblick in das Design von vorne. Augenfällig ist die Öffnung für den Dōjō selbst, welche zum einen als Standhalterung und zum anderen als korrekte Positionierung für die induktive Ladeschaltung dient. Die richtige Positionierung ist hierbei eines der wichtigsten Kriterien für einen optimalen Ladezyklus, da die Tranceiver- und Receiverspule direkt übereinanderliegend den besten Wirkungsgrad erzielen. Weiter ist in der Abbildung der Dōjō Schriftzug ersichtlich, welcher bis in die dahinter liegende Kammer führt. Die Verwendung dieser Durchführung wird nachfolgend unter der Abbildung \ref{fig:Prototyp Down} weiter erklärt. 
 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=80mm]{data/DojoLadestation02.png}
-		\caption[Prototyp Ladestation Draufsicht]{Draufsicht - Ladestation Dojo} %picture caption
+		\includegraphics[width=80mm]{data/DōjōLadestation02.png}
+		\caption[Prototyp Ladestation Draufsicht]{Draufsicht - Ladestation Dōjō} %picture caption
 		\label{fig:Prototyp Top}
 	\end{center}
 \end{figure}
 
-Die obige Abbildung \real{fig: Prototyp Top} zeigt den Prototypen von oben. In der Aussparung für den Dojo ist ein Kanal für die Verkabelung der Primärspule ersichtlich. Diese Öffnung führt zur Kammer welche den Primär-Ladekreises beinhaltet. Die Abmessung (Länge x Breite x Höhe) des Prototypen ist (80 x 70.7 x 30)mm. Einen Einblick in die Kammer für die Elektronik des Primär-Ladekreises gibt nachfolgende Abbildung \ref{fig:Prototyp Down}, welche den Prototypen von unten zeigt.
+Die obige Abbildung \real{fig: Prototyp Top} zeigt den Prototypen von oben. In der Aussparung für den Dōjō ist ein Kanal für die Verkabelung der Primärspule ersichtlich. Diese Öffnung führt zur Kammer welche den Primär-Ladekreises beinhaltet. Die Abmessung (Länge x Breite x Höhe) des Prototypen ist (80 x 70.7 x 30)mm. Einen Einblick in die Kammer für die Elektronik des Primär-Ladekreises gibt nachfolgende Abbildung \ref{fig:Prototyp Down}, welche den Prototypen von unten zeigt.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=80mm]{data/DojoLadestation03.png}
-		\caption[Prototyp Ladestation Ansicht von Unten]{Ansicht von Unten - Ladestation Dojo} %picture caption
+		\includegraphics[width=80mm]{data/DōjōLadestation03.png}
+		\caption[Prototyp Ladestation Ansicht von Unten]{Ansicht von Unten - Ladestation Dōjō} %picture caption
 		\label{fig:Prototyp Down}
 	\end{center}
 \end{figure}
 
-Die grosse Kammer ist wie bereits oben beschrieben für den Primärkreis der induktiven Ladeschaltung vorgesehen. Für die ersten Tests wurde eine Lochrasterplatine mit allen nötigen Komponenten gefertigt, welche genau in diese Aussparung passt. Weiter sind runde Löcher (5mm $\o$) ersichtlich welche in die Kammer des Schriftzuges führen ersichtlich. Diese Durchführungen sind für LED vorgesehen, welche den Dojo Schriftzug bei angeschlossener Versorgungsspannung zum Leuchten bringt. 
+Die grosse Kammer ist wie bereits oben beschrieben für den Primärkreis der induktiven Ladeschaltung vorgesehen. Für die ersten Tests wurde eine Lochrasterplatine mit allen nötigen Komponenten gefertigt, welche genau in diese Aussparung passt. Weiter sind runde Löcher (5mm $\o$) ersichtlich welche in die Kammer des Schriftzuges führen ersichtlich. Diese Durchführungen sind für LED vorgesehen, welche den Dōjō Schriftzug bei angeschlossener Versorgungsspannung zum Leuchten bringt. 
