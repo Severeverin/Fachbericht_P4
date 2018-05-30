@@ -12,6 +12,8 @@ Nachdem mit dem Einleitungskapitel ein kurzer Überblick geschaffen wurde, kann 
 \subsubsection*{State: Lookup}
 In diesem State verschafft sich das Programm über die entsprechende Initialisierung Zugriff auf die SD-Karte der Anwendung. Falls der Mikrocontroller nicht auf die SD-Karte zugreifen kann, wird eine Fehlermeldung ausgegeben und die Funktion wird beendet. Anderenfalls wird dem Mikrocontroller signalisiert, dass der Zugriff geglückt ist und die eigentliche Funktion wird gestartet. Dazu werden die beiden Minor- und Majorzahlen in ein hexadezimales Zahlensystem gewandelt, welche dann als Vergleichskriterium verwendet werden. Falls die Nummer gefunden wird, kann das entsprechend zugehörige Audio-File über den Mikrocontroller ausgegeben werden. Verglichen wird jeweils zeilenweise, weshalb auch ein Fehlerhandling eingebaut wurde. Damit wird erkannt, ob sich das Textfile am Ende befindet. Somit lässt sich dann die Suche wiederholen, oder einen Fehler ausgeben. Die nachfolgende Abbildung \ref{fig:lookupState} zeigt den detaillierten Funktionsablauf im Lookup-State.
 
+!!!Verknüpfung Bluetooth und Sound File!!!
+
 \begin{figure}[htbp!!!!]
 	\centering
 	\includegraphics[width=0.57\textwidth]{Data/lookup_picture}
@@ -57,7 +59,7 @@ Dieser State ist die Ausgangslage des kompletten Ablaufs. Aufgrund von den in de
 
 \subsubsection*{State: New Beacon}
 
-In diesem State wird der Ringbuffer ausgelesen. Dadurch lässt sich das Beacon mit dem stärksten Signal identifizieren. Ist das aktuelle Beacon immer noch das gleiche wie das alte Beacon, springt das Programm in den Wait State. Wenn es sich nicht um das gleiche Beacon handelt, wird über den lookup State überprpüft, ob eine entsprechende Übereinstimmung vorhanden ist.
+Wird ein Beacon erkannt, dann wird der New Beacon State aufgerufen. Ist das aktuelle Beacon immer noch das gleiche wie das alte Beacon, springt das Programm in den Wait State. Wenn es sich nicht um das gleiche Beacon handelt, wird über den lookup State überprüft, ob eine entsprechende Übereinstimmung vorhanden ist.
 
 \begin{figure}[htbp!!!!]
 	\centering
@@ -68,29 +70,14 @@ In diesem State wird der Ringbuffer ausgelesen. Dadurch lässt sich das Beacon m
 
 \subsubsection*{State: Like}
 
-Wird in diesem State über einen Button ein Like-Ereignis ausgelöst, springt das Programm in den Signal to User State. Findet kein Ereignis statt, dann wird in den Wait State gesprungen.
-
-\begin{figure}[htbp!!!!]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Data/Like_picture.pdf}
-	\caption[Statemachine: Like]{Funktionsablauf im Like State}
-	\label{fig:likeState}
-\end{figure} 
+Wird in diesem State über einen Button ein Like-Ereignis ausgelöst, springt das Programm in den Signal to User State und speichert den entsprechenden Namen des Audio-Files auf die SD-Karte. Findet kein Ereignis statt, dann wird in den Wait State gesprungen.
 
 \subsubsection*{State: Signal to User}
 
-Dieser State hat die Aufgabe, dem Benutzer mitzuteilen, dass ein neues Audio-File verfügbar ist. Dabei blinkt eine dafür vorgesehene LED. Anschliessend springt die Software in den Wait State.
-
-\begin{figure}[htbp!!!!]
-	\centering
-	\includegraphics[width=0.2\textwidth]{Data/SignalToUser_picture.pdf}
-	\caption[Statemachine: Signal to User]{Funktionsablauf im Signal to User State}
-	\label{fig:signalToUserState}
-\end{figure} 
+Dieser State hat die Aufgabe, dem Benutzer mitzuteilen, dass ein neues Audio-File verfügbar ist, oder ob ein Kunstobjekt gespeichert wurde. Dabei blinkt eine dafür vorgesehene LED. Anschliessend springt die Software in den Wait State.
 
 \subsubsection*{State: ADC Battery}
-
-Hier wird überprüft die Batterie auf ihren Ladezustand überprüft und entsprechend gehandelt. Wird die Batterie geladen, so wird die Like-Liste gelöscht. Anderenfalls wird das Programm in den Wait-State wechseln, oder bei ungenügendem Ladezustand das System herunterfahren.
+ADC-Battery wird zyklisch durch einen Softtimer im Wait-State aufgerufen, jedoch mit einer tiefen Priorität. Funktional wird hier die Batterie auf ihren Ladezustand überprüft und gemäss \ref{fig:adcBatteryState} entsprechend gehandelt. Wird die Batterie geladen, so wird die Like-Liste gelöscht. Anderenfalls wird das Programm in den Wait-State wechseln, oder bei ungenügendem Ladezustand das System herunterfahren.
 
 \begin{figure}[htbp!!!!]
 	\centering
@@ -101,22 +88,15 @@ Hier wird überprüft die Batterie auf ihren Ladezustand überprüft und entspre
 
 \subsubsection*{State: Shutdown}
 
-Dieser Arbeitsschritt benötigt kein Diagramm. Ist der Ladezustand des Geräts zu tief, wird das System gezwungenermassen heruntergefahren. Somit sollen Schäden an der Hardware und an der Software vermieden werden.
+Ist der Ladezustand des Geräts zu tief, wird das System gezwungenermassen heruntergefahren. Somit sollen Schäden an der Hardware und an der Software vermieden werden.
 
 \subsubsection*{State: Merken Liste löschen}
 
 Dieser State löscht die Likes, um für den nächsten User bereit zu sein. Anschliessend folgt der Charge State.
 
-\begin{figure}[htbp!!!!]
-	\centering
-	\includegraphics[width=0.2\textwidth]{Data/MerkeListeLoeschen_picture.pdf}
-	\caption[Statemachine: Merke Liste löschen]{Funktionsablauf im Merke Liste löschen State}
-	\label{fig:merkeListeLoeschenState}
-\end{figure} 
-
 \subsubsection*{State: Charge}
 
-Hier wird überprüft, ob ein Pause- oder Playevent vorliegt ist und dementsprechend gehandelt. 
+Hier wird überprüft, ob ein Pause- oder Playevent vorliegt. Falls ein Event vorliegt, springt die Software in den Wait-State und ist bereit für den nächsten User. Falls kein Event vorliegt, befindet sich das Programm in einer Schlaufe. Darin ist es möglich den Dojo mit der Ladestation zu verbinden und über UART Anpassungen auf der SD-Karte vorzunehmen.
 
 \begin{figure}[htbp!!!!]
 	\centering
