@@ -16,12 +16,22 @@ Das Pulssignal selber muss verschiedene Kriterien erfüllen. Zum einen sollte de
 
 Die verwendeten Komponenten wurden durch nachfolgende Berechnung errechnet. Dabei müssen die esten Werte angenommen werden.
 
-\begin{equation}\label{eq: Timer555}
+\begin{equation}\label{eq: Timer555 F}
 F=1/T= 1.44/((R1+R2*2)*C)
+\end{equation}
+\begin{equation}\label{eq: Timer555 TL}
 TL= 0.693*R*C
+\end{equation}
+\begin{equation}\label{eq: Timer555 TH}
 TH= 0.693*(R1+R2)*C
+\end{equation}
+\begin{equation}\label{eq: Timer555 D}
 D= Duty Cycle= (R1+R2)/(R1+2*R2)
+\end{equation}
+\begin{equation}\label{eq: Timer555 R1}
 R1= 1.44**(2*D-1)/(F*C)
+\end{equation}
+\begin{equation}\label{eq: Timer555 R2}
 R2= 1.44*(1-D)/(F*C)
 \end{equation} 
 
