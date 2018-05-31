@@ -38,19 +38,99 @@ In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsenti
 	\end{center}
 \end{figure}
 
-In der Abbildung ist gut sichtbar, dass die Spannung fast linear zur Distanz abnimmt, hingegen der Ladestrom der Batterie extrem schnell klein wird. Aufgrund dieser Erkenntnissen sind wir gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten weshalb wir eine Ladestation entworfen haben, welche die bestmöglichen Induktionswerte garantiert. Der minimale Abstand welcher beim Ladezyklus erreicht werken kann beträgt rund $1.5mm$. Dieser Abstand entspricht ziemlich genau der Wanddicke des Dōjōs. Bei diesem Abstand resultiert ein an die Batterie gelieferter Strom von $70mA$, wobei eine Ladezeit von $XX$ Stunden resultiert. Diese $XX$ Stunden wurden während einem Laborversuch errechnet, wobei sich dieser in zwei Ladezyklen unterteilt. Beim ersten Ladezyklus wird die Batterie mit konstantem Strom geladen. Dies hat zur Folge, dass die Spannung von ihrem Minimalwert $3.3V$ auf den Schwellenwert von $4.2V$ reguliert wird. Um auf die notwendige Ladezeit des ersten Ladezyklus zu kommen, kann die Zeit während einer beliebig grossen Spannungsdifferenz gestoppt werden. Generell gilt: Umso grösser die Spannungsdifferenz, desto genauer die Approximation. Die Endzeit kann wie in nachfolgender Berechnung \ref{eq:LadezeitSpannungsregelung} linear hochgerechnet werden. 
+In der Abbildung ist gut sichtbar, dass die Spannung fast linear zur Distanz abnimmt, hingegen der Ladestrom der Batterie extrem schnell klein wird. Aufgrund dieser Erkenntnissen sind wir gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten weshalb wir eine Ladestation entworfen haben, welche die bestmöglichen Induktionswerte garantiert. Der minimale Abstand welcher beim Ladezyklus erreicht werken kann beträgt rund $1.5mm$. Dieser Abstand entspricht ziemlich genau der Wanddicke des Dōjōs. Bei diesem Abstand resultiert ein an die Batterie gelieferter Strom von maximal $70mA$, wobei die Ladezeit direkt von diesem Strom abhängt. Der Ladezyklus wird in zwei Etappen unterteilt. Bei der ersten Etappe wird die Batterie mit konstantem Strom geladen. Dies hat zur Folge, dass die Spannung von ihrem Minimalwert $3.3V$ auf den Schwellenwert von $4.2V$ reguliert wird. Um auf die notwendige Ladezeit des ersten Ladezyklus zu kommen, kann die Zeit während einer beliebig grossen Spannungsdifferenz gestoppt werden. Generell gilt: Umso grösser die Spannungsdifferenz, desto genauer die Approximation. Die Endzeit kann wie in nachfolgender Berechnung \ref{eq:LadezeitSpannungsregelung} linear hochgerechnet werden. Nachfolgend wird die Berechnung dieses Ladezyklus mit den Ladeströmen $I_{1}=30mA$ (schonender Zyklus), $I_{2}=50mA$ (normaler Zyklus) und $I_{3}=70mA$ (schneller Zyklus) veranschaulicht. 
 
 \begin{equation}
 \centering
-t_{charge_{1}}=\frac{1.1 V}{(\frac{XX V}{XX Minuten})}=XX Minuten= XX Stunden
-\label{eq:LadezeitSpannungsregelung}
+t_{charge_{1.1}}=\frac{1.1 V}{(\frac{0.006 V}{10 Minuten})}=1'833.3 Minuten= 30h 33min
+\label{eq:LadezeitSpannungsregelung1}
 \end{equation}
 
-Für die Spannungsregelung sind somit $XX$ Stunden notwendig. Da jedoch der Ladezyklus nach vollständiger Spannungsregelung noch nicht abgeschlossen ist, folgt noch die benötigte Zeit für die Stromregelung. Da diese nicht einfach berechnet werden kann, wurde dieser Prozess im Labor durchgeführt und gestoppt. Es ergab sich hierbei eine Zeit von:
 \begin{equation}
 \centering
-t_{charge_{2}}= XX Stunden
-\label{eq:LadezeitStromregelung}
+t_{charge_{1.2}}=\frac{1.1 V}{(\frac{0.0016 V}{10 Minuten})}=687.5 Minuten= 11h 28min
+\label{eq:LadezeitSpannungsregelung2}
 \end{equation}
 
-Der gesamte Ladezyklus ($t_{charge}=t_{charge_{1}}+t_{charge_{2}}$) benötigt somit $XX$ Stunden um die Batterie vollständig aufzuladen.  
+\begin{equation}
+\centering
+t_{charge_{1.3}}=\frac{1.1 V}{(\frac{0.0265 V}{10 Minuten})}=415.1 Minuten= 6h 55min
+\label{eq:LadezeitSpannungsregelung3}
+\end{equation}
+
+Für die Spannungsregelung sind somit zwischen $30h$ und $7h$ Stunden notwendig. Da jedoch der Ladezyklus nach vollständiger Spannungsregelung noch nicht abgeschlossen ist, folgt noch die benötigte Zeit für die Stromregelung. Da diese nicht einfach berechnet werden kann, wurde dieser Prozess im Labor für alle drei Ströme durchgeführt und gestoppt. Es ergaben sich hierbei folgende Zeiten:
+\begin{equation}
+\centering
+t_{charge_{2.1}}= 43min
+\label{eq:LadezeitStromregelung1}
+\end{equation}
+
+\begin{equation}
+\centering
+t_{charge_{2.2}}= 1h 7min
+\label{eq:LadezeitStromregelung2}
+\end{equation}
+
+\begin{equation}
+\centering
+t_{charge_{2.3}}= 1h 46min
+\label{eq:LadezeitStromregelung3}
+\end{equation}
+
+
+Die gesamten Ladezeiten der beiden Ladezyklen ($t_{charge}=t_{charge_{1}}+t_{charge_{2}}$) betragen somit:\\
+
+$t_{charge tot_{1}}=t_{charge_{1.1}}+t_{charge_{2.1}}=31h 16min$
+ 
+$t_{charge tot_{2}}=t_{charge_{1.2}}+t_{charge_{2.2}}=12h 35min$
+ 
+$t_{charge tot_{3}}=t_{charge_{1.3}}+t_{charge_{2.3}}=8h 41min$\\
+\\
+Augenfällig ist die kurze Ladezeit von lediglich rund $8.7h$ ermöglicht ein schnelles aufladen. Da jedoch beim Ladezyklus mit einem Strom von $70mA$ sich die Spule mehr erwärmt als beim Ladezyklus mit $50mA$, wird vorgeschlagen, dass bei genügend Zeit der normale Zyklus mit $50mA$ gestartet wird. Dieser ist zwar um rund $4h$ langsamer, jedoch nachhaltiger für die eingebauten Materialien.
+
+\subsubsection*{Inbetriebnahme der induktiven Ladeschaltung}\label{sec:erkenntnisse}
+
+Der erste Prototyp der Pulsschaltung für die Induktion wurde mithilfe eines NE555 realisiert. Dabei wurden als Widerstände Potentiometer eingebaut, mit welchen die Resonanzfrequenz des LC-Gliedes gesucht werden sollte.
+
+Der allererste Versuch ergab eine Übertragung von 5mA bei einer Taktfrequenz von 10kHz. Es stellte sich relativ schnell heraus, dass die Taktfrequenz viel zu tief war. Das konnte festgestellt werden indem man die Taktfrequenz der Pulsschaltung veränderte. So ergab sich das bei höherer Taktfrequenz die Übertragung besser wurde.
+
+Da die Taktfrequenz der NE555-Prototypenschaltung aufgrund der Potentiometer Wahl auf $10kHz$ begrenzt war. Wurde nun in weiteren schritten mit dem Frequenzgenerator der $2n3055$ Leistungstransistor angesteuert. Des Weiteren wurde das C aus dem LC-Glied ausgebaut, um so das spezifische Maximum der Spule zu finden.
+
+So wurde nun mit konstanter Eingangsspannung und variabler Taktfrequenz die Spule ausgetestet. Es zeichnete sich folgendes Bild ab. Mit höher werdender Frequenz wurde die Übertragung besser. Um diese noch weiter zu verbessern empfiehlt sich bei der Taktfrequenz einen Duty Cycle von möglichst $50\%$ zu erzielen.
+
+Es erwies sich, dass bei der Taktfrequenz von $93kHz$ die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder Rückläufig. Nun da die optimale Frequenz gefunden und die Induktivität der Spule bekannt war ($14.9\mu H$) konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen $220nF$ Kondensator als ideal. Damit die Spule nicht zu heiss werden konnte und dadurch ihren Isolierlack begann zu schmelzen, wurde der Strombegrenzungswiderstand des $2n2222$ mit $2\Omega$ definiert. Die Berechnung hierzu ist im oberen Text zu finden.
+
+Somit sind alle benötigten Bauteile bekannt.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=80mm]{data/Ne555circuit.png}
+		\caption[Verwendete Timerschaltung NE555 als Pulsquelle]{Verwendete Timerschaltung NE555 als Pulsquelle} %picture caption
+		\label{fig:NE555}
+	\end{center}
+\end{figure}
+
+$C = 1nF$\\
+$R_{1} = 200\Omega$\\
+$R_{2} = 9 k\Omega$\\
+
+Mit diesen Werten konnte nach dem Gleichrichter, bei einer Übertragungsdistanz von einer Standard-Platinen dicke, eine Leerlaufspannung von ca. $17V$ und ein Kurzschlussstrom ca. 300mA gemessen werden. Es gilt jedoch zu beachten, dass diese Werte ohne Last gemessen wurden. 
+
+Da nun die Induktionsstufe funktioniert wird diese nun um die Ladeschaltung erweitert. Hier ergab sich folgendes Problem:
+
+Die Eingangsspannung des Lade-IC’s darf nicht mehr als $6.5$ Volt betragen. Da die Receiverspule sich im inneren des Dōjōs befindet und dadurch nur eine sehr geringe Baugrösse besitzen darf, kann diese zwangsläufig keine grossen Leistungen erbringen. Dies bedeutet, dass akzeptabel Ladeströme nur mit genügend hohen Spannungen erzeugt werden können.
+
+Um dies zu erzielen wurde versucht, einen Spannungsregler einzubauen, um den übertragenen Strom bei zuhalten, jedoch die Spannung zu begrenzen. Das Ergebnis davon war jedoch ziemlich bescheiden. Der so entstehende Energieverlust ist ziemlich gross und ausserdem kam es vereinzelt vor, dass der Lade-IC trotzdem kaputt ging, da der Spannungsregler nicht sauber regelte. 
+
+Die Ideale Lösung wäre natürlich einen geeigneteren Lade-IC zu nehmen. Da jedoch die Validierung desjenigen bereits durchgeführt wurde und nicht genügend Zeit vorhanden war diesen erneut zu bestellen wurde sich entschieden die Transceiver Schaltung ein wenig anzupassen.
+
+Dabei gibt es folgende Möglichkeiten. Man kann die Eingangsspannung absenken. Dies beeinflusst jedoch auch den Übertragenen Strom exponentiell, da einerseits eingangsseitig mit weniger Spannung auch weniger Strom durch die Spule fliess und andererseits auch der Leistungsstransistor nicht sauber durchgesteuert wird da dieser ebenfalls an der gleichen Versorgungsspannung hängt und somit sein Pulssignal beeinflusst. Die zweite Möglichkeit ist die Taktfrequenz verringern. Dadurch wird die Induzierte Spannung ebenfalls abgesengt was ebenfalls den Strom exponentiell beeinflusst. Die dritte Möglichkeit wäre die Übertragungsdistanz zu verringern. Da aber sichergestellt werden wollte, dass der Dōjō-Boden dennoch eine gewisse Stabilität aufweisen sollte wurde diese Distanz der Platinendicke beigehalten.
+
+Somit wurde die Schaltung lange ausgetestet um die beste Kombination zu erzielen. Das beste Resultat ergab die Kombination zwischen einer Taktfrequenz von ca 80kHz und einer Eingangs Spannung von $8.3V$. Dies lässt sich damit erklären das leichtes Absenken der beiden Möglichkeiten den Strom nicht so stark beeinflusst. Des Weiteren wurde der Strombegrenzungswiderstand auf $1.5\Omega$ verringert da sich die Eingangs Spannung verringert hat und ausserdem der Stromfluss durch die Spule damit erhöht wurde. 
+
+Diese Anpassungen fielen ebenfalls zu Gunsten des Energiemanagements, jedoch ist dies eine stabile Variante für die ersten Prototypen. Durch die Anpassungen wird die überschüssige Energie in Form von Wärme an dem Transceiver Spule abgegeben. Die Test ergaben, dass so die Batterie bei einer Spannung von 4.7V mit 70mA geladen wird. Es ist ebenfalls möglich kurzzeitig mit einem höheren Strom zu laden, wenn die Eingangs Spannung nur geringfügig erhöht wird. (bis zu 120mA). Jedoch ist die Hitzeentwicklung hierbei so gross, dass nach einer gewissen Zeit die Übertragung zusammenbricht. Deshalb ist zu empfehlen die angegebenen Werte nicht zu überschreiten um eine dauernde Funktionalität zu gewährleisten.
+
+Die Werte der oben beschriebenen angepassten Pulsschaltung sind folgende:\\
+C: 1nF\\
+R1: 200 $\Omega$\\
+R2:9 k$\Omega$\\
