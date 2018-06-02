@@ -32,6 +32,12 @@ Definieren der Abtastfrequenz
 	*modus\\
 -event handler
 
+Da die clock Frequenz des PWM Moduls auf $16MHz$ gesetzt wurde, beträgt der top value für eine Audiodatei mit Abtastfrequenz von $32kHz 500$. Dies berechnet sich wie folgt:
+\begin{equation}
+32kHz = \frac{16MHz}{top value}
+top value = \frac{16MHz}{32kHz} = 500
+\end{equation}
+
 \subsubsection*{Sequenzen befüllen}\label{sec:Sequenzen befüllen}
 Daten in sequenzen füllen, seqeuenz 1 muss noch ein Datenwert dazugerechnet werden. verweisen auf die SD Kart lesefunktion.
 
