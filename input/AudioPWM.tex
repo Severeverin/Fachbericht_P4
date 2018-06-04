@@ -1,6 +1,6 @@
 \subsection{Audio, PWM}\label{sec:audioPWM}
-Um ein Audiosignal abspielen zu können, werden zwei PWM-Signale benötigt wie in Abbildung \ref{fig:pwm_ausgang}. Das einte Signal ist die invertierte Variante des anderen Signals. 
-Das PWM-Signal wird mit dem NRF52 generiert. Für den NRF52 stellt NORDIC SEMICONDUCTOR die PWM HAL and driver Bibliothek zu Verführung, die es ermöglicht ein PWM zu erzeugen. Der NRF52 bietet vier PWM Instanzen mit je vier Kanälen. Für die Audioausgabe wurden zwei PWM Instanzen mit je einem Kanal genutzt. Im folgenden Abschnitt wird erklärt wie ein PWM Signal eines Kanales generiert wurde.
+Um ein Audiosignal abspielen zu können, werden zwei PWM-Signale benötigt wie in Abbildung \ref{fig:pwm_ausgang} ersichtlich. Das eine Signal ist die invertierte Variante des anderen Signals. 
+Das PWM-Signal wird mit dem NRF52 generiert. Für den NRF52 stellt NORDIC SEMICONDUCTOR die PWM HAL and driver Bibliothek zur Verfügung. Diese ermöglicht es, ein PWM-Signal zu erzeugen. Der NRF52 bietet vier PWM Instanzen mit je vier Kanälen. Für die Audioausgabe wurden zwei PWM Instanzen mit je einem Kanal genutzt.
 
 \begin{figure}[H]
 	\begin{center}
@@ -10,7 +10,7 @@ Das PWM-Signal wird mit dem NRF52 generiert. Für den NRF52 stellt NORDIC SEMICO
 	\end{center}
 \end{figure}
 
-In der Abbildung \ref{fig:pwm_ablauf} ist der Ablauf des PWM-Unterprogramm aufgezeigt. Als erstes findet die Initialisierung statt. Nach der Initialisierung können die beiden Sequenzen 0 und 1 generiert werden. In diesen Sequenzen sind die wav file Daten abgelegt. Die Funktion complex\_playback generiert am Ausgang anhand diesen Sequenzen ein PWM Signal.
+In der Abbildung \ref{fig:pwm_ablauf} ist der Ablauf des PWM-Unterprogramm aufgezeigt. Als erstes findet die Initialisierung statt. Nach der Initialisierung können die beiden Sequenzen 0 und 1 generiert werden. In diesen Sequenzen sind die Daten des Audio-Files abgelegt. Die Funktion complex\_playback generiert am Ausgang anhand dieser Sequenzen das PWM-Signal.
 
 \begin{figure}[H]
 	\begin{center}
@@ -32,7 +32,7 @@ Definieren der Abtastfrequenz
 	*modus\\
 -event handler
 
-Da die clock Frequenz des PWM Moduls auf $16MHz$ gesetzt wurde, beträgt der top value für eine Audiodatei mit Abtastfrequenz von $32kHz 500$. Dies berechnet sich wie folgt:
+Da die clock Frequenz (oben *clock) des PWM Moduls auf $16MHz$ gesetzt wurde, beträgt der top value für eine Audiodatei mit Abtastfrequenz von $32kHz 500$. Dies berechnet sich wie folgt:
 \begin{equation}
 32kHz = \frac{16MHz}{top value}
 top value = \frac{16MHz}{32kHz} = 500
@@ -42,8 +42,8 @@ top value = \frac{16MHz}{32kHz} = 500
 Daten in sequenzen füllen, seqeuenz 1 muss noch ein Datenwert dazugerechnet werden. verweisen auf die SD Kart lesefunktion.
 
 \subsubsection*{Complex playback}\label{sec:Complex playback}
-Die Funktion generiert anhand der Sequenz eine PWM-Signal. Der
-Vorteil zu simple playback ist das zwei sequenzen mitgegeben werden können. Wenn die Sequenz 0 fertig abgespielt wurde, startet automatisch die zweite Sequenz und der eventhandler wird ausgelöst. In dieser Zeit kann die erste Sequenz wieder neu beladen werden. Die Beladung der Sequenzen wird mit dem eventhandler dieser Funktion gesteuert. 
+Die Funktion generiert anhand der Sequenz ein PWM-Signal. Der
+Vorteil zu simple playback ist, dass zwei Sequenzen mitgegeben werden können. Wenn die Sequenz 0 fertig abgespielt wurde, startet automatisch die zweite Sequenz und der Eventhandler wird ausgelöst. In dieser Zeit kann die erste Sequenz wieder neu beladen werden. Die Beladung der Sequenzen wird mit dem Eventhandler dieser Funktion gesteuert. 
 
 \begin{table}[H]
 	\centering
