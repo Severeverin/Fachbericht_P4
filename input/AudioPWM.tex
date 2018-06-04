@@ -37,6 +37,7 @@ In der Abbildung \ref{fig:pwm_ablauf} ist der Ablauf des PWM-Unterprogramm aufge
 \subsubsection*{PWM Initialisieren}\label{sec:PWM initialisieren}
 Bei der Initialisierung wurde die PWM Instanz, die Config und der Eventhandler mitgegeben.  Die Config des PWM musste anhand der Angaben des Wavefiles generiert werden. Die Werte wurden wie in der Tabelle \ref{table:config} gewählt.
 
+<<<<<<< HEAD
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|}
@@ -56,6 +57,9 @@ Bei der Initialisierung wurde die PWM Instanz, die Config und der Eventhandler m
 
 \textbf{Berechnung top Value}\\
 Da die clock Frequenz des PWM Moduls auf $16MHz$ gesetzt wurde, beträgt der top value für eine Audiodatei mit Abtastfrequenz von $32kHz 500$. Dies berechnet sich wie folgt:
+=======
+Da die clock Frequenz (oben *clock) des PWM Moduls auf $16MHz$ gesetzt wurde, beträgt der top value für eine Audiodatei mit Abtastfrequenz von $32kHz 500$. Dies berechnet sich wie folgt:
+>>>>>>> bf25fa5cc30d7cbbed361af39edc0146dab9a6b3
 \begin{equation}
 32kHz = \frac{16MHz}{top \: value}
  \Rightarrow \; top \: value = \frac{16MHz}{32kHz} = 500
