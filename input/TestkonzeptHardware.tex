@@ -2,7 +2,7 @@
 Damit ein reibungsloser Betrieb möglich ist, müssen die einzelnen Hardware Komponenten auf Herz und Nieren geprüft werden. Nachfolgend werden die Testverfahren genauer beschrieben und die Testergebnisse aufgelistet.
 
 \subsubsection*{Schutzmechanismen Batterie}\label{sec:batterie}
-Die Batterie weist einige Schutzmechanismen auf, welche alle getestet werden müssen. Als erstes wurde der Tiefentladungsschutz geprüft. Um dies zu testen wurde ein Winderstand der Dimension 9$\Omega$ angeschlossen, wobei gemäss Berechnung \ref{eq:Entladestrom} ein Entladestrom von rund 400mA resultierte.
+Die Batterie weist einige Schutzmechanismen auf, welche alle getestet werden müssen. Als erstes wurde der Tiefentladungsschutz geprüft. Um dies zu testen wurde ein Widerstand der Dimension 9$\Omega$ angeschlossen, was gemäss Berechnung \ref{eq:Entladestrom} einen Entladestrom von rund 411mA zur Folge hatte.
 
 \begin{equation}
 \centering
@@ -12,7 +12,7 @@ I_{discharge}=\frac{U}{R}=\frac{3.7V}{9\Omega }= 411mA
 
 Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spannung von 3.7V auf bis 2.5V absank. Nach dem die 2.5V Schwellenspannung unterschritten wurde, brach der integrierte Batterieschutz die Spannungsversorgung ab. Die Widerstände wurden abgehängt und der gesamte Vorgang wurde kurze Zeit danach mit dem selben Endergebnis wiederholt.
 \\
-Als nächstes wurde ein Kurzschlusstest durchgeführt, wobei hier der Schwellenstrom gemäss Datenblatt bei 4.8 liegt. Gemäss dem $U=R\cdot I$ Gesetz, wurde ein Widerstand der Grösse von $700m\Omega$ verwendet damit der Grenzwert überschritten wird. Auch bei diesem Versuch, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung der Batterie ab.
+Als nächstes wurde ein Kurzschlusstest durchgeführt, wobei hier der Schwellenstrom gemäss Datenblatt bei 4.8A liegt. Gemäss dem $U=R\cdot I$ Gesetz, wurde ein Widerstand der Grösse von $700m\Omega$ verwendet, um den Grenzwert zu überschreiten. Auch bei diesem Versuch riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung der Batterie ab.
 
 \subsubsection*{Ladeschaltung der Batterie}\label{sec:batterie}
 Für die Ladeschaltung der Batterie wurde (wie bereits im Kapitel \ref{sec:Energiespeicher} Abschnitt Schutzeinrichtungen erwähnt) ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von $4.2V$ den Strom auf $0A$ herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs beschränkt und somit das Netzgerät \glqq Power Supply\grqq\space der Firma \glqq K. Witmer\grqq\space als Spannungsspeisung verwendet wurde. Aus diesem Grund ist auch ein Strom von $400mA$ wie auch eine Ladezeit von lediglich rund $270$ Minuten $(\hat{=} 4.5h)$ ersichtlich was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Die nachfolgende Abbildung \ref{fig:LadekurveLadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Stromes (rote Kurve) in Abhängigkeit der Zeit in Minuten.
@@ -25,7 +25,7 @@ Für die Ladeschaltung der Batterie wurde (wie bereits im Kapitel \ref{sec:Energ
 	\end{center}
 \end{figure}
 
-Die oben genannten Vorgänge der Spannungs- und Stromregulierung sind in dieser Grafik gut ersichtlich wobei der Ladevorgang nach dem erreichen von rund 20mA als fertig betrachtet wurde.
+Die oben genannten Vorgänge der Spannungs- und Stromregulierung sind in dieser Grafik gut ersichtlich, wobei der Ladevorgang nach dem erreichen von rund 20mA als fertig betrachtet wurde.
 
 \subsubsection*{Induktive Ladeschaltung}\label{sec:batterie}
 In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsentiert. Nachfolgend zeigt Abbildung \ref{fig:InduzierterStrom} die Abhängigkeit zwischen induziertem Strom und Spannung in Abhängigkeit zur Distanz z zwischen den Induktionsspulen.
@@ -38,7 +38,7 @@ In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsenti
 	\end{center}
 \end{figure}
 
-In der Abbildung ist gut sichtbar, dass die Spannung fast linear zur Distanz abnimmt, hingegen der Ladestrom der Batterie extrem schnell klein wird. Aufgrund dieser Erkenntnissen sind wir gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten weshalb wir eine Ladestation entworfen haben, welche die bestmöglichen Induktionswerte garantiert. Der minimale Abstand welcher beim Ladezyklus erreicht werken kann beträgt rund $1.5mm$. Dieser Abstand entspricht ziemlich genau der Wanddicke des Dōjōs. Bei diesem Abstand resultiert ein an die Batterie gelieferter Strom von maximal $70mA$, wobei die Ladezeit direkt von diesem Strom abhängt. Der Ladezyklus wird in zwei Etappen unterteilt. Bei der ersten Etappe wird die Batterie mit konstantem Strom geladen. Dies hat zur Folge, dass die Spannung von ihrem Minimalwert $3.3V$ auf den Schwellenwert von $4.2V$ reguliert wird. Um auf die notwendige Ladezeit des ersten Ladezyklus zu kommen, kann die Zeit während einer beliebig grossen Spannungsdifferenz gestoppt werden. Generell gilt: Umso grösser die Spannungsdifferenz, desto genauer die Approximation. Die Endzeit kann wie in nachfolgender Berechnung \ref{eq:LadezeitSpannungsregelung} linear hochgerechnet werden. Nachfolgend wird die Berechnung dieses Ladezyklus mit den Ladeströmen $I_{1}=30mA$ (schonender Zyklus), $I_{2}=50mA$ (normaler Zyklus) und $I_{3}=70mA$ (schneller Zyklus) veranschaulicht. 
+In der Abbildung ist gut sichtbar, dass die Spannung fast linear zur Distanz abnimmt, hingegen der Ladestrom der Batterie extrem schnell klein wird. Aufgrund diesen Erkenntnissen sind wir gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten. Deshalb wurde eine Ladestation entworfen, welche die bestmöglichen Induktionswerte garantiert. Der minimale Abstand welcher beim Ladezyklus erreicht werken kann beträgt rund $1.5mm$. Dieser Abstand entspricht ziemlich genau der Wanddicke des Dōjōs. Bei diesem Abstand resultiert ein Strom von maximal $70mA$, wobei die Ladezeit direkt von diesem Strom abhängt. Der Ladezyklus wird in zwei Etappen unterteilt. Bei der ersten Etappe wird die Batterie mit konstantem Strom geladen. Dies hat zur Folge, dass die Spannung von ihrem Minimalwert $3.3V$ auf den Schwellenwert von $4.2V$ reguliert wird. Um auf die notwendige Ladezeit des ersten Ladezyklus zu kommen, kann die Zeit während einer beliebig grossen Spannungsdifferenz gestoppt werden. Generell gilt: Umso grösser die Spannungsdifferenz, desto genauer die Approximation. Die Endzeit kann wie in nachfolgender Berechnung \ref{eq:LadezeitSpannungsregelung} linear hochgerechnet werden. Nachfolgend wird die Berechnung dieses Ladezyklus mit den Ladeströmen $I_{1}=30mA$ (schonender Zyklus), $I_{2}=50mA$ (normaler Zyklus) und $I_{3}=70mA$ (schneller Zyklus) veranschaulicht. 
 
 \begin{equation}
 \centering
@@ -86,21 +86,19 @@ $t_{charge tot_{2}}=t_{charge_{1.2}}+t_{charge_{2.2}}=12h 35min$
  
 $t_{charge tot_{3}}=t_{charge_{1.3}}+t_{charge_{2.3}}=8h 41min$\\
 \\
-Augenfällig ist die kurze Ladezeit von lediglich rund $8.7h$ ermöglicht ein schnelles aufladen. Da jedoch beim Ladezyklus mit einem Strom von $70mA$ sich die Spule mehr erwärmt als beim Ladezyklus mit $50mA$, wird vorgeschlagen, dass bei genügend Zeit der normale Zyklus mit $50mA$ gestartet wird. Dieser ist zwar um rund $4h$ langsamer, jedoch nachhaltiger für die eingebauten Materialien.
+Die kurze Ladezeit von lediglich rund $8.7h$ ermöglicht ein schnelles aufladen. Da jedoch beim Ladezyklus mit einem Strom von $70mA$ sich die Spule mehr erwärmt als beim Ladezyklus mit $50mA$, wird vorgeschlagen, dass bei genügend Zeit der normale Zyklus mit $50mA$ gestartet wird. Dieser ist zwar um rund $4h$ langsamer, jedoch nachhaltiger für die eingebauten Materialien.
 
 \subsubsection*{Inbetriebnahme der induktiven Ladeschaltung}\label{sec:erkenntnisse}
 
 Der erste Prototyp der Pulsschaltung für die Induktion wurde mithilfe eines NE555 realisiert. Dabei wurden als Widerstände Potentiometer eingebaut, mit welchen die Resonanzfrequenz des LC-Gliedes gesucht werden sollte.
 
-Der allererste Versuch ergab eine Übertragung von 5mA bei einer Taktfrequenz von 10kHz. Es stellte sich relativ schnell heraus, dass die Taktfrequenz viel zu tief war. Das konnte festgestellt werden indem man die Taktfrequenz der Pulsschaltung veränderte. So ergab sich das bei höherer Taktfrequenz die Übertragung besser wurde.
+Der allererste Versuch ergab eine Übertragung von 5mA bei einer Taktfrequenz von 10kHz. Es stellte sich relativ schnell heraus, dass die Taktfrequenz viel zu tief war. Das konnte durch die Veränderung der Taktfrequenz der Pulsschaltung festgestellt werden. Bei höherer Taktfrequenz wurde die Übertragung besser.
 
-Da die Taktfrequenz der NE555-Prototypenschaltung aufgrund der Potentiometer Wahl auf $10kHz$ begrenzt war. Wurde nun in weiteren schritten mit dem Frequenzgenerator der $2n3055$ Leistungstransistor angesteuert. Des Weiteren wurde das C aus dem LC-Glied ausgebaut, um so das spezifische Maximum der Spule zu finden.
+Da die Taktfrequenz der NE555-Prototypenschaltung aufgrund der Wahl des Potentiometers auf $10kHz$ begrenzt war, wurde nun in weiteren Schritten mit dem Frequenzgenerator der $2n3055$ Leistungstransistor angesteuert. Des Weiteren wurde das C aus dem LC-Glied ausgebaut, um so das spezifische Maximum der Spule zu finden.
 
-So wurde nun mit konstanter Eingangsspannung und variabler Taktfrequenz die Spule ausgetestet. Es zeichnete sich folgendes Bild ab. Mit höher werdender Frequenz wurde die Übertragung besser. Um diese noch weiter zu verbessern empfiehlt sich bei der Taktfrequenz einen Duty Cycle von möglichst $50\%$ zu erzielen.
+So wurde nun mit konstanter Eingangsspannung und variabler Taktfrequenz die Spule getestet. Mit höher werdender Frequenz wurde die Übertragung besser. Um diese noch weiter zu verbessern empfiehlt sich bei der Taktfrequenz einen Duty Cycle von möglichst $50\%$ zu erzielen.
 
-Es erwies sich, dass bei der Taktfrequenz von $93kHz$ die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder Rückläufig. Nun da die optimale Frequenz gefunden und die Induktivität der Spule bekannt war ($14.9\mu H$) konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen $220nF$ Kondensator als ideal. Damit die Spule nicht zu heiss werden konnte und dadurch ihren Isolierlack begann zu schmelzen, wurde der Strombegrenzungswiderstand des $2n2222$ mit $2\Omega$ definiert. Die Berechnung hierzu ist im oberen Text zu finden.
-
-Somit sind alle benötigten Bauteile bekannt.
+Es erwies sich, dass bei der Taktfrequenz von $93kHz$ die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder rückläufig. Da nun die optimale Frequenz gefunden und die Induktivität der Spule bekannt war ($14.9\mu H$), konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen $220nF$ Kondensator als ideal. Damit die Spule nicht zu heiss werden und der Isolierlack nicht zu schmelzen beginnt, wurde der Strombegrenzungswiderstand des $2n2222$ mit $2\Omega$ definiert. Die Berechnung hierzu ist im oberen Text zu finden. Somit sind alle benötigten Bauteile bekannt.
 
 \begin{figure}[H]
 	\begin{center}
