@@ -4,19 +4,17 @@ Um auf die SD-Karte zuzugreifen, wurde die Library fatfs verwendet. Sie ermögli
 \subsubsection{fatfs}
 Loosli?
 
-\subsubsection{SD-Karte Modul}
-Anschliessend sind die verschiedenen Funktionalitäten aufgelistet.
 
-\subsubsection*{Merken}
+\subsubsection{Merken}
 Das Modul beinhaltet zwei Funktionen um die Funktionalität des Merken zu realisieren. Die Erste speichert das aktuelle Kunstwerk auf eine Liste. Auf dieser Liste werden die verschieden gemerkten Kunstwerken gesammelt. Die zweite Funktion löscht eben diese Liste wieder, um den Dōjō bereit für den nächsten Nutzer bereit zu machen. Den Dateinamen der Liste lässt sich im Header-File anpassen.
 
-\subsubsection*{SD-Karte Initialisieren}
+\subsubsection{SD-Karte Initialisieren}
 Diese Funktion ruft eine Reihe fatfs-Befehle auf um die SD-Karte zu mounten. Diese wird über ein SPI-Bus an den Microkontroller angeschlossen. Die Pins für den Bus lassen sich im Header-File definieren.
 
-\subsubsection*{Lookup}
+\subsubsection{Lookup}
 Diese Funktion ist die eigentliche Implementierung des in Abbildung \ref{fig:lookupState} beschrieben Algorithmus.
 
-\subsubsection*{Sprachwechsel}
+\subsubsection{Sprachwechsel}
 Diese Funktion wechselt die Sprache des Dōjō. Die Sprachauswahl geschieht über verschiedene Files. Es exisitert für jede Sprache ein eigenes Lookup-File. Dieses verbindet die Majo-Minor-Kennzeichnungen mit den Wav-Files der jeweiligen Sprache. Dadurch muss für einen Sprachwechsel nur der Zeiger auf das Lookup-File geändert werden.
 
 \subsubsection{Benötigte Files}
