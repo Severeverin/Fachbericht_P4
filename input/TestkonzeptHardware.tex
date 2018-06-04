@@ -15,13 +15,13 @@ Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spann
 Als nächstes wurde ein Kurzschlusstest durchgeführt, wobei hier der Schwellenstrom gemäss Datenblatt bei 4.8 liegt. Gemäss dem $U=R\cdot I$ Gesetz, wurde ein Widerstand der Grösse von $700m\Omega$ verwendet damit der Grenzwert überschritten wird. Auch bei diesem Versuch, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung der Batterie ab.
 
 \subsubsection*{Ladeschaltung der Batterie}\label{sec:batterie}
-Für die Ladeschaltung der Batterie wurde (wie bereits im Kapitel \ref{sec:Energiespeicher} Abschnitt Schutzeinrichtungen erwähnt) ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von $4.2V$ den Strom auf $0A$ herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs beschränkt und somit das Netzgerät \glqq Power Supply\grqq\space der Firma \glqq K. Witmer\grqq\space als Spannungsspeisung verwendet wurde. Aus diesem Grund ist auch ein Strom von $400mA$ wie auch eine Ladezeit von lediglich rund $270$ Minuten $(\hat{=} 4.5h)$ ersichtlich was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Die nachfolgende Abbildung \ref{fig:LadekurveLadeIC} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Stromes (rote Kurve) in Abhängigkeit der Zeit in Minuten.
+Für die Ladeschaltung der Batterie wurde (wie bereits im Kapitel \ref{sec:Energiespeicher} Abschnitt Schutzeinrichtungen erwähnt) ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von $4.2V$ den Strom auf $0A$ herunter reguliert. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs beschränkt und somit das Netzgerät \glqq Power Supply\grqq\space der Firma \glqq K. Witmer\grqq\space als Spannungsspeisung verwendet wurde. Aus diesem Grund ist auch ein Strom von $400mA$ wie auch eine Ladezeit von lediglich rund $270$ Minuten $(\hat{=} 4.5h)$ ersichtlich was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Die nachfolgende Abbildung \ref{fig:LadekurveLadeEmmerich} zeigt die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Stromes (rote Kurve) in Abhängigkeit der Zeit in Minuten.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=120mm]{data/LadekurveLadeIC.png}
-		\caption[Ladekurve Lade-IC]{Ladekurve Lade-IC} %picture caption
-		\label{fig:LadekurveLadeIC}
+		\includegraphics[width=120mm]{data/LadekurveEmmerich.png}
+		\caption[Ladekurve Emmerich LI14500]{Ladekurve Emmerich LI14500} %picture caption
+		\label{fig:LadekurveEmmerich}
 	\end{center}
 \end{figure}
 
@@ -61,30 +61,30 @@ t_{charge_{1.3}}=\frac{1.1 V}{(\frac{0.0265 V}{10 Minuten})}=415.1 Minuten= 6h 5
 Für die Spannungsregelung sind somit zwischen $30h$ und $7h$ Stunden notwendig. Da jedoch der Ladezyklus nach vollständiger Spannungsregelung noch nicht abgeschlossen ist, folgt noch die benötigte Zeit für die Stromregelung. Da diese nicht einfach berechnet werden kann, wurde dieser Prozess im Labor für alle drei Ströme durchgeführt und gestoppt. Es ergaben sich hierbei folgende Zeiten:
 \begin{equation}
 \centering
-t_{charge_{2.1}}= 43min
+t_{charge_{2.1}}= 2h\space 7min
 \label{eq:LadezeitStromregelung1}
 \end{equation}
 
 \begin{equation}
 \centering
-t_{charge_{2.2}}= 1h 7min
+t_{charge_{2.2}}= 1h\space 18min
 \label{eq:LadezeitStromregelung2}
 \end{equation}
 
 \begin{equation}
 \centering
-t_{charge_{2.3}}= 1h 46min
+t_{charge_{2.3}}= 46min
 \label{eq:LadezeitStromregelung3}
 \end{equation}
 
 
 Die gesamten Ladezeiten der beiden Ladezyklen ($t_{charge}=t_{charge_{1}}+t_{charge_{2}}$) betragen somit:\\
 
-$t_{charge tot_{1}}=t_{charge_{1.1}}+t_{charge_{2.1}}=31h 16min$
+$t_{charge tot_{1}}=t_{charge_{1.1}}+t_{charge_{2.1}}=32h\space 27min \sim 32.5h$
  
-$t_{charge tot_{2}}=t_{charge_{1.2}}+t_{charge_{2.2}}=12h 35min$
+$t_{charge tot_{2}}=t_{charge_{1.2}}+t_{charge_{2.2}}=12h\space 46min \sim 13h$
  
-$t_{charge tot_{3}}=t_{charge_{1.3}}+t_{charge_{2.3}}=8h 41min$\\
+$t_{charge tot_{3}}=t_{charge_{1.3}}+t_{charge_{2.3}}=7h\space 41min \sim 8h$\\
 \\
 Augenfällig ist die kurze Ladezeit von lediglich rund $8.7h$ ermöglicht ein schnelles aufladen. Da jedoch beim Ladezyklus mit einem Strom von $70mA$ sich die Spule mehr erwärmt als beim Ladezyklus mit $50mA$, wird vorgeschlagen, dass bei genügend Zeit der normale Zyklus mit $50mA$ gestartet wird. Dieser ist zwar um rund $4h$ langsamer, jedoch nachhaltiger für die eingebauten Materialien.
 
