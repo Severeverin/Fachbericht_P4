@@ -1,31 +1,21 @@
 \subsection{Anwendung}\label{sec:ladeablauf}
-Nachdem die ursprüngliche Idee und die Unterteilung zwischen Betreiber und User gemacht wurde, kann nun die Betriebsebene erläutert werden.
-Um einen lückenlosen Betrieb zu gewährleisten, ist ein Ablauf für den Gebrauch des Dōjō notwendig. Dieser Ablauf kann zusammenfassend in vier Schritte unterteilt werden und ist nachfolgend in Abbildung \ref{fig:Anwendungsablauf Dojo} ersichtlich.
-
+Nachdem die Unterteilung zwischen Betreiber und User gemacht wurde, kann nun die Betriebsebene verdeutlicht werden. Um einen lückenlosen Betrieb zu gewährleisten, ist ein Konzept für den Ablauf von Vorteil. Nachfolgend werden die Hauptschritte erklärt. Abbildung \ref{fig:Anwendungsablauf Dojo} dient zur Übersicht.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=140mm]{data/Ladezyklus.png}
+		\includegraphics[width=120mm]{data/Ladezyklus.png}
 		\caption[Anwendungsablauf des Dōjōs]{Anwendungsablauf} %picture caption
 		\label{fig:Anwendungsablauf Dojo}
 	\end{center}
 \end{figure}
 
-Der erste Schritt beinhaltet die Ausgabe des Dōjōs am Empfang. Hierbei wird festgelegt zu welchen Bereichen der Besucher Zutritt erhalten soll. Dies ist abhängig von den Wünschen des Besuchers. Die Auswahl der Sprache wird nachfolgend im Abschnitt \nameref{sec:sprachauswahl} beschrieben. Zu beachten gilt es, dass jeweils die Geräte ausgegeben werden, welche sich am längsten in der Ladestation (Schritt 4) befinden. Hierbei hilft eine Signal-LED am Dōjō, welche den Ladestatus gemäss definiertem Farbschema wiederspiegelt. Ein lückenloser Betrieb wird erreicht, wenn die Stückzahl der Audio-Guide Geräte in etwa der Anzahl der Besucher pro Tag entspricht.
-\\
-\\
-In Schritt 2 befindet sich der Besucher auf dem Rundgang mit dem Dōjō als Audio-Guide. Der Nutzer hat hierbei die Möglichkeit während dem Rundgang Bilder zu \glqq liken\grqq . Weitere Funktionen und die Bedienung des Dōjōs selber, ist im vorherigen Unterkapitel \ref{sec:funktionsweise} beschrieben.
-\\
-\\
-Die Abgabe erfolgt in Schritt 3. Hier hat der Besucher die Möglichkeit \glqq gelikte\grqq Bilder als Broschüre zu erhalten oder diese per Mail zu erhalten. Das entgegengenommene Dōjō kann für den nächsten Besucher gereinigt werden.
-\\
-\\
-Sobald das Dōjō entgegengenommen wurde und alle benötigten Informationen (\glqq likes\grqq) extrahiert wurden, wird es wie in Schritt 4 ersichtlich aufgeladen. Hierfür ist eine induktive Ladestation notwendig, wobei die Dōjōs lediglich in die dafür vorgesehenen Ladebuchsen gesteckt werden. Zur Signalisation des Ladevorganges dient eine in jedem Gerät eingebaute Signal-LED, welche bei Spannungsversorgung zu leuchten beginnt.
-\\
-\\
-\subsubsection*{Sprachauswahl} \label{sec:sprachauswahl}
+\textbf{Schritt 1} beinhaltet die Ausgabe des Dōjōs am Empfang. Es werden jeweils die Geräte mit dem höchsten Ladestatus abgegeben. Ein lückenloser Betrieb wird erreicht, wenn die Stückzahl der Audio-Guide Geräte in etwa der Anzahl der Besucher pro Tag entspricht. Die Zutrittsberechtigung wird gemäss dem Wunsch des Besuchers festgelegt. Anschliessend wird die Sprache durch den Besucher selbst gewählt. Hierbei stehen ihm vier Bluetooth-Beacons zur Verfügung, zu welchen er sein Dōjō hinhalten kann. Die gewünschte Sprache ist hierbei durch die Landesflagge gekennzeichnet. Abbildung \ref{fig:SprachauswahlBeacon} zeigt das Prinzip. Damit eine der vier Sprachen auf dem Dōjō aktiviert wird, muss das Gerät an den richtigen Beacon gehalten werden und gleichzeitig die Play-Taste gedrückt werden. Wurde die Sprache erfolgreich ausgewählt, wird ein kurzes Audio-Sample zur Überprüfung der gewählten Sprache abgespielt. Sobald die gewünschte Sprache geladen und getestet wurde, kann der Museumsbesuch gestartet werden.
 
-Die Sprachauswahl wird durch den Besucher selbst eingestellt. Hierbei stehen ihm vier Bluetooth-Beacons zur Verfügung, zu welchen er sein Dōjō hinhalten kann. Die gewünschte Sprache ist hierbei durch die Landesflagge gekennzeichnet. Ein Beispiel einer solchen Anwendung ist nachfolgend in Abbildung \ref{fig:SprachauswahlBeacon} ersichtlich.
+In \textbf{Schritt 2} befindet sich der Besucher auf dem Rundgang mit dem Dōjō als Audio-Guide. Er hat dabei die Möglichkeit während dem Rundgang Bilder zu \glqq liken\grqq und sich die zugehörigen Audio-Files der Kunstobjekte anzuhören.
+
+Die Abgabe der Gerätes erfolgt in \textbf{Schritt 3}. Hier hat der Besucher die Möglichkeit die Kunstobjekte, welche mit einem {\glqq Like\grqq} versehen wurden, als Broschüre zu erhalten oder per Mail zu erhalten. Das entgegengenommene Dōjō kann für den nächsten Besucher gereinigt werden.
+
+In \textbf{Schritt 4} wird der Dōjō entgegengenommen und alle benötigten Informationen extrahiert. Danach wird das Gerät mit der induktiven Ladestation geladen. Für weitere Informationen zur Ladestation wird auf das Kapitel \ref{sec:energieuebertragung} verwiesen. Nun kann der Zyklus wieder von vorne beginnen.
 
 \begin{figure}[H]
 	\begin{center}
@@ -34,5 +24,3 @@ Die Sprachauswahl wird durch den Besucher selbst eingestellt. Hierbei stehen ihm
 		\label{fig:SprachauswahlBeacon}
 	\end{center}
 \end{figure}
-
-Es ist ersichtlich, dass eine Auswahl aus vier Sprachen möglich ist. Um die gewünschte Sprache auf dem Gerät zu aktivieren, muss der Dōjō an den jeweiligen Sprachbeacon gehalten werden und gleichzeitig die Playtaste gedrückt werden. Wurde die Sprache erfolgreich ausgewählt, wird ein kurzes Audio-Sample mit der gewählten Sprache abgespielt. Diese kurze Sprachausgabe ist lediglich für die Gewissheit des Besuchers ob die richtige Sprache ausgewählt wurde. Sobald die gewünschte Sprache geladen und getestet wurde, kann der Museumsbesuch gestartet werden.
