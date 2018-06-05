@@ -8,7 +8,7 @@ Da die Taktfrequenz der NE555-Prototypenschaltung aufgrund der Potentiometer Wah
 
 So wurde nun mit konstanter Eingangsspannung und variabler Taktfrequenz die Spule ausgetestet. Es zeichnete sich folgendes Bild ab. Mit höher werdender Frequenz wurde die Übertragung besser. Um diese noch weiter zu verbessern empfiehlt sich bei der Taktfrequenz einen Dutycycle von möglichst 50% zu erzielen.
 
-Es erwiess sich, dass bei der Taktfrequenz von 93kHz die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder Rückläufig. Nun da die optimale Frequenz gefunden und die Induktivität der Spule bekannt war (14.9 H) konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen 220nF Kondensator als ideal. Damit die Spule nicht zu heiss werden konnte und dadurch ihren Isolierlack begann zu schmelzen, wurde der Strombegrenzungswiderstand des 2n2222 mit 2 Ohm definiert. Die Berechnung hierzu ist im oberen Text zu finden.
+Es erwiess sich, dass bei der Taktfrequenz von 93kHz die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder Rückläufig. Nun da die optimale Frequenz gefunden und die Induktivität der Spule bekannt war (14.9 H) konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen 220nF Kondensator als ideal. Damit die Spule nicht zu heiss werden konnte und dadurch ihren Isolierlack begann zu schmelzen, wurde der Strombegrenzungswiderstand des 2n2222 mit 2 Ohm definiert. Dieser wird anhand der Kriterien bestimmt, welche im Kapitel Tranceiver Schaltung weiter oben im Text zu finden sind.
 
 Somit sind alle benötigten Bauteile bekannt.
 
@@ -23,7 +23,7 @@ Somit sind alle benötigten Bauteile bekannt.
 \begin{center}
 C: 1nF
 R1: 200 Ohm
-R2:9 kOhm
+R2:7.5 kOhm
 \end{center}
 
 Mit diesen Werten konnte nach dem Gleichrichter, bei einer Übertragungsdistanz von einer Standard-Platinen dicke, eine Leerlaufspannung von ca. 17V und ein Kurzschlussstrom ca. 300mA gemessen werden. Es gilt jedoch zu beachten, dass diese Werte ohne Last gemessen wurden. 
@@ -50,4 +50,4 @@ R2:9 kOhm\\
 \subsubsection*{optimierungsmöglichkeiten für die nächsten Varianten}\label{sec:energieuebertragung}
 Für nachfolgende Weiterentwicklungen der Ladestufe empfiehlt es sich, einen Lade-IC zu verwenden, welcher eine grössere Eingangsspannung verarbeiten kann. Bei einer Recherche wurde dieses Modell herausgesucht: AAAAAAAAAAAAAAA.
 
-Desweiteren würde es sich Lohnen die Spulen zu optimieren. Die eingebauten Flachspulen sind zwar platzsparen, kommen jedoch aufgrund ihrer Bauform ziemlich schnell an ihr Leistungsmaximum. Hier würden sich solche Spulen sich empfehlen, wie sie z.B. auch in modernen elektrischen Zahnbürsten verwendet werden. Hierbei handelt es sich um zwei unterschiedlich grosse Ringspulen, von welchem die kleinere Tranceiver-Spule in der Ladeschaltung in die grössere Receiverspule  im Dojo gesteckt wird. Diese Ringspulen wären zwar ein wenig grösser, doch durch die grössere Bauform könnte die Ladeschaltung mit grösseren Strömen betrieben und damit auch der Dojo noch schneller geladen werden.
+Desweiteren würde es sich Lohnen die Spulen zu optimieren. Die eingebauten Flachspulen sind zwar platzsparend, kommen jedoch aufgrund ihrer Bauform ziemlich schnell an ihr Leistungsmaximum. Hier würden sich solche Spulen sich empfehlen, wie sie z.B. auch in modernen elektrischen Zahnbürsten verwendet werden. Hierbei handelt es sich um zwei unterschiedlich grosse Ringspulen, von welchem die kleinere Tranceiver-Spule in der Ladeschaltung in die grössere Receiverspule  im Dojo gesteckt wird. Diese Ringspulen wären zwar ein wenig grösser, doch durch die grössere Bauform könnte die Ladeschaltung mit grösseren Strömen betrieben und damit auch der Dojo noch schneller geladen werden.
