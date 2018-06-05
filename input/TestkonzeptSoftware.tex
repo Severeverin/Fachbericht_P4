@@ -52,7 +52,7 @@ Die Statemachine wurde auf ihr Verhalten hin getestet. Dabei wurden alle States 
 Es gilt anzumerken, dass diese \glqq fehlerhaften States\grqq in der Statemachiene eigentlich funktionieren, jedoch ihre Aufgabe nicht erfüllen können, da sie aus zeitlichen Gründen nicht implementiert wurden. Die Implementierung dieser States würden bei der Weiterverfolgung dieses Projektes als zusätzlicher Arbeitsschritt implementiert werden.
 
 \subsubsection{Bluetooth}
-Das Bluetooth Modul wurde mit verschiedenen Beacons getestet. Dabei is aufgefallen, dass bei der gleichzeitigen Verwendung von mehreren Beacons, welche mit unterschiedlichen Sendeintervallen senden, dies zu grösseren Problemen führt. Es dominieren die Beacons mit schnellerer Sendefrequenz, wobei die langsameren überblendet werden. Aus diesem Grund ist es zu empfehlen, dass die Abstände der Beacons gemäss Abbildung \ref{fig:ref_felder} angewendet werden.
+Das Bluetooth Modul wurde mit verschiedenen Beacons getestet. Dabei is aufgefallen, dass bei der gleichzeitigen Verwendung von mehreren Beacons, welche mit unterschiedlichen Sendeintervallen senden, dies zu grösseren Problemen führt. Es dominieren die Beacons mit schnellerer Sendefrequenz, wobei die langsameren überblendet werden. Aus diesem Grund ist es zu empfehlen, dass die Abstände der Beacons gemäss Abbildung \ref{fig:ref_felder} angewendet werden. Die Radien können für jeden Beacon einzeln konfiguriert werden. Die grösse des Radius kann zwischen $0m$ und $40m$ varieren. Default mässig ist dieser Radius auf $3m$ eingestellt.
 
 \begin{figure}[H]
 	\begin{center}
