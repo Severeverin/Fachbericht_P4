@@ -2,9 +2,6 @@
 
 Erklärt, welcher Teil wie getestet wird und führt die Ergebnisse mit Auswertung auf.
 
-
-
-
 \subsubsection{PWM Signal}\label{sec: Validierung PWM Signal}
 Das PWM Signal wurde mit dem Gleichen Signal wie das LC-Filter validiert. Dabei wurden sowohl die beiden PWM Kanäle mit dem KO aufgezeichnet wie in \autoref{fig Signal PWM Ausgänge} zu sehen ist, sowie das gefilterte Signal. 
 
@@ -37,6 +34,31 @@ In \autoref{fig:PWM Topval 500 Stereo} ist ersichtlich, dass die Frequenz des Si
 \label{fig:PWM Topval 125 Stereo}
 \end{figure}
 
-Da die Berechnungen einen top value von $500$ ergeben, deutet dies auf einen Fehler im Code, in der Audiodatei oder einen Überlegungsfehler hin. Fälschlicherweise wurden diese Tests mit einer stereo Audiodatei durchgeführt. Da nur ein Kanal angesteuert wird, ergibt sich ein Faktor $2$ unterschied zu den Berechnungen. Dieser Test wurde folglich nocheimal mit einer mono Audiodatei durchgeführt. Dabei ergab sich das der top value, wie erwartet, noch um Faktor $2$ vom berechneten Wert abweicht. 
+Da die Berechnungen einen top value von $500$ ergeben, deutet dies auf einen Fehler im Code, in der Audiodatei oder einen Überlegungsfehler hin. Fälschlicherweise wurden diese Tests mit einer stereo Audiodatei durchgeführt. Da nur ein Kanal angesteuert wird, ergibt sich ein Faktor $2$ unterschied zu den Berechnungen. Dieser Test wurde folglich nocheimal mit einer mono Audiodatei durchgeführt. Dabei ergab sich das der top value, wie erwartet, noch um Faktor $2$ vom berechneten Wert abweicht.
+
+\subsubsection{Statemachine}
+Die Statemachine wurde auf ihr Verhalten hin getestet. Es wurden alle States ein mal erzwungen. Dies geschah mithilfe der Flags. Dabei wurde sichtbar, dass folgende States nicht korrekt funktionieren.
+
+\begin{itemize}
+	\item ADC-Batterie 
+	\item Shutdown
+	\item Merken Liste Löschen
+	\item Charge
+\end{itemize}
+
+Anzumerken ist, dass diese States in der Statemachiene funktionieren.  Aber ihre Aufgabe nicht erfüllen können, da sie aus zeitlichen Gründen nicht implementiert sind.
+
+\subsubsection{Bluetooth}
+Das Bluetooth Modul wurde mit verschiedenen Beacon's getestet. Dabei is aufgefallen, dass wenn mehrere Beacons mit verschiedenen Sendeintervallen senden, dies zu grösseren Problemen führt. Dann dominieren die schneller Sendenden Besacons die langsamer Sendenden. Darum ist es zu empfehlen, dass sich die Beacons nicht näher aneinander befinden als ihre Referenz Felder wie in Abbildung \ref{fig:ref_felder}.
+
+\begin{figure}[ht!]
+	\center
+	\includegraphics[scale=0.5]{data/validierung_software_ref_felder.png}
+	\caption{Überlappung der Referenz-Felder}
+	\label{fig:ref_felder}
+\end{figure}
+
+\subsubsection{SD-Karte}
+Dieses Modul hat erfüllt alle Anforderungen. Jedoch gewisse nur knapp. Die Funktion des Merken hat einige Makel. Es ist nicht möglich ein gemerktes Kunstobjekt wieder zu löschen und es ist möglich ein Kunstobjekt mehrmals zu merken.
 
 
