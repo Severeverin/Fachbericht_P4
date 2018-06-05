@@ -16,22 +16,16 @@ Dateigrösse: bis zu 4GB – 1 auf FAT-Volume und praktisch unbegrenzt auf exFAT
 Clustergrösse: Bis zu 128 Sektoren auf FAT-Volume und bis zu 16 MB auf exFAT-Volume	\\
 Sektorgrösse:  512, 1024, 2048 und 4096 Bytes \cite{FatFs}\\ 
 
-
-<<<<<<< HEAD
-\subsubsection{SD-Karte Modul}\label{sec:sdKarte modul}
-Anschliessend sind die verschiedenen Funktionalitäten aufgelistet.
-=======
 \subsubsection{SD-Karte Modul}
 Nachfolgend ist beschrieben welche Funktionalitäten im Zusammenhang mit dem SD-Karten Modul vorhanden sind.
->>>>>>> bf25fa5cc30d7cbbed361af39edc0146dab9a6b3
 
 \subsubsection*{Merken}
-Das Modul beinhaltet zwei Funktionen um das Merken zu realisieren. Die Erste speichert das aktuelle Kunstwerk auf eine Liste. Die zweite Funktion löscht eben diese Liste wieder, um den Dōjō für den nächsten Nutzer bereit zu machen. Die Dateinamen der Liste lassen sich im Header-File anpassen.
+Das Modul beinhaltet zwei Funktionen um die Funktionalität des Merken zu realisieren. Die Erste speichert das aktuelle Kunstwerk auf eine Liste. Auf dieser Liste werden die verschieden gemerkten Kunstwerken gesammelt. Die zweite Funktion löscht eben diese Liste wieder, um den Dōjō bereit für den nächsten Nutzer bereit zu machen. Den Dateinamen der Liste lässt sich im Header-File anpassen.
 
 \subsubsection*{SD-Karte Initialisieren}
-Diese Funktion ruft eine Reihe fatfs-Befehle auf, um die SD-Karte zu mounten. Diese wird über ein SPI-Bus an den Mikrocontroller angeschlossen. Die Pins für den Bus lassen sich im Header-File definieren.
+Diese Funktion ruft eine Reihe fatfs-Befehle auf um die SD-Karte zu mounten. Diese wird über ein SPI-Bus an den Microkontroller angeschlossen. Die Pins für den Bus lassen sich im Header-File definieren.
 
-\subsubsection*{Lookup}
+\subsubsection{Lookup}
 Diese Funktion ist die eigentliche Implementierung des in Abbildung \ref{fig:lookupState} beschrieben Algorithmus.
 
 \subsubsection*{next\_Value}
