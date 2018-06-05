@@ -4,6 +4,14 @@ Der Dōjō wird mit Hilfe des Induktionsprinzips geladen. Der Ladeprozess wird g
 
 \subsubsection*{Tranceiver}
 Der Pulsgenerator wird einer Timer-Schaltung umgesetzt. Verwendet wird hierbei das elektronische Bauelement NE555. Dieses bietet den Vorteil, dass das notwendige Pulssignal für die Übertragung einfach erstellt und verändert werden kann. Der NE555 enthält eine monolithisch integrierte Zeitgeberschaltung, die sich aufgrund ihrer Eigenschaften als Taktgeber, Oszillator und für Zeitverzögerungen verwenden lässt. Bevor der Timer zu schalten beginnt, müssen verschiedene Spannungsschwellen erreicht werden. Diese lassen sich durch extern angeschlossene Widerstände und Kondensatoren einstellen. Massgebend für die Veränderung der Pulsdauer, Frequenz und des Duty-Cycles sind die Verhältnisse der Komponenten. Das entstandene Pulssignal wird schlussendlich an das LC-Glied gegeben. Dafür wird das LC-Glied an die Versorgungsspannung gehängt und in Serie dazu der Collectoranschluss eines 2N3055 Leistungs NPN-Transistor angeschlossen. An dessen Emitter wird nun ein Niederohmiger Widerstand auf $GND$ gehängt, wobei die über ihm abfallenden Spannung von einem weiteren Transistor überwacht wird und somit den Strom begrenzt. Dieser \glqq 2N2222 Strombegrenzungs-Transistor\grqq wird zwischen dem Pulssignal, welches den Leistungs-Transistor steuert, und GND gehängt. Wird nun der Strom und somit auch die Spannung über dem Widerstand zu hoch, so schliesst der \glqq 2N2222 Strombegrenzungs-Transistor\grqq das Pulssignal kurz, wodurch der 2N3055 Leistungstransistor nicht mehr sauber durchgesteuert wird und dadurch den Strom begrenzt. Die Strombegrenzung ist abhängig von der verwendeten Peripherie des LC-Gliedes. Es gilt zu beachten, dass die Spule durch ihre kleine Bauform weniger Strom verträgt als der Leistungstransistor. In unserem Fall liegt der maximal zulässige Strom für die Spule bei $0.6A$. Bei der Wahl von grösseren Spulen muss jedoch darauf geachtet werden, dass die Begrenzung von 15A nicht überschritten wird, da dies die Belastungsgrenze für den 2N3055 Leistungstransistor ist.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=80mm]{data/Tranceiver.png}
+		\caption[Ne555]{Die verwendete Timerschaltung als Pulsquelle} %picture caption
+		\label{fig:Tranceiver-Schaltung}
+	\end{center}
+\end{figure}
  
 Das Pulssignal selber muss verschiedene Kriterien erfüllen. Zum einen sollte der Duty Cycle so nahe wie möglich an $50\%$ sein. Um dies zu erreichen muss $R2 >> R1$ gelten. Das andere Kriterium ist die Erreichung der Resonanzfrequenz des LC-Gliedes. Um das Pulssignal optimal einzustellen, können folgende Richtlinien betrachtet werden:
 \begin{description}
@@ -14,8 +22,28 @@ Das Pulssignal selber muss verschiedene Kriterien erfüllen. Zum einen sollte de
 
 Die verwendeten Komponenten $C$, $R_{1}$ und $R_{2}$ wurden durch nachfolgende Formeln \ref{eq:TimerF} bis \ref{eq:TimerR2} berechnet. 
 
+<<<<<<< HEAD
+\begin{equation}\label{eq: Timer555 F}
+f=1/T= 1.44/((R1+R2*2)*C)
+\end{equation}
+\begin{equation}\label{eq: Timer555 TL}
+Low Time= 0.693*R*C
+\end{equation}
+\begin{equation}\label{eq: Timer555 TH}
+High Time= 0.693*(R1+R2)*C
+\end{equation}
+\begin{equation}\label{eq: Timer555 D}
+D= Duty Cycle= (R1+R2)/(R1+2*R2)
+\end{equation}
+\begin{equation}\label{eq: Timer555 R1}
+R1= 1.44**(2*D-1)/(F*C)
+\end{equation}
+\begin{equation}\label{eq: Timer555 R2}
+R2= 1.44*(1-D)/(F*C)
+=======
 \begin{equation}\label{eq:TimerF}
 F=\dfrac{1}{T}=\frac{1.44}{(R_{1}+(R_{2}\cdot 2))\cdot C}
+>>>>>>> bf25fa5cc30d7cbbed361af39edc0146dab9a6b3
 \end{equation} 
 
 \begin{equation}\label{eq:TimerTL}
