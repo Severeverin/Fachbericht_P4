@@ -23,8 +23,6 @@ Nicht nur die Komponenten im Dojo selbst benötigen eine konstante Spannungsvers
 
 Augenfällig ist, dass die Ausgangsspannungskurve im Bereich von 6V bis 16V (T=$25^\circ\text{C}$) rund 0.1V schwankt. Dies stellt jedoch keine Probleme für den Lade-IC dar, da dieser einen Eingangsspannungsbereich zwischen 3.75V bis 6V vorweist. Ebenfalls in der obigen Grafik ersichtlich ist die grosse Erwärmungstoleranz des Spannungsreglers. Dies ist aufgrund dessen wichtig, dass es durch die induktive Übertragung durchaus zu grosser Erwärmung in unmittelbarer Nähe kommen kann.
 
-\subsubsection{Audioausgabe}
-Die Funktionsweise des Knochenschallgebers wird hier kurz erläutert, sowie dessen Spezifikation (Versorgungsspannung, Ausgangsleistung etc.)
 
 \subsubsection{LC-Filter}
 Vor dem Audioverstärker wird noch ein Filter benötigt, welcher das PWM Signal des Microcontrollers filtert und den DC Anteil entfernt. Um den Microcontroller zu entkoppeln ist ein $100\mu F$ Elektrolytkondensator an jedem PWM Ausgang in Serie geschalten. Das Filter wurde wie folgt dimensioniert. 
@@ -44,6 +42,3 @@ L = \frac{1}{(2\cdot \pi \cdot f_g)^2\cdot C } = 63.33\mu H
 
 Daraus wurde dann eine L mit dem Wert $68\mu H$ gewählt. Setzt man die Werte in Gleichung \ref{eq LC Filter} ein ergibt sich eine Grenzfrequenz von $19.3kHz$. 
 
-
-\subsubsection{Microcontroller}
-Hier werden die Anforderungen an den Mikrocontroller aufgeführt, die Wahl begründet und auch das On-Chip Bluetoothmodul näher betrachtet.

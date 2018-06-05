@@ -1,0 +1,17 @@
+\subsubsection{LC-Filter}
+Vor dem Audioverstärker wird noch ein Filter benötigt, welcher das PWM Signal des Microcontrollers filtert und den DC Anteil entfernt. Um den Microcontroller zu entkoppeln ist ein $100\mu F$ Elektrolytkondensator an jedem PWM Ausgang in Serie geschalten. Das Filter wurde wie folgt dimensioniert. 
+
+\begin{equation}
+f_g = \frac{1}{2\cdot \pi \cdot \sqrt{L\cdot C}}
+\label{eq LC Filter}
+\end{equation}
+
+Um die Gleichung zu lösen wurde eine Grenzfrequenz ($f_g$) von $20kHz$ angenommen und ein Kondensator (C) von $1\mu F$ gewählt. Daraus ergibt sich die Gleichung \ref{eq LC Filter nach L}. 
+
+
+\begin{equation}
+L = \frac{1}{(2\cdot \pi \cdot f_g)^2\cdot C } = 63.33\mu H
+\label{eq LC Filter nach L}
+\end{equation}
+
+Daraus wurde dann eine L mit dem Wert $68\mu H$ gewählt. Setzt man die Werte in Gleichung \ref{eq LC Filter} ein ergibt sich eine Grenzfrequenz von $19.3kHz$. 
