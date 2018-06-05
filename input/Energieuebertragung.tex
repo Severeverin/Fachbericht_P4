@@ -22,44 +22,24 @@ Das Pulssignal selber muss verschiedene Kriterien erfüllen. Zum einen sollte de
 
 Die verwendeten Komponenten $C$, $R_{1}$ und $R_{2}$ wurden durch nachfolgende Formeln \ref{eq:TimerF} bis \ref{eq:TimerR2} berechnet. 
 
-\begin{equation}\label{eq: Timer555 F}
+\begin{equation}\label{eq:Timerf}
 f=1/T= 1.44/((R1+R2*2)*C)
 \end{equation}
-\begin{equation}\label{eq: Timer555 TL}
+\begin{equation}\label{eq:TimerTL}
 Low Time= 0.693*R*C
 \end{equation}
-\begin{equation}\label{eq: Timer555 TH}
+\begin{equation}\label{eq:TimerTH}
 High Time= 0.693*(R1+R2)*C
 \end{equation}
-\begin{equation}\label{eq: Timer555 D}
+\begin{equation}\label{eq:TimerDC}
 D= Duty Cycle= (R1+R2)/(R1+2*R2)
 \end{equation}
-\begin{equation}\label{eq: Timer555 R1}
+\begin{equation}\label{eq:TimerR1}
 R1= 1.44**(2*D-1)/(F*C)
 \end{equation}
-\begin{equation}\label{eq: Timer555 R2}
+\begin{equation}\label{eq:TimerR2}
 R2= 1.44*(1-D)/(F*C)
 \end{equation} 
-
-\begin{equation}\label{eq:TimerTL}
-T_{L}= 0.693\cdot R\cdot C
-\end{equation}
-
-\begin{equation}\label{eq:TimerTH}
-T_{H}= 0.693\cdot (R_{1}+R_{2})\cdot C
-\end{equation}
-
-\begin{equation}\label{eq:TimerD}
-D= Duty Cycle= \dfrac{R_{1}+R_{2}}{R_{1}+(2\cdot R_{2})}
-\end{equation}
-
-\begin{equation}\label{eq:TimerR1}
-R_{1}= 1.44\cdot \frac{2\cdot (D-1)}{F\cdot C}
-\end{equation}
-
-\begin{equation}\label{eq:TimerR2}
-R_{2}= 1.44\cdot \dfrac{1-D}{F\cdot C}
-\end{equation}
 
 Für die Berechnung der effektiven Werte, müssen die esten Werte angenommen werden. Unsere Berechnungen ergaben folgende für den Tranceiver am besten geeigneten Werte:
 
