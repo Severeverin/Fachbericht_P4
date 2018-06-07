@@ -21,12 +21,12 @@ Generell können BLE-Beacons vier Rollen einnehmen. Diese vier Rollen kann man u
 \begin{figure}[htbp!!!!]
 	\begin{center}
 		\includegraphics[width=\textwidth]{data/PacketPayload_Header.png}
-		\caption[PacketPayload Header]{PacketPayload Header} %picture caption
+		\caption[PacketPayload Header]{PacketPayload Header \cite{9_Teildokument_BT}} %picture caption
 		\label{fig:PacketPayload_Header}
 	\end{center}
 \end{figure}
 
-Die Preamble wird zur Synchronisierung und Zeitschätzung benötigt und ist für BLE-Beacons, welche in der Rolle eines Broadcasters sind, immer 0xAA. Auch die Access Address ist für Broadcaster immer gleich, nämlich 0x8E89BED6. Das Packet Payload beinhaltet Header und Payload. PDU bestimmt den Sendekanaltyp des sendenden Beacons, gemäss folgender Tabelle \ref{tab:PDU} \cite{9_Teildokument_BT}:
+Die Preamble wird zur Synchronisierung und Zeitschätzung benötigt und ist für BLE-Beacons, welche in der Rolle eines Broadcasters sind, immer 0xAA. Auch die Access Address ist für Broadcaster immer gleich, nämlich 0x8E89BED6. Das Packet Payload beinhaltet Header und Payload. PDU bestimmt den Sendekanaltyp des sendenden Beacons, gemäss folgender Tabelle \ref{tab:PDU}:
 
 \begin{table}[htbp!!!]
 \begin{tabular}{|c|c|c|}
@@ -40,7 +40,7 @@ Die Preamble wird zur Synchronisierung und Zeitschätzung benötigt und ist für
 \rule[-1ex]{0pt}{2.5ex} 0110 & ADV{\_}SCAN{\_}IND & Scannable undirected advertising event \\ 
 \hline 
 \end{tabular} 
-\caption[PDU Type]{PDU Type}
+\caption[PDU Type]{PDU Type \cite{9_Teildokument_BT}}
 \label{tab:PDU}
 \end{table}
 
@@ -49,7 +49,7 @@ RFU (Reserved for Future Use) steht, wie der Name schon sagt, als Reserve für z
 \begin{figure}[htbp!!!!]
 	\begin{center}
 		\includegraphics[width=0.8\textwidth]{data/PacketPayload_Payload.png}
-		\caption[PacketPayload Payload]{PacketPayload Payload} %picture caption
+		\caption[PacketPayload Payload]{PacketPayload Payload \cite{9_Teildokument_BT}} %picture caption
 		\label{fig:PacketPayload_Payload}
 	\end{center}
 \end{figure}
@@ -72,11 +72,11 @@ Es ist zu sehen, dass es mit der Sendeadresse und den Sendedaten gefüllt ist. D
 \rule[-1ex]{0pt}{2.5ex} Manufacturer Specific Data & 0xFF & User defined \\ 
 \hline 
 \end{tabular} 
-\caption[AD Data Type]{AD Data Type}
+\caption[AD Data Type]{AD Data Type \cite{9_Teildokument_BT}}
 \label{tab:AD_Data_Type}
 \end{table}
 
-Die Flags definieren die Fähigkeiten des BLE-Beacons und sind gemäss der Tabelle \ref{tab:Flags} definiert \cite{9_Teildokument_BT}.
+Die Flags definieren die Fähigkeiten des BLE-Beacons und sind gemäss der Tabelle \ref{tab:Flags} definiert.
 
 \begin{table}[htbp!!!]
 \begin{tabular}{|c|c|c|c|}
@@ -100,7 +100,7 @@ Die Flags definieren die Fähigkeiten des BLE-Beacons und sind gemäss der Tabel
 \rule[-1ex]{0pt}{2.5ex} • & 5-7 & • & Reserved \\ 
 \hline 
 \end{tabular} 
-\caption[Flags]{Flags}
+\caption[Flags]{Flags \cite{9_Teildokument_BT} \cite{9_Teildokument_BT}}
 \label{tab:Flags}
 \end{table}
 
@@ -129,6 +129,5 @@ In Abbildung \ref{fig:Bluetooth_MM_Vergabe} ist zu sehen, dass die erste Major N
 	\caption[Software:MM Vergabe]{Definition der Majo Minor Vergabe}
 	\label{fig:Bluetooth_MM_Vergabe}
 \end{figure}
-
 
 

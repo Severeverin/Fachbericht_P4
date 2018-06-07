@@ -1,12 +1,13 @@
 \subsection{Audio} \label{sec:audio}
-Für die Audioausgabe sind auch Hardware Komponenten notwendig. In diesem Kapitel werden alle einzelnen Komponenten welche für die Audioausgabe notwendig sind genauer erläutert. Es umfasst zum einen die Aufbereitung des Audio Signals (Unterkapitel \nameref{sec:lc-filter}), ebenso umfasst es die Verstärkung des Signals (Unterkapitel \nameref{sec:verstaerkerstufe}) und zu guter Schluss die Komponente welche für die Audioausgabe zuständig ist (Abschnitt \nameref{sec:knochenschallaktor}).
+Für die Audioausgabe sind auch Hardware Komponenten notwendig. In diesem Kapitel werden alle einzelnen Komponenten welche für die Audioausgabe notwendig sind genauer erläutert. Es umfasst zum einen die Aufbereitung des Audio Signals (Unterkapitel LC-Filter), ebenso umfasst es die Verstärkung des Signals (Unterkapitel Verstärkerstufe) und zu guter Schluss die Komponente welche für die Audioausgabe zuständig ist (Abschnitt Knochenschallaktor).
 
-\subsubsection*{LC-Filter} \label{sec:lc-filter}
+\subsubsection*{LC-Filter}\label{sec:schutzeinrichtung}
 Vor dem Audioverstärker wird noch ein Filter benötigt, welcher das PWM Signal des Microcontrollers filtert und den DC Anteil entfernt. Um den Microcontroller zu entkoppeln ist ein $100\mu F$ Elektrolytkondensator an jedem PWM Ausgang in Serie geschalten. Das Filter wurde wie folgt dimensioniert. 
 \begin{equation}
 f_g = \frac{1}{2\cdot \pi \cdot \sqrt{L\cdot C}}
 \label{eq LC Filter}
 \end{equation}
+
 Um die Gleichung zu lösen wurde eine Grenzfrequenz ($f_g$) von $20kHz$ angenommen und ein Kondensator (C) von $1\mu F$ gewählt. Daraus ergibt sich die Gleichung \ref{eq LC Filter nach L}. 
 \begin{equation}
 L = \frac{1}{(2\cdot \pi \cdot f_g)^2\cdot C } = 63.33\mu H
@@ -24,11 +25,12 @@ Nachdem das vom Mikrocontroller ausgegebene Audio-File über die Verstärkerstuf
 Der Aktor arbeitet nach dem Prinzip der Weiterleitung von Schall-Schwingungen oder auch Vibrationen. Dadurch lässt sich der ursprüngliche Gehörgang umgehen und die Schwingungen werden über den Schädelknochen an das Innenohr übertragen. Dies verbessert auch die Hygiene der Anwendung, da kein direkter Kontakt mit dem Gehörgang stattfindet.\cite{Knochenschall}
 Für die Anwendung im Dōjō wird ein Knochenschallaktor des Herstellers Adafruit verwendet, welcher in der Abbildung \ref{fig:knochenschallAda} ersichtlich ist.
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.5\textwidth]{Data/KnochenschallaktorAdafruit1}
-	\caption[Knochenschallaktor \cite{BoneConductorAdafruit}]{Knochenschallaktor von Adafruit}
-	\label{fig:knochenschallAda}
-\end{figure} 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=120mm]{data/KnochenschallaktorAdafruit1.jpg}
+		\caption[Knochenschallaktor \cite{BoneConductorAdafruit}]{Knochenschallaktor von Adafruit} %picture caption
+		\label{fig:knochenschallAda}
+	\end{center}
+\end{figure}
 
 Das ausgewählte Bauteil eignet sich bestens für die Verwendung im Dōjō. Mit einem Gewicht von 9.6 g und den Dimensionen 14x21,5x7,9 lässt sich der Aktor gut in das bestehende Gehäuse implementieren \cite{BoneConductorAdafruit}. Weiter ist das Bauteil relativ kostengünstig im Handel erhältlich und kann $1W_{RMS}$ Leistung liefern, was sich dann in der Lautstärke bemerkbar macht. Nach ausführlichen Recherchearbeiten konnten keine wirklichen Alternativen ausgemacht werden. Meist befindet sich die Technologie noch in der Entwicklungsphase oder fällt aufgrund des Preises aus der Auswahlmöglichkeit.
