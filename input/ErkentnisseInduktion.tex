@@ -1,6 +1,6 @@
 \subsubsection*{Erkentnisse aus der Inbetriebnahme}\label{sec:energieuebertragung}
 
-Der erste Prototyp der Pulsschaltung für die Induktion wurde mithilfe eines NE555 realisiert. Dabei wurden als Widerstände Potentiometer eingebaut, mit welchen die Resonanzfrequenz des LC-Gliedes gesucht werden sollte.
+Der erste Prototyp der Pulsschaltung für die Induktion wurde mithilfe eines NE555 realisiert, wie sie in Abbildung \ref{fig:Prototyp Down} zu sehen ist. Dabei wurden als Widerstände Potentiometer eingebaut, mit welchen die Resonanzfrequenz des LC-Gliedes gesucht werden sollte.
 
 Der allererste Versuch ergab eine Übertragung von 5mA bei einer Taktfrequenz von 10kHz. Es stellte sich relativ schnell heraus, dass die Taktfrequenz viel zu tief war. Das konnte festgestellt werden indem man die Taktfrequenz der Pulsschaltung veränderte. So ergab sich das bei höherer Taktfrequenz die Übertragung besser wurde.
 
@@ -8,7 +8,7 @@ Da die Taktfrequenz der NE555-Prototypenschaltung aufgrund der Potentiometer Wah
 
 So wurde nun mit konstanter Eingangsspannung und variabler Taktfrequenz die Spule ausgetestet. Es zeichnete sich folgendes Bild ab. Mit höher werdender Frequenz wurde die Übertragung besser. Um diese noch weiter zu verbessern empfiehlt sich bei der Taktfrequenz einen Dutycycle von möglichst 50% zu erzielen.
 
-Es erwiess sich, dass bei der Taktfrequenz von 93kHz die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder Rückläufig. Nun da die optimale Frequenz gefunden und die Induktivität der Spule bekannt war (14.9 H) konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen 220nF Kondensator als ideal. Damit die Spule nicht zu heiss werden konnte und dadurch ihren Isolierlack begann zu schmelzen, wurde der Strombegrenzungswiderstand des 2n2222 mit 2 Ohm definiert. Dieser wird anhand der Kriterien bestimmt, welche im Kapitel Tranceiver Schaltung weiter oben im Text zu finden sind.
+Es erwiess sich, dass bei der Taktfrequenz von $93kHz$ die beste Übertragung zustande kam. Bei höheren Frequenzen war diese wieder Rückläufig. Nun da die optimale Frequenz gefunden und die Induktivität der Spule bekannt war (14.9 H) konnte der ideale Kopplungskondensator berechnet werden. Dies ergab, unter Berücksichtigung der E-Reihen, einen 220nF Kondensator als ideal. Damit die Spule nicht zu heiss werden konnte und dadurch ihren Isolierlack begann zu schmelzen, wurde der Strombegrenzungswiderstand des 2n2222 mit $2$Ohm definiert. Dieser wird anhand der Kriterien bestimmt, welche im Kapitel Tranceiver Schaltung weiter oben im Text zu finden sind.
 
 Somit sind alle benötigten Bauteile bekannt.
 
@@ -22,7 +22,7 @@ Somit sind alle benötigten Bauteile bekannt.
 
 \begin{center}
 C: 1nF
-R1: 200 Ohm
+R1: 510 Ohm
 R2:7.5 kOhm
 \end{center}
 
