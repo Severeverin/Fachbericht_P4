@@ -30,42 +30,33 @@ f_g = \frac{1}{2\cdot \pi \cdot \sqrt{L\cdot C}} = \frac{1}{2\cdot \pi \cdot \sq
 \label{eq:LC Filter 1}
 \end{equation}
 
-Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die jedoch in dieser Anwendung vernachlässigt werden kann. In Abbildung \ref{fig:Filterstufe} ist der Aufbau zu sehen. Dabei ist C1 der Entkopplungskondensator und L1 und C2 bilden zusammen die Filterstufe.
+Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die jedoch in dieser Anwendung vernachlässigt werden kann. In Abbildung \ref{fig:Filterstufe} ist der Aufbau zu sehen. Dabei ist C1 der Entkopplungskondensator und L1 und C2 bilden zusammen die Filterstufe. Rechts ist der Ausgang zur Verstärkerstufe zu sehen, welche im nächsten Kapitel beschrieben wird.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=120mm]{data/Schema_Filterstufe.png}
-		\caption{Schema Filterstufe}
+		\caption[Schema der LC-Filterstufe]{Schema der LC-Filterstufe}
 		\label{fig:Filterstufe}
 	\end{center}
 \end{figure}
 
-
-
-
-
-
-Nach der Dimensionerung des Filters, wird nun der Verstärker erläutert.
-
 \subsection{Verstärkerstufe} \label{sec:verstaerkerstufe}
-Mit einer Verstärkerstufe lassen sich auf einfache Art und Weise Signale jeglicher Form verstärken. Sie eignen sich bestens, um den Ausgang eines Mikrocontrollers entsprechend aufzubereiten, da die Ausgangsseite meist sehr niedrige Ströme aufweist. Dadurch kann dem Knochenschallaktor genügend Energie zur Verfügung gestellt werden. Prinzipiell gibt es zwei Arten von Verstärkern. Entweder erfolgt die Umsetzung digital oder analog. Beide erfüllen die gleiche Aufgabe, weisen jedoch bezüglich Wirkungsgrad einen deutlichen Unterschied auf. Die digitale Variante weist ungefähr einen Wirkungsgrad von 90$\%$ auf \cite{BoneConductorAdafruit}, während die analoge Variante einen maximalen Wirkungsgrad im Bereich der Leistungsanpassung erzielt \cite{Niklaus_Skript}. Aus diesem Grund wird ein digitaler Verstärker (Class-D-Verstärker) in der Anwendung implementiert. Die Wahl fiel auf den Stereo-Amplifier MAX 98306. Der Verstärker hat in Betrieb einen Stromverbrauch von $143mA$ und eine Speisespannung von $3.3V$. Somit hat er einen Leistungsverbrauch von $471.9 mW$. Im Standby benötigt er lediglich $2 mA$ und somit $6.6 mW$\cite{Verstaerker}. In Abbildung 
-
+Mit einer Verstärkerstufe lassen sich auf einfache Art und Weise Signale jeglicher Form verstärken. Sie eignen sich bestens, um den Ausgang eines Mikrocontrollers entsprechend aufzubereiten, da die Ausgangsseite meist sehr niedrige Ströme aufweist. Dadurch kann dem Knochenschallaktor genügend Energie zur Verfügung gestellt werden. Prinzipiell gibt es zwei Arten von Verstärkern. Entweder erfolgt die Umsetzung digital oder analog. Beide erfüllen die gleiche Aufgabe, weisen jedoch bezüglich Wirkungsgrad einen deutlichen Unterschied auf. Die digitale Variante weist ungefähr einen Wirkungsgrad von 90$\%$ auf \cite{BoneConductorAdafruit}, während die analoge Variante einen maximalen Wirkungsgrad im Bereich der Leistungsanpassung erzielt \cite{Niklaus_Skript}. Aus diesem Grund wird ein digitaler Verstärker (Class-D-Verstärker) in der Anwendung implementiert. Die Wahl fiel auf den Stereo-Amplifier MAX 98306. Der Verstärker hat in Betrieb einen Stromverbrauch von $143mA$ und eine Speisespannung von $3.3V$. Somit hat er einen Leistungsverbrauch von $471.9 mW$. Im Standby benötigt er lediglich $2 mA$ und somit $6.6 mW$\cite{Verstaerker}. In Abbildung \ref{fig:verstaerkerstufe} ist der schematische Aufbau des Verstärkers dargestellt.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=120mm]{data/Schema_Verstaerkerstufe.png}
-		\caption{Schema Verstärkerstufe \cite{Verstaerker_Schema}} %picture caption
-		\label{fig:knochenschallAda}
+		\includegraphics[width=\textwidth]{data/Schema_Verstaerkerstufe.png}
+		\caption[Verstärkerstufe \cite{Verstaerker_Schema}]{Schema der Verstärkerstufe} %picture caption
+		\label{fig:verstaerkerstufe}
 	\end{center}
 \end{figure}
-
 
 \subsection{Knochenschallaktor} \label{sec:knochenschallaktor}
 Nachdem das vom Mikrocontroller ausgegebene Audio-File über die Filter- und Verstärkerstufe entsprechend aufbereitet wurde, kann nun die Audiodatei über einen sogenannten Knochenschallaktor ausgegeben werden. Der Aktor arbeitet nach dem Prinzip der Weiterleitung von Schall-Schwingungen oder auch Vibrationen. Dadurch lässt sich der ursprüngliche Gehörgang umgehen und die Schwingungen werden über den Schädelknochen an das Innenohr übertragen. Dies verbessert auch die Hygiene der Anwendung, da kein direkter Kontakt mit dem Gehörgang stattfindet\cite{Knochenschall}. Falls weitere Informationen zur Knochenschalltechnologie gewünscht werden, wird an dieser Stelle auf die Quelle \cite{Knochenschall_HDM_Stuttgart} verwiesen. Für die Anwendung im Dōjō wird ein Knochenschallaktor des Herstellers Adafruit verwendet, welcher in der Abbildung \ref{fig:knochenschallAda} ersichtlich ist.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=160mm]{data/KnochenschallaktorAdafruit1.jpg}
+		\includegraphics[width=0.65\textwidth]{data/KnochenschallaktorAdafruit1.jpg}
 		\caption[Knochenschallaktor \cite{BoneConductorAdafruit}]{Knochenschallaktor von Adafruit} %picture caption
 		\label{fig:knochenschallAda}
 	\end{center}

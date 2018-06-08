@@ -1,10 +1,18 @@
-\subsection{Audio, PWM}\label{sec:audioPWM}
+\subsection{Audiowiedergabe durch PWM}\label{sec:audioPWM}
+Nachdem der Zugriff und die Kommunikation mit der SD-Karte erklärt wurde, kann an dieser Stelle nun die Audiowiedergabe beschrieben werden. Damit ein Audiosignal abgespielt werden kann, sind zwei PWM-Signale Voraussetzung. Dabei ist das erste Signal das invertierte Signal des zweiten und umgekehrt. Abbildung \ref{fig:pwm_ausgang} zeigt das Prinzip.
 
-Um ein Audiosignal abspielen zu können, werden zwei PWM-Signale benötigt wie in Abbildung \ref{fig:pwm_ausgang} ersichtlich. Das eine Signal ist die invertierte Variante des anderen Signals. 
-Das PWM-Signal wird mit dem NRF52 generiert. Für den NRF52 stellt NORDIC SEMICONDUCTOR die PWM HAL and driver Bibliothek zur Verfügung. Die genutzten Funktionen sind in der Tabelle \ref{table:bibliothek} aufgeführt. Diese ermöglicht es, ein PWM-Signal zu erzeugen. Der NRF52 bietet vier PWM Instanzen mit je vier Kanälen. Für die Audioausgabe wurden zwei PWM Instanzen mit je einem Kanal genutzt.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{data/PWM_Signal_500Hz_Mono}
+		\caption[PWM-Ausgang des NRF52]{PWM-Ausgang des NRF52: Das violette Signal entspricht dem invertierten grünen Signal} %picture caption
+		\label{fig:pwm_ausgang}
+	\end{center}
+\end{figure}
+
+Das PWM-Signal wird mit dem NRF52-Controller generiert. NORDIC SEMICONDUCTOR stellt dafür die PWM HAL and driver Bibliothek zur Verfügung. Die genutzten Funktionen sind in der Tabelle \ref{table:bibliothek} aufgelistet. Der Controller bietet vier PWM-Instanzen mit je vier Kanälen. Für die Audioausgabe wurden zwei PWM-Instanzen mit je einem Kanal genutzt.
 
 \begin{table}[H]
-	\centering
+	\begin{center}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		%\rowcolor[HTML]{C0C0C0} 
@@ -12,30 +20,23 @@ Das PWM-Signal wird mit dem NRF52 generiert. Für den NRF52 stellt NORDIC SEMICO
 		PWM initialisiern     & nrf\_drv\_pwm\_init              & \begin{tabular}[c]{@{}l@{}}nrf\_drv\_pwm\_t const *const p\_instance\\ nrf\_drv\_pwm\_config\_tconst *p\_config\\ nrf\_drv\_pwm\_handler\_thandler\end{tabular}                                                               \\ \hline
 		Audio abspielen         & nrf\_drv\_pwm\_complex\_playback & \begin{tabular}[c]{@{}l@{}}nrf\_drv\_pwm\_t const *const p\_instance\\ nrf\_pwm\_sequence\_t const *p\_sequence\_0\\ nrf\_pwm\_sequence\_tconst *p\_sequence\_1\\ uint16\_t  playback\_count \\ uint32\_t  flags\end{tabular} \\ \hline
 	\end{tabular}
+	\caption[Funktionen der PWM HAL and driver Bibliothek]{Funktionen der PWM HAL and driver Bibliothek}
 	\label{table:bibliothek}
-	\caption{Funktionen der PWM HAL and driver Bibliothek}
+\end{center}
 \end{table}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=80mm]{data/PWM_Signal_500Hz_Mono}
-		\caption[PWM-Ausgang des NRF52]{PWM-Ausgang des NRF52. Das violette Signal ist das invertierte grüne Signal.} %picture caption
-		\label{fig:pwm_ausgang}
-	\end{center}
-\end{figure}
-
-In der Abbildung \ref{fig:pwm_ablauf} ist der Ablauf des PWM-Unterprogramm aufgezeigt. Als erstes findet die Initialisierung statt. Nach der Initialisierung können die beiden Sequenzen 0 und 1 generiert werden. In diesen Sequenzen sind die Daten des Audio-Files abgelegt. Die Funktion complex\_playback generiert am Ausgang anhand dieser Sequenzen das PWM-Signal.
+Abbildung \ref{fig:pwm_ablauf} zeigt den Ablauf des PWM-Unterprogramms. Zuerst findet die Initialisierung statt. Anschliessend können die beiden Sequenzen 0 und 1 generiert werden, in welchen die Daten des Audio-Files abgelegt werden. Die Funktion complex\_playback generiert dann aufgrund der Sequenzen das entsprechende PWM-Signal am Ausgang. Nachfolgend werden die einzelnen Schritte noch detaillierter beschrieben.
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=60mm]{data/pwm_ablauf}
-		\caption[Ablauf PWM]{Ablauf PWM} %picture caption
+		\includegraphics[width=0.5\textwidth]{data/pwm_ablauf}
+		\caption[Ablauf PWM-Ausgabe]{Ablauf PWM-Ausgabe} %picture caption
 		\label{fig:pwm_ablauf}
 	\end{center}
 \end{figure}
 
 \subsubsection*{PWM Initialisieren}\label{sec:PWM initialisieren}
-Bei der Initialisierung wurde die PWM Instanz, die Config und der Eventhandler mitgegeben.  Die Config des PWM musste anhand der Angaben des Wavefiles generiert werden. Die Werte wurden wie in der Tabelle \ref{table:config} gewählt.
+Bei der PWM-Initialisierung wurde die PWM-Instanz, die Config und der Eventhandler mitgegeben. Die Config des PWM musste anhand der Angaben des Wavefiles generiert werden. Die Werte wurden gemäss Tabelle \ref{table:config} gewählt.
 
 \begin{table}[H]
 	\centering
@@ -66,8 +67,8 @@ Da die clock Frequenz (in Tabelle \ref{table:config}  base\_clock) des PWM Modul
 \end{equation}
 
 \subsubsection*{Sequenzen laden}\label{sec:Sequenzen befüllen}
-Mit der Funktion next\_Value werden neue Werte in die Sequenzen geladen. Diese Funktion ist im Abschnitt \ref{sec:sdKarte modul} genauer beschrieben.
+Jetzt können die Sequenzen geladen werden. Mit der Funktion next\_Value werden neue Werte in die entsprechenden Sequenzen geladen. Diese Funktion ist im Kapitel \ref{sec:sdKarte} genauer beschrieben.
 
 \subsubsection*{Complex playback}\label{sec:Complex playback}
-Die Funktion generiert anhand der Sequenz ein PWM-Signal. Der
+Die Funktion generiert anhand der Sequenz ein entsprechendes PWM-Signal. Der
 Vorteil zu simple playback ist, dass zwei Sequenzen mitgegeben werden können. Wenn die Sequenz 0 fertig abgespielt wurde, startet automatisch die zweite Sequenz und der Eventhandler wird ausgelöst. In dieser Zeit kann die erste Sequenz wieder neu beladen werden. Die Beladung der Sequenzen wird mit dem Eventhandler dieser Funktion gesteuert. 
