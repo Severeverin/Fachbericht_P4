@@ -9,7 +9,7 @@ Nachdem das Kapitel Hardware ausführlich behandelt wurde, muss nun noch die Sof
 	\label{fig:Software_Layers}
 \end{figure} 
 
-Der eigentliche Programmaufbau ist eine Statemachine, welche so aufgebaut ist, dass alle Events möglichst kurz gehalten wurden. Jedoch hat dies relativ viele Flags zur Folge. Anschliessend werden die Events entsprechend ihrer Priorität verarbeitet. Die Prioritäten ergeben sich aus der Else IF im Wait State, genaueres dazu wird im Kapitel \ref{sec:stateMachine} beschrieben. Dadurch entsteht ein pollendes Programm mit Prioritäten, wie in Abbildung \ref{fig:Software_approach} dargestellt.
+Der eigentliche Programmaufbau ist eine Statemachine, welche so aufgebaut ist, dass alle Events möglichst kurz gehalten wurden. Jedoch hat dies relativ viele Flags zur Folge. Anschliessend werden die Events entsprechend ihrer Priorität verarbeitet. Die Prioritäten ergeben sich aus der Else IF im Wait-State, genaueres dazu wird im Kapitel \ref{sec:stateMachine} beschrieben. Dadurch entsteht ein pollendes Programm mit Prioritäten, wie in Abbildung \ref{fig:Software_approach} dargestellt.
 
 \begin{figure}[htbp!!!!]
 	\centering
@@ -18,7 +18,7 @@ Der eigentliche Programmaufbau ist eine Statemachine, welche so aufgebaut ist, d
 	\label{fig:Software_approach}
 \end{figure}
 
-Das Programm wurde in verschiedene Module unterteilt, um die Leserlichkeit zu verbessern. Die Unterteilung wurde entsprechend der Funktionen gemacht. Im Hauptmodul (Main) sind nur die Statmachine und die Interrupthandler vorhanden. Folglich wurde ein Modul für die BLE-Funktionalitäten geschrieben und eines für die SD-Karte. Ein weiters Modul existiert für die Batterie-Funktionalitäten. Dieses ist jedoch nicht implementiert und enthält nur Dummy-Funktionen.
+Das Programm wurde in verschiedene Module unterteilt, um die Leserlichkeit zu verbessern. Die Unterteilung wurde entsprechend der Funktionen gemacht. Im Hauptmodul (Main) sind nur die Statmachine und die Interrupthandler vorhanden. Folglich wurde ein Modul für die BLE-Funktionalitäten geschrieben und eines für die SD-Karte. Ein weiters Modul existiert für die Batterie-Funktionalitäten. Dieses ist jedoch nicht implementiert und enthält nur Dummy-Funktionen. Nachfolgend wird die Statemachine mit den einzelnen States beschrieben und teilweise grafisch dargestellt.
 
 
 

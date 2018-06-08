@@ -1,12 +1,12 @@
 \subsection{Nordic Software Development Kit}\label{sec:nordicsdk}
 
-Das Software Development Kit (SDK) ist eine Sammlung von nützlichem Code für die NRF-Chip Familie. Sie ist sehr umfangreich und ein absolutes Muss für unser Projekt. Hier wird jedoch nur auf ausgewählte Module innerhalb der SDK eingegangen, welche entscheidend sind für das Projekt. Für weitere Informationen wird auf die offizielle Dokumentation \cite{nordic_info} Verwiesen.
+Das Software Development Kit (SDK) ist eine Sammlung von nützlichem Code für die NRF-Chip Familie. Sie ist sehr umfangreich und ein absolutes Muss für unser Projekt. Hier wird jedoch nur auf ausgewählte Module innerhalb der SDK eingegangen, welche für das Projekt entscheidend sind. Zuerst wird auf das Softdevice S132 eingegangen. Danach folgt das Board Support Package und zum Schluss wird noch das NRF Log Modul beschrieben. Für weitere Informationen wird auf die offizielle Dokumentation \cite{nordic_info} verwiesen.
 
-\subsubsection*{S132}
-Der Softdevice 132 ist ein Protokoll Stack nach Bluetooth 5. Er stellt alle Funktionen des Bluetooth-Low-Energy (BLE) Stacks zur Verfügung, was entscheidend war für das Projekt. Der Stack wird in der Central-Rolle verwendet. Jedoch ist der Softdevice nicht als Code erhältlich, es liegen nur die Binarys bei.
+\subsubsection*{Softdevice S132}
+Der Softdevice 132 ist ein Protokoll Stack nach Bluetooth 5. Er stellt alle Funktionen des Bluetooth-Low-Energy (BLE) Stacks zur Verfügung, was für das Projekt entscheidend war. Der Stack wird in der Central-Rolle verwendet. Jedoch ist der Softdevice nicht als Code erhältlich, es liegen nur die sogenannten Binarys bei.
 
 \subsubsection*{Board Support Package (BSP)}
-Das Board Support Package ist eine abstraktions Schicht, die das Ziel hat die Hardware von der Software zu trennen und die Portierbarkeit zu erhöhen. Sie arbeitet wie schon der Bluetooth-Stack mit Callbacks. Sie bietet viele Funktionen für typische Hardware, zum Beispiel für Tasten. So kann für kurze und lange Betätigung der Taste ein verschiedenen Callback eingerichtet werden. Die Verlinkung zwischen der Hardware und den entsprechenden Defines findet in File  boards.h statt. Dieses File muss angepasst werden für einen andern Print.
+Das Board Support Package ist eine Abstraktions-Schicht, die das Ziel hat, die Hardware von der Software zu trennen und die Portierbarkeit zu erhöhen. Sie arbeitet mit Callbacks und bietet viele Funktionen für typische Hardware, zum Beispiel für Tasten. Dadurch lässt sich für kurze und lange Betätigungszeiten der Tasten jeweils verschiedene Callbacks einrichten. Die Verlinkung zwischen der Hardware und den entsprechenden Defines wird mit dem File boards.h gemacht und muss bei der Verwendung eines anderen Prints entsprechend angepasst werden.
 
 \subsubsection*{NRF Log}
-Das Modul NRF Log ist ein mächtiges Debug-Werkzeug. Damit ist es möglich aus der laufenden Software auf eine Konsole zu schreiben. Diese kann frei gewählt werden. Es kann die Segger-Konsole verwendet werden, welche von Nordic empfohlen wird. Das Projektteam verwendete die Variante mit Putty. Weiter können auch Warnungs-Stufen festgelegt werden, was sehr hilfreich ist.
+Das Modul NRF Log ist ein mächtiges Debug-Werkzeug. Damit ist es möglich aus der laufenden Software auf eine Konsole zu schreiben, welche frei wählbar ist. Das Projektteam hat sich auf die Variante mit Putty geeinigt. Weiter können auch hilfreiche Warnungs-Stufen festgelegt werden. Damit wird ein entsprechendes Feedback generiert.
