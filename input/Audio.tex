@@ -23,17 +23,41 @@ L = \frac{1}{(2\cdot \pi \cdot f_g)^2\cdot C } = \frac{1}{(2\cdot \pi \cdot 20 k
 \label{eq:LC Filter nach L 1}
 \end{equation}
 
-Unter Einhaltung der {\glqq E-Reihe\grqq} wird nun der berechnete Wert von $63.33\mu H$ auf den nächstliegenden Wert der Reihe von $68\mu H$ gesetzt. Da es nun zu Abweichungen in der Berechnung kommt, muss die Grenzfrequenz $f_g$ noch mit den bestimmten Bauteilwerten von $L$ und $C$ zurückgerechnet werden. Werden nun die Werte in die Gleichung \ref{eq:LC Filter} eingesetzt, erhält man die nachfolgende Grenzfrequenz $f_g$:
+Unter Einhaltung der {\glqq E12-Reihe\grqq} wird nun der berechnete Wert von $63.33\mu H$ auf den nächstliegenden Wert der Reihe von $68\mu H$ gesetzt. Da es nun zu Abweichungen in der Berechnung kommt, muss die Grenzfrequenz $f_g$ noch mit den bestimmten Bauteilwerten von $L$ und $C$ zurückgerechnet werden. Werden nun die Werte in die Gleichung \ref{eq:LC Filter} eingesetzt, erhält man die nachfolgende Grenzfrequenz $f_g$:
 
 \begin{equation}
 f_g = \frac{1}{2\cdot \pi \cdot \sqrt{L\cdot C}} = \frac{1}{2\cdot \pi \cdot \sqrt{68\mu H \cdot 1 \mu F}} = 19.3 kHz
-\label{eq:LC Filter}
+\label{eq:LC Filter 1}
 \end{equation}
 
-Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die jedoch in dieser Anwendung vernachlässigt werden kann. Nach der Dimensionerung des Filters, wird nun der Verstärker erläutert.
+Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die jedoch in dieser Anwendung vernachlässigt werden kann. In Abbildung \ref{fig:Filterstufe} ist der Aufbau zu sehen. Dabei ist C1 der Entkopplungskondensator und L1 und C2 bilden zusammen die Filterstufe.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=120mm]{data/Schema_Filterstufe.png}
+		\caption{Schema Filterstufe}
+		\label{fig:Filterstufe}
+	\end{center}
+\end{figure}
+
+
+
+
+
+
+Nach der Dimensionerung des Filters, wird nun der Verstärker erläutert.
 
 \subsection{Verstärkerstufe} \label{sec:verstaerkerstufe}
-Mit einer Verstärkerstufe lassen sich auf einfache Art und Weise Signale jeglicher Form verstärken. Sie eignen sich bestens, um den Ausgang eines Mikrocontrollers entsprechend aufzubereiten, da die Ausgangsseite meist sehr niedrige Ströme aufweist. Dadurch kann dem Knochenschallaktor genügend Energie zur Verfügung gestellt werden. Prinzipiell gibt es zwei Arten von Verstärkern. Entweder erfolgt die Umsetzung digital oder analog. Beide erfüllen die gleiche Aufgabe, weisen jedoch bezüglich Wirkungsgrad einen deutlichen Unterschied auf. Die digitale Variante weist ungefähr einen Wirkungsgrad von 90$\%$ auf \cite{BoneConductorAdafruit}, während die analoge Variante einen maximalen Wirkungsgrad im Bereich der Leistungsanpassung erzielt \cite{Niklaus_Skript}. Aus diesem Grund wird ein digitaler Verstärker (Class-D-Verstärker) in der Anwendung implementiert. Die Wahl fiel auf den Stereo-Amplifier MAX 98306. Der Verstärker hat einen Stromverbrauch von $143mA$ und eine Speisespannung von $3.3V$. Somit hat er einen Leistungsverbrauch von $471.9 mW$. Im Standby benötigt er lediglich $2 mA$ und somit $6.6 mW$\cite{Verstaerker}.
+Mit einer Verstärkerstufe lassen sich auf einfache Art und Weise Signale jeglicher Form verstärken. Sie eignen sich bestens, um den Ausgang eines Mikrocontrollers entsprechend aufzubereiten, da die Ausgangsseite meist sehr niedrige Ströme aufweist. Dadurch kann dem Knochenschallaktor genügend Energie zur Verfügung gestellt werden. Prinzipiell gibt es zwei Arten von Verstärkern. Entweder erfolgt die Umsetzung digital oder analog. Beide erfüllen die gleiche Aufgabe, weisen jedoch bezüglich Wirkungsgrad einen deutlichen Unterschied auf. Die digitale Variante weist ungefähr einen Wirkungsgrad von 90$\%$ auf \cite{BoneConductorAdafruit}, während die analoge Variante einen maximalen Wirkungsgrad im Bereich der Leistungsanpassung erzielt \cite{Niklaus_Skript}. Aus diesem Grund wird ein digitaler Verstärker (Class-D-Verstärker) in der Anwendung implementiert. Die Wahl fiel auf den Stereo-Amplifier MAX 98306. Der Verstärker hat in Betrieb einen Stromverbrauch von $143mA$ und eine Speisespannung von $3.3V$. Somit hat er einen Leistungsverbrauch von $471.9 mW$. Im Standby benötigt er lediglich $2 mA$ und somit $6.6 mW$\cite{Verstaerker}. In Abbildung 
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=120mm]{data/Schema_Verstaerkerstufe.png}
+		\caption{Schema Verstärkerstufe \cite{Verstaerker_Schema}} %picture caption
+		\label{fig:knochenschallAda}
+	\end{center}
+\end{figure}
 
 
 \subsection{Knochenschallaktor} \label{sec:knochenschallaktor}
@@ -41,7 +65,7 @@ Nachdem das vom Mikrocontroller ausgegebene Audio-File über die Filter- und Ver
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=120mm]{data/KnochenschallaktorAdafruit1.jpg}
+		\includegraphics[width=160mm]{data/KnochenschallaktorAdafruit1.jpg}
 		\caption[Knochenschallaktor \cite{BoneConductorAdafruit}]{Knochenschallaktor von Adafruit} %picture caption
 		\label{fig:knochenschallAda}
 	\end{center}
