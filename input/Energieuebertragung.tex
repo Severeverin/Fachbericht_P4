@@ -34,11 +34,14 @@ Um das Pulssignal theoretisch optimal einzustellen, können folgende Richtlinien
 Die verwendeten Komponenten $C$, $R_{1}$ und $R_{2}$, welche in der Abbildung  \ref{fig:Tranceiver-Schaltung} rechts vom Timer Baustein ($LM555D$) zu sehen sind, wurden durch nachfolgende Formeln \ref{eq:Timerf} bis \ref{eq:TimerR2} berechnet. 
 
 
+Zuerst wollen wir unsere ideale Taktfrequenz berechnen. Dabei werden wir zuerst einen Kondensator auswählen. Da dieser die Zeit massgebend beeinflusst, ist darauf zu achten, dass dieser eher klein zu wählen ist, da sonst die Widerstandswerte ins unermässliche gehen.
 \begin{equation}\label{eq:Timerf}
 f= \dfrac{1}{T}= \dfrac{1.44}{((R_{1} + 2 \cdot R_{2})\cdot C)}
 \end{equation}
+
+Nun bleiben noch die Widerstände zu bestimmen. Wir wollen einen Duty Cycle von ca $50%$. Das heisst, dass Low- und High-Time beinahe identisch sind. Daraus lässt sich schliessen, dass $R1$ vernachlässigbar klein ist. Dieser könnte allenfalls sogar als $0$ angenommen werden, jedoch lässt sich so nicht jede beliebige Frequenz einstellen mit den vorhandenen Widerstandswerten für $R2$. Dieser müsste aus mehreren Widerständen zusammengesetzt werden. Daher entschieden wir uns dafür einen kleinen Wert für $R1$ anzunehmen, was sich beim Duty-Cycle kaum bemerkbar machte.
 \begin{equation}\label{eq:TimerTL}
-LowTime= 0.693 \cdot R \cdot C
+LowTime= 0.693 \cdot R_{2} \cdot C
 \end{equation}
 \begin{equation}\label{eq:TimerTH}
 HighTime= 0.693 \cdot (R_{1} + R_{2}) \cdot C
@@ -46,6 +49,8 @@ HighTime= 0.693 \cdot (R_{1} + R_{2}) \cdot C
 \begin{equation}\label{eq:TimerDC}
 D = DutyCycle = \dfrac{R_{1} + R_{2}}{R_{1} + 2 \cdot R_{2}}
 \end{equation}
+
+Somit wären alle Komponenten bestummen. Möchte man eine andere Vorgehensweise wählen, so stünden noch die folgenden Formeln \ref{eq:TimerR1} und \ref{eq:TimerR2} zur verfügung.
 \begin{equation}\label{eq:TimerR1}
 R1 = 1.44 \cdot \left( \dfrac{2 \cdot D - 1}{f \cdot C} \right)
 \end{equation}
