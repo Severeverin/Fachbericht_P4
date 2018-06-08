@@ -39,10 +39,13 @@ Zuerst wollen wir unsere ideale Taktfrequenz berechnen. Dabei werden wir zuerst 
 f= \dfrac{1}{T}= \dfrac{1.44}{((R_{1} + 2 \cdot R_{2})\cdot C)}
 \end{equation}
 
-Nun bleiben noch die Widerstände zu bestimmen. Wir wollen einen Duty Cycle von ca $50%$. Das heisst, dass Low- und High-Time beinahe identisch sind. Daraus lässt sich schliessen, dass $R1$ vernachlässigbar klein ist. Dieser könnte allenfalls sogar als $0$ angenommen werden, jedoch lässt sich so nicht jede beliebige Frequenz einstellen mit den vorhandenen Widerstandswerten für $R2$. Dieser müsste aus mehreren Widerständen zusammengesetzt werden. Daher entschieden wir uns dafür einen kleinen Wert für $R1$ anzunehmen, was sich beim Duty-Cycle kaum bemerkbar machte.
-\begin{equation}\label{eq:TimerTL}
-LowTime= 0.693 \cdot R_{2} \cdot C
+Nun bleiben noch die Widerstände zu bestimmen. Wir wollen einen Duty Cycle von ca $50\%$. Das heisst, dass Low- und High-Time beinahe identisch sind. Daraus lässt sich schliessen, dass $R1$ vernachlässigbar klein ist. Dieser könnte allenfalls sogar als $0$ angenommen werden, jedoch lässt sich so nicht jede beliebige Frequenz einstellen mit den vorhandenen Widerstandswerten für $R2$. Dieser müsste aus mehreren Widerständen zusammengesetzt werden. Daher entschieden wir uns dafür einen kleinen Wert für $R1$ anzunehmen, was sich beim Duty-Cycle kaum bemerkbar machte.
+
+
+\begin{equation}\label{eq:TimerT}
+LowTime= 0.693 \cdot (R_{2}) \cdot C
 \end{equation}
+
 \begin{equation}\label{eq:TimerTH}
 HighTime= 0.693 \cdot (R_{1} + R_{2}) \cdot C
 \end{equation}
