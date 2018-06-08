@@ -1,8 +1,5 @@
-%\subsection{Audio} \label{sec:audio}
-%Für die Audioausgabe sind auch Hardware Komponenten notwendig. In diesem Kapitel werden alle einzelnen Komponenten welche für die Audioausgabe notwendig sind genauer erläutert. Es umfasst zum einen die Aufbereitung des Audio Signals (Unterkapitel LC-Filter), ebenso umfasst es die Verstärkung des Signals (Unterkapitel Verstärkerstufe) und zu guter Schluss die Komponente welche für die Audioausgabe zuständig ist (Abschnitt Knochenschallaktor).
-
 \subsection{Filterstufe}\label{sec:filterstufe}
-Nachdem die Steuerungseinheit gezeigt wurde, kann nun die Ausgangsstufe erläutert werden. Bevor das Signal verstärkt wird, durchläuft es noch eine Filterstufe, bestehend aus einer Spule $L$ und einem Kondensator $C$. Das Filter hat die Aufgabe das PWM-Signal des Mikrocontrollers zu filtern und den DC-Anteil zu entfernen. Zusätzlich wird der Mikrocontroller noch vom System entkoppelt. Das wird mit $100\mu F$-Elektrolytkondensatoren an jedem PWM-Ausgang erzielt. Sie werden jeweils seriell geschaltet. Die Dimensionierung der Komponenten wurde mit der nachfolgenden Grundgleichung \ref{eq:LC Filter} durchgeführt:
+Nachdem die Steuerungseinheit gezeigt wurde, kann nun die Ausgangsstufe erläutert werden. Bevor das Signal verstärkt wird, durchläuft es eine Filterstufe, bestehend aus einer Spule $L$ und einem Kondensator $C$. Das Filter hat die Aufgabe das PWM-Signal des Mikrocontrollers zu filtern und den DC-Anteil zu entfernen. Zusätzlich wird der Mikrocontroller noch vom System entkoppelt. Das wird mit $100\mu F$-Elektrolytkondensatoren an jedem PWM-Ausgang erzielt. Sie werden jeweils seriell geschaltet. Die Dimensionierung der Komponenten wurde mit der nachfolgenden Grundgleichung \ref{eq:LC Filter} durchgeführt:
  
 \begin{equation}
 f_g = \frac{1}{2\cdot \pi \cdot \sqrt{L\cdot C}}
@@ -30,7 +27,7 @@ f_g = \frac{1}{2\cdot \pi \cdot \sqrt{L\cdot C}} = \frac{1}{2\cdot \pi \cdot \sq
 \label{eq:LC Filter 1}
 \end{equation}
 
-Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die jedoch in dieser Anwendung vernachlässigt werden kann. In Abbildung \ref{fig:Filterstufe} ist der Aufbau zu sehen. Dabei ist C1 der Entkopplungskondensator und L1 und C2 bilden zusammen die Filterstufe.
+Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die jedoch in dieser Anwendung vernachlässigt werden kann. In Abbildung \ref{fig:Filterstufe} ist der Aufbau zu sehen. Dabei ist $C_{1}$ der Entkopplungskondensator und $L_{1}$ und $C_{2}$ bilden zusammen die Filterstufe.
 
 \begin{figure}[H]
 	\begin{center}
@@ -41,21 +38,17 @@ Es ist eine Differenz zur ursprünglichen Annahme von $700 Hz$ zu erkennen, die 
 \end{figure}
 
 
-
-
-
-
-Nach der Dimensionerung des Filters, wird nun der Verstärker erläutert.
+Nach der Dimensionierung des Filters, wird nun die Verstärkerstufe erläutert.
 
 \subsection{Verstärkerstufe} \label{sec:verstaerkerstufe}
-Mit einer Verstärkerstufe lassen sich auf einfache Art und Weise Signale jeglicher Form verstärken. Sie eignen sich bestens, um den Ausgang eines Mikrocontrollers entsprechend aufzubereiten, da die Ausgangsseite meist sehr niedrige Ströme aufweist. Dadurch kann dem Knochenschallaktor genügend Energie zur Verfügung gestellt werden. Prinzipiell gibt es zwei Arten von Verstärkern. Entweder erfolgt die Umsetzung digital oder analog. Beide erfüllen die gleiche Aufgabe, weisen jedoch bezüglich Wirkungsgrad einen deutlichen Unterschied auf. Die digitale Variante weist ungefähr einen Wirkungsgrad von 90$\%$ auf \cite{BoneConductorAdafruit}, während die analoge Variante einen maximalen Wirkungsgrad im Bereich der Leistungsanpassung erzielt \cite{Niklaus_Skript}. Aus diesem Grund wird ein digitaler Verstärker (Class-D-Verstärker) in der Anwendung implementiert. Die Wahl fiel auf den Stereo-Amplifier MAX 98306. Der Verstärker hat in Betrieb einen Stromverbrauch von $143mA$ und eine Speisespannung von $3.3V$. Somit hat er einen Leistungsverbrauch von $471.9 mW$. Im Standby benötigt er lediglich $2 mA$ und somit $6.6 mW$\cite{Verstaerker}. In Abbildung 
+Mit einer Verstärkerstufe lassen sich auf einfache Art und Weise Signale jeglicher Form verstärken. Sie eignen sich bestens, um den Ausgang eines Mikrocontrollers entsprechend aufzubereiten, da die Ausgangsseite meist sehr niedrige Ströme aufweist. Dadurch kann dem Knochenschallaktor genügend Energie zur Verfügung gestellt werden. Prinzipiell gibt es zwei Arten von Verstärkern. Entweder erfolgt die Umsetzung digital oder analog. Beide erfüllen die gleiche Aufgabe, weisen jedoch bezüglich Wirkungsgrad einen deutlichen Unterschied auf. Die digitale Variante weist ungefähr einen Wirkungsgrad von 90$\%$ auf \cite{BoneConductorAdafruit}, während die analoge Variante einen maximalen Wirkungsgrad im Bereich der Leistungsanpassung erzielt \cite{Niklaus_Skript}. Aus diesem Grund wird ein digitaler Verstärker (Class-D-Verstärker) in der Anwendung implementiert. Die Wahl fiel auf den Stereo-Amplifier MAX 98306. Der Verstärker hat in Betrieb einen Stromverbrauch von $143mA$ und eine Speisespannung von $3.3V$. Somit hat er einen Leistungsverbrauch von $471.9 mW$. Im Standby benötigt er lediglich $2 mA$ und somit $6.6 mW$\cite{Verstaerker}. Nachfolgende Abbildung \ref{fig:Verstärkerstufe} gibt einen Einblick in den schematischen Aufbau der Verstärkerstufe.
 
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=120mm]{data/Schema_Verstaerkerstufe.png}
 		\caption{Schema Verstärkerstufe \cite{Verstaerker_Schema}} %picture caption
-		\label{fig:knochenschallAda}
+		\label{fig:Verstärkerstufe}
 	\end{center}
 \end{figure}
 
