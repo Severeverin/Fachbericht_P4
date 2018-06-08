@@ -86,9 +86,11 @@ Studiengang: \> Elektro- und Informationstechnik\\[2ex]
 \newpage
 \input{input/Ehrlichkeitserklaerung}
 \bibliographystyle{IEEEtran}
-\bibliography{quelle}
+\section{Literaturverzeichnis}
+{\def\section*#1{}\bibliography{quelle}}
 \newpage
-\listoffigures
+\section{Abbildungsverzeichnis}
+{\def\section*#1{}\listoffigures{}}
 \newpage
 \begin{appendix}
 \input{input/Anhang}
