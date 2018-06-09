@@ -1,31 +1,37 @@
 \subsection{Testkonzept Hardware}\label{sec:testkonzeptHardware}
 Damit ein reibungsloser Betrieb möglich ist, müssen die einzelnen Hardware Komponenten auf Herz und Nieren geprüft werden. Nachfolgend werden die Testverfahren von Batterie, induktiver Übertragung und LC-Filter genauer beschrieben und die jeweiligen Testergebnisse aufgelistet.
 
-\subsubsection*{Schutzmechanismen Batterie}\label{sec:batterie}
-Die Batterie weist einige integrierte Schutzmechanismen auf, welche alle getestet werden müssen. Als erstes wurde der Tiefentladungsschutz geprüft. Um dies zu testen wurde die Batterie entladen, bis der Schutzmechanismus die Versorgungsspannung abstellt. Da der maximale Entladestrom gleich dem maximalen Ladestrom ist, beträgt dieser gemäss der Berechnung im Kapitel \glqq Li-Ion-Batterie\grqq (Abschnitt Schutzeinrichtungen) 400mA. Der Widerstand ergibt sich dabei mittels nachfolgender Berechnung \ref{eq:Entladestrom}.
+\subsubsection*{Schutzmechanismen Batterie}\label{sec:batterieSchutzVal}
+Die Batterie weist einige integrierte Schutzmechanismen auf, welche alle getestet werden müssen. Als erstes wurde der Tiefentladungsschutz geprüft. Um dies zu testen wurde die Batterie entladen, bis der Schutzmechanismus die Versorgungsspannung abstellt. Da der maximale Entladestrom gleich dem maximalen Ladestrom ist, beträgt dieser gemäss Berechnung \ref{eq:Ladestrom} im Kapitel \ref{sec:energiespeicher} 400mA. Der dazu benötigte Widerstand lässt sich dabei folgendermassen berechnen:
  
 \begin{equation}
 \centering
 R=\frac{U}{I}=\frac{3.7V}{0.4A}= 9.25\Omega
 \label{eq:EntladeWiderstand}
 \end{equation}
-Es wurde somit ein Widerstand der Dimension 9.25$\Omega$ angeschlossen.\\
-Während dem Entladevorgang wurde stets die Spannung überwacht, wobei die Spannung von 3.7V auf bis 2.5V absank. Nach dem die 2.5V Schwellenspannung unterschritten wurde, brach der integrierte Batterieschutz die Spannungsversorgung ab. Die Widerstände wurden abgehängt und der gesamte Vorgang wurde kurze Zeit danach mit dem selben Endergebnis wiederholt.
-\\
-Als nächstes wurde ein Kurzschlusstest durchgeführt. Der Schwellenstrom liegt gemäss Datenblatt \cite{LIBattery} bei 4.8A liegt. Durch das $U=R\cdot I$ Gesetz, wurde ein Widerstand der Grösse $700m\Omega$ verwendet, um den Schwellenstrom zu überschreiten. Auch bei diesem Versuch riegelte das PCM den hohen Entladungsstrom ab und schaltete die Versorgungsspannung der Batterie ab. DIeser Versuch wurde ebenfalls bei selbem Ergebnis wiederholt.
 
-\subsubsection*{Ladeschaltung der Batterie}\label{sec:batterie}
-Für die Ladeschaltung der Batterie wurde wie im Kapitel \ref{sec:Energiespeicher} bereits erwähnt ein Lade-IC verwendet. Dieser reguliert zuerst die Spannung wobei nach Erreichung des Schwellenwertes von $4.2V$ der Strom auf $0A$ herunter reguliert wird. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert und ist in Abbildung \ref{fig:LadekurveEmmerich} ersichtlich. Hierbei ist wichtig zu erwähnen, dass dieses Testing nicht die induktive Energieübertragung verwendete, sondern der Fokus auf der Funktionalität des Lade-ICs lag und somit das Netzgerät \glqq Power Supply\grqq\thickspace der Firma \glqq K. Witmer\grqq\thickspace für die Versorgungsspannung verwendet wurde. Aus diesem Grund ist auch ein Strom von $400mA$ wie auch eine Ladezeit von lediglich rund $270$ Minuten $(\hat{=} 4.5h)$ ersichtlich, was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Ersichtlich ist nachfolgend die Regulierung der Spannung (blaue Kurve) wie auch die Regulierung des Stromes (rote Kurve).
+Anschliessend wurde der Entladevorgang mit dem $9.25\Omega$-Widerstand gestartet. Dabei wurde stets die Spannung überwacht, wobei das Absinken von $3.7V$ auf bis $2.5V$ festgestellt wurde. Nach dem die $2.5V$-Schwellenspannung unterschritten wurde, brach der integrierte Batterieschutz die Spannungsversorgung ab. Die Widerstände wurden abgehängt und der gesamte Vorgang wurde kurze Zeit danach mit dem identischen Endergebnis wiederholt.
+
+Als nächstes wurde ein Kurzschlusstest durchgeführt. Der dazu benötigte Schwellenstrom liegt gemäss Datenblatt \cite{LIBattery} bei $4.8A$. Der Widerstand lässt sich dann ebenfalls gemäss Gleichung \ref{eq:EntladeWiderstand} wie folgt berechnen:
+
+\begin{equation}
+\centering
+R=\frac{U}{I}=\frac{3.7V}{4.8A}= 0.7\Omega
+\label{eq:EntladeWiderstand1}
+\end{equation}
+
+Nun wurde an der Schaltung der Lastwiderstand von $700m\Omega$ angeschlossen und die Messung gestartet. Als dann der Schwellenstrom erreicht wurde, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Spannungsversorgung zur Batterie ab. Auch bei diesem Versuch wurde die Messung wiederholt und dabei das gleiche Ergebnis erzielt.
+
+\subsubsection*{Ladeschaltung der Batterie}\label{sec:batterieLadungVal}
+Der verwendete Lade-IC hat primär die Aufgabe die Spannung zu regulieren, wobei nach dem Erreichen des Schwellenwertes von $4.2V$, folglich der Strom auf $0A$ herunter reguliert wird. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Abbildung \ref{fig:LadekurveEmmerich} zeigt die gemessenen Datenpunkte in einem Diagramm. Hierbei ist wichtig zu erwähnen, dass sich dieses Testverfahren nur auf die Funktion des Lade-IC beschränkt und keine induktive Ladevorrichtung angeschlossen wurde. Für die Spannungsversorgung wurde das Netzgerät \glqq Power Supply\grqq\thickspace der Firma \glqq K. Witmer\grqq\thickspace verwendet. Aus diesem Grund ist auch ein Strom von $400mA$ wie auch eine Ladezeit von lediglich rund $270$ Minuten $(\hat{=} 4.5h)$ ersichtlich, was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Abbildung \ref{fig:LadekurveEmmerich} zeigt die gemessenen Werte in einem Diagramm. Weiter ist die Spannungsregulierung \textcolor{blue}{(blau)} und die Stromregulierung \textcolor{red}{(rot)} zu erkennen. Das theoretische Verhalten der Ladeschaltung ist durch die beiden Kurven gut zu sehen. Nach ungefähr 3 Stunden ist das Einsetzen der Regelung ersichtlich. Sobald die Schwellspannung \textcolor{blue}{(blau)} $4.2V$ erreicht, wird der Ladestrom \textcolor{red}{(rot)} zurückgefahren. Der Ladevorgang wurde beim Erreichen vom $20mA$ unterbrochen.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=120mm]{data/LadekurveEmmerich.png}
-		\caption[Ladekurve Emmerich LI14500]{Ladekurve Emmerich LI14500} %picture caption
+		\caption[Ladekurve Emmerich LI14500]{Ladekurve Emmerich LI14500: Spannungsregulierung und Stromregulierung in Zeitabhängigkeit} %picture caption
 		\label{fig:LadekurveEmmerich}
 	\end{center}
 \end{figure}
-
-Die oben genannten Vorgänge der Spannungs- und Stromregulierung des Lade-ICs sind in dieser Grafik gut ersichtlich, wobei der Ladevorgang nach dem erreichen von rund 20mA abgebrochen wurde.
 
 \subsubsection*{Induktive Ladeschaltung}\label{sec:batterie}
 In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsentiert. Nachfolgend zeigt Abbildung \ref{fig:InduzierterStrom} die Abhängigkeit zwischen induziertem Strom und Spannung in Abhängigkeit zur Distanz \glqq z\grqq zwischen den Induktionsspulen.
