@@ -161,23 +161,14 @@ R2:9 k$\Omega$\\
 
 
 \subsubsection*{LC-Filter} \label{sec:Validierung LC-Filter}
-Die Validierung des LC-Filters wurde mittels eines $500Hz$ Sinus Signals erledigt. Dabei wurde sowohl ohne Filter wie auch mit Filter eine KO Bild aufgenommen. Abbildung \ref{fig 500Hz ohne Filter} zeigt das Signal ohne Filter. Rot angezeigt ist die FFT des Signals. In Abbildung \ref{fig 500Hz mit Filter} ist das Signal und die FFT davon mit dem LC-Filter. 
+Die Validierung des LC-Filters wurde mit einem $500Hz$ Sinus-Signal durchgeführt. Dabei wurde sowohl ohne Filter wie auch mit Filter ein KO-Bild aufgenommen. Abbildung \ref{fig:filterVal} zeigt das Verhalten des Filters mit und ohne Filterstufe. Ebenfalls ist die Fast Fourier Transform (FFT) in \textcolor{red}{rot} zu erkennen. Sie gibt eine Auskunft über das enthaltene Frequenzspektrum.
 
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=120mm]{data/500Hz_Sin_ohne_Filter_FFT.png}
-		\caption[500Hz Sinus Signal und FFT ohne LC-Filter]{500Hz Sinus Signal und FFT ohne LC-Filter} %picture caption
-		\label{fig:500Hz ohne Filter}
-	\end{center}
+\begin{figure}[htbp]
+	\centering
+	\subfigure[Aufnahme ohne Filterstufe]{\includegraphics[width = 0.48\textwidth]{data/500Hz_Sin_ohne_Filter_FFT.png}}\quad
+	\subfigure[Aufnahme mit Filterstufe]{\includegraphics[width = 0.48\textwidth]{data/500Hz_Sin_mit_Filter_FFT.png}}\quad
+	\caption[Aufnahme der Filterstufe mit 500Hz Sinus-Signal]{Aufnahme der Filterstufe: links ohne Filterstufe und rechts mit Filterstufe}
+	\label{fig:filterVal}
 \end{figure}
 
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=120mm]{data/500Hz_Sin_mit_Filter_FFT.png}
-		\caption[500Hz Sinus Signal und FFT mit LC-Filter]{500Hz Sinus Signal und FFT mit LC-Filter} %picture caption
-		\label{fig:500Hz mit Filter}
-	\end{center}
-\end{figure}
-
-Durch die beiden KO Aufnahmen wurde ersichtlich, dass durch den Filter ein deutlich besseres und weniger verrauschtes Signal rekonstruiert wird. Somit ist der LC-Filter notwendig, da mit ihm die Schaltfrequenzen des PWM Ausgangs unterdrückt werden.
+Durch die beiden KO Aufnahmen wurde ersichtlich, dass durch den Filter ein deutlich besseres und weniger verrauschtes Signal erzielt wird. Somit ist der LC-Filter notwendig, da mit ihm die Schaltfrequenzen des PWM-Ausgangs unterdrückt werden.
