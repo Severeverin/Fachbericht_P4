@@ -12,15 +12,15 @@ R=\frac{U}{I}=\frac{3.7V}{0.4A}= 9.25\Omega
 
 Anschliessend wurde der Entladevorgang mit dem $9.25\Omega$-Widerstand gestartet. Dabei wurde stets die Spannung überwacht, wobei das Absinken von $3.7V$ auf bis $2.5V$ festgestellt wurde. Nach dem die $2.5V$-Schwellenspannung unterschritten wurde, brach der integrierte Batterieschutz die Spannungsversorgung ab. Die Widerstände wurden abgehängt und der gesamte Vorgang wurde kurze Zeit danach mit dem identischen Endergebnis wiederholt.
 
-Als nächstes wurde ein Kurzschlusstest durchgeführt. Der dazu benötigte Schwellenstrom liegt gemäss Datenblatt \cite{LIBattery} bei $4.8A$. Der Widerstand lässt sich dann ebenfalls gemäss Gleichung \ref{eq:EntladeWiderstand} wie folgt berechnen:
+Als nächstes wurde ein Kurzschlusstest durchgeführt. Der dazu benötigte Schwellenstrom liegt gemäss Datenblatt \cite{LIBattery} bei $4.8A$. Der maximale Widerstand lässt sich dann ebenfalls gemäss Gleichung \ref{eq:EntladeWiderstand} wie folgt berechnen:
 
 \begin{equation}
 \centering
-R=\frac{U}{I}=\frac{3.7V}{4.8A}= 0.7\Omega
+R_{max}=\frac{U}{I}=\frac{3.7V}{4.8A}= 0.77\Omega
 \label{eq:EntladeWiderstand1}
 \end{equation}
 
-Nun wurde an der Schaltung der Lastwiderstand von $700m\Omega$ angeschlossen und die Messung gestartet. Als dann der Schwellenstrom erreicht wurde, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Spannungsversorgung zur Batterie ab. Auch bei diesem Versuch wurde die Messung wiederholt und dabei das gleiche Ergebnis erzielt.
+Da die berechneten $0.77\omega$ dem maximale Widerstand für die Berechnung entspricht, wurde für die Messung ein Lastwiderstand von $7\Omega$ angeschlossen. Als der Schwellenstrom von $4.8A$ erreicht wurde, riegelte das PCM den hohen Entladungsstrom ab und schaltete die Spannungsversorgung zur Batterie ab. Auch bei diesem Versuch wurde die Messung wiederholt und dabei das gleiche Ergebnis erzielt.
 
 \subsubsection*{Ladeschaltung der Batterie}\label{sec:batterieLadungVal}
 Der verwendete Lade-IC hat primär die Aufgabe die Spannung zu regulieren, wobei nach dem Erreichen des Schwellenwertes von $4.2V$, folglich der Strom auf $0A$ herunter reguliert wird. Dieser Vorgang wurde während einem gesamten Ladevorgang der Batterie beobachtet und dokumentiert. Abbildung \ref{fig:LadekurveEmmerich} zeigt die gemessenen Datenpunkte in einem Diagramm. Hierbei ist wichtig zu erwähnen, dass sich dieses Testverfahren nur auf die Funktion des Lade-IC beschränkt und keine induktive Ladevorrichtung angeschlossen wurde. Für die Spannungsversorgung wurde das Netzgerät \glqq Power Supply\grqq\thickspace der Firma \glqq K. Witmer\grqq\thickspace verwendet. Aus diesem Grund ist auch ein Strom von $400mA$ wie auch eine Ladezeit von lediglich rund $270$ Minuten $(\hat{=} 4.5h)$ ersichtlich, was die effektiven Ladewerte mittels induktiver Ladung deutlich unterbietet. Abbildung \ref{fig:LadekurveEmmerich} zeigt die gemessenen Werte in einem Diagramm. Weiter ist die Spannungsregulierung \textcolor{blue}{(blau)} und die Stromregulierung \textcolor{red}{(rot)} zu erkennen. Das theoretische Verhalten der Ladeschaltung ist durch die beiden Kurven gut zu sehen. Nach ungefähr 3 Stunden ist das Einsetzen der Regelung ersichtlich. Sobald die Schwellspannung \textcolor{blue}{(blau)} $4.2V$ erreicht, wird der Ladestrom \textcolor{red}{(rot)} zurückgefahren. Der Ladevorgang wurde beim Erreichen vom $20mA$ unterbrochen.
