@@ -44,14 +44,13 @@ In diesem Abschnitt werden die Ergebnisse der induktiven Ladeschaltung präsenti
 	\end{center}
 \end{figure}
 
-In der Abbildung ist gut sichtbar, dass die Spannung fast linear zur Distanz abnimmt, hingegen der Ladestrom der Batterie extrem schnell abfällt. Aufgrund dieser Erkenntnis sind wir gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten um eine möglichst effiziente Energieübertragung zu erreichen. Um dies zu erreichen, haben wir eine Ladestation entworfen, welche die bestmöglichen Induktionswerte garantiert. Der minimale Abstand welcher somit während dem Ladezyklus erreicht werken kann ist abhängig von der Wanddicke des Dōjōs. Alles in allem beträgt der Abstand somit rund $1.5mm$. Bei diesem Abstand resultiert ein an die Batterie gelieferter Strom von maximal $70mA$, wobei die Ladezeit direkt von diesem Strom abhängt. Der gesamte Ladezyklus wird in zwei Etappen unterteilt. Bei der ersten Etappe wird die Batterie mit konstantem Strom geladen. Dies hat zur Folge, dass die Spannung von ihrem Minimalwert $3.3V$ auf den Schwellenwert von $4.2V$ reguliert wird. Um auf die notwendige Ladezeit des ersten Ladezyklus zu kommen, kann die Zeit während einer beliebig grossen Spannungsdifferenz gestoppt werden. Generell gilt: Umso grösser die Spannungsdifferenz, desto genauer die Approximation. Die Endzeit der Spannungsregelung kann linear hochgerechnet werden. Da jedoch der Ladezyklus nach vollständiger Spannungsregelung noch nicht abgeschlossen ist, folgt noch die benötigte Zeit für die Stromregelung. Da diese nicht einfach berechnet werden kann, wurde dieser Prozess im Labor durchgeführt und gestoppt. Diese zwei Ladezyklen zusammen gerechnet ergeben die gesamte Ladezeit. Für den Ladezyklus wurden drei unterschiedlich hohe Ströme definiert, welche die Zeit für den Ladezyklus vorgeben. Sie beinhaltet einen schonenden Ladezyklus ($I_{charge}=30mA$), einen normalen Ladezyklus ($I_{2}=50mA$) und einen schnellen Ladezyklus ($I_{3}=70mA$). Die Erreichung dieser drei Ladestufen wird in dieser Arbeit nicht weiter definiert, könnte jedoch durch drei unterschiedliche Spannungsstufen, welche die Primärspule versorgen, reguliert werden. Nachfolgend sind die Berechnungen für die jeweiligen Ladezeiten $t_{voltage}$ und $t_{current}$ der drei Stufen, wie auch die gesamte Ladezeit $t_{tot}$ ersichtlich.
+In der Abbildung ist gut sichtbar, dass die Spannung fast linear zur Distanz abnimmt, hingegen der Ladestrom der Batterie extrem schnell abfällt. Aufgrund dieser Erkenntnis sind wir gezwungen eine möglichst kurze Entfernung zwischen den Spulen einzuhalten um eine möglichst effiziente Energieübertragung zu erreichen. Um dies zu erreichen, haben wir eine Ladestation entworfen, welche die bestmöglichen Induktionswerte garantiert. Der minimale Abstand welcher somit während dem Ladezyklus erreicht werken kann ist abhängig von der Wanddicke des Dōjōs. Alles in allem beträgt der Abstand somit rund $1.5mm$. Bei diesem Abstand resultiert ein an die Batterie gelieferter Strom von maximal $70mA$, wobei die Ladezeit direkt von diesem Strom abhängt. Der gesamte Ladezyklus wird in zwei Etappen unterteilt. Bei der ersten Etappe wird die Batterie mit konstantem Strom geladen. Dies hat zur Folge, dass die Spannung von ihrem Minimalwert $3.1V$ auf den Schwellenwert von $4.2V$ reguliert wird. Diese Regulierung wird mit $\Delta U$ in der Rechnung verwendet. Um auf die notwendige Ladezeit des ersten Ladezyklus zu kommen, kann die Zeit ($dt$) während einer beliebig grossen Spannungsdifferenz ($dU$) gestoppt werden. Generell gilt: Umso grösser die Spannungsdifferenz, desto genauer die Approximation. Die Endzeit der Spannungsregelung kann linear hochgerechnet werden. Da jedoch der Ladezyklus nach vollständiger Spannungsregelung noch nicht abgeschlossen ist, folgt noch die benötigte Zeit für die Stromregelung. Da diese nicht einfach berechnet werden kann, wurde dieser Prozess im Labor durchgeführt und gestoppt. Diese zwei Ladezyklen zusammen gerechnet ergeben die gesamte Ladezeit. Für den Ladezyklus wurden drei unterschiedlich hohe Ströme definiert, welche die Zeit für den Ladezyklus vorgeben. Sie beinhaltet einen schonenden Ladezyklus ($I_{1}=30mA$), einen normalen Ladezyklus ($I_{2}=50mA$) und einen schnellen Ladezyklus ($I_{3}=70mA$). Die Erreichung dieser drei Ladestufen wird in dieser Arbeit nicht weiter definiert, könnte jedoch durch drei unterschiedliche Spannungsstufen, welche die Primärspule versorgen, reguliert werden. Nachfolgend sind die Berechnungen für die Ladezeiten bis zum Ende der Spannungsregulierung ($t_{voltage}$) und danach für die Stromregulierung ($t_{current}$) der drei Stufen ersichtlich. Anschliessend wird die gesamte Ladezeit $t_{tot}$ durch die Addition der Teilzeiten berechnet.
 \\
 \\
-
 \underline{Ladezyklus schonend}
 \begin{equation}
 \centering
-t_{voltage}=\frac{1.1 V}{(\frac{0.006 V}{10 Minuten})}=1'833.3 Minuten= 30h\thickspace 33min
+t_{voltage}= \Delta U \cdot \dfrac{dt}{dU}= 1.1V \cdot \dfrac{10min}{6mV} =1'833.3 min= 30h\thickspace 33min
 \label{eq:SchonendSpannung}
 \end{equation}
 \begin{equation}
@@ -64,24 +63,22 @@ Die gesamte Ladezeit ergibt sich durch Addition der Berechnungen \ref{eq:Schonen
 
 \begin{equation}
 \centering
-t_{tot}=t_{slow_{voltage}}+t_{current}=32h\thickspace 27min \sim 32.5h
+t_{tot}=t_{{voltage}}+t_{current}=30h\thickspace 33min + 2h\thickspace 7min=32h\thickspace 40min
 \label{eq:SchonendGesamt}
 \end{equation}
 
-Es ergibt sich somit eine gesamte Ladezeit von 32.5h. Dieser Zyklus braucht sehr lange um die Batterie zu laden, er ist aber auch der schonendste. Es wird empfohlen, ihn bei Ruhetagen anzuwenden.
+Es ergibt sich somit eine gesamte Ladezeit von knapp $33h$. Dieser Zyklus braucht sehr lange um die Batterie zu laden, er ist aber auch der schonendste. Es wird empfohlen, ihn bei Ruhetagen zu verwenden.
 \\
 \\
-
-
 \underline{Ladezyklus normal}
 \begin{equation}
 \centering
-t_{voltage}=\frac{1.1 V}{(\frac{0.0016 V}{10 Minuten})}=687.5 Minuten= 11h\thickspace 28min
+t_{voltage}= \Delta U \cdot \dfrac{dt}{dU}= 1.1V \cdot \dfrac{10min}{16mV} =687.5min= 11h\thickspace 28min
 \label{eq:NormalSpannung}
 \end{equation}
 \begin{equation}
 \centering
-t_{current}= 46min
+t_{current}=1h \thickspace 46min
 \label{eq:NormalStrom}
 \end{equation}
 
@@ -89,18 +86,16 @@ Die gesamte Ladezeit des normalen Ladezyklus ist nachfolgend in \ref{eq:NormalGe
 
 \begin{equation}
 \centering
-t_{tot}=t_{voltage}+t_{current}=12h\space 46min \sim 13h
+t_{tot}=t_{voltage}+t_{current}=11h\thickspace 28min + 1h \thickspace 46min=13h\thickspace 14min
 \label{eq:NormalGesamt}
 \end{equation}
-Der normale Ladezyklus benötigt eine Zet von rund 13h. Diese Zeit ist schon massiv kürzer als bei der schonenden Ladung. Sie kann für den Ladevorgang während der Nacht oder bei wenigen Besuchern verwendet werden.
+Der normale Ladezyklus benötigt eine Zeit von rund $13h$. Diese Zeit ist schon massiv kürzer als bei der schonenden Ladung. Sie kann für den Ladevorgang während der Nacht oder bei wenigen Besuchern verwendet werden.
 \\
 \\
-
-
 \underline{Ladezyklus schnell}
 \begin{equation}
 \centering
-t_{voltage}=\frac{1.1 V}{(\frac{0.0265 V}{10 Minuten})}=415.1 Minuten= 6h\thickspace 55min
+t_{voltage}= \Delta U \cdot \dfrac{dt}{dU}= 1.1V \cdot \dfrac{10min}{26.5mV} =415.1min= 6h\thickspace 55min
 \label{eq:SchnellSpannung}
 \end{equation}
 \begin{equation}
@@ -112,15 +107,10 @@ Die gesamte Ladezeit gemäss Berechnung \ref{eq:SchnellGesamt} ergibt sich durch
 
 \begin{equation}
 \centering
-t_{tot}=t_{voltage}+t_{current}=7h\thickspace 41min \sim 8h
+t_{tot}=t_{voltage}+t_{current}=6h\thickspace 55min + 1h\thickspace 18min = 8h\thickspace 13min
 \label{eq:SchnellGesamt}
 \end{equation}
-Der Ladezyklus mit einem Versorgungsstrom von $70mA$ benötigt eine Ladezeit von knapp 9h und ist somit der schnellste Zyklus. Es wird jedoch empfohlen, dass dieser Zyklus nur bei grossen Besucherzahlen verwendet wird.
-\\
-\\
-
-Allgemein ist die kurze Ladezeit von lediglich rund $8$ Stunden beim schnellen Ladezyklus (Berechnung \ref{eq:SchnellGesamt}) augenfällig. Es gilt jedoch zu beachten, dass bei einem Strom von $70mA$ die Spule sich mehr erwärmt als beim Ladezyklus mit $50mA$. Es wird somit im Allgemeinen vorgeschlagen, dass bei genügend Zeit der normale Zyklus mit $50mA$ gestartet wird. Dieser ist zwar um rund $5$ Stunden langsamer, jedoch nachhaltiger für die eingebauten Materialien.
-
+Der Ladezyklus mit einem Versorgungsstrom von $70mA$ benötigt eine Ladezeit von knapp $8h$ und ist somit der schnellste Zyklus. Es gilt jedoch zu beachten, dass bei einem Strom von $70mA$ die Spule sich stärker erwärmt als beim Ladezyklus mit $50mA$. Es wird daher empfohlen, dass diese Ladevariante nur bei grossen Besucherzahlen verwendet wird und im Allgemeinen der normale Zyklus mit $50mA$ gestartet wird. Dieser ist zwar um rund $5$ Stunden langsamer, jedoch nachhaltiger und schonender für die eingebauten Materialien.
 
 \subsubsection*{Inbetriebnahme der induktiven Ladeschaltung}\label{sec:erkenntnisse}
 
