@@ -11,7 +11,7 @@ Nachdem mit dem Einleitungskapitel ein kurzer Überblick geschaffen wurde, kann 
 \end{figure} 
 
 \subsubsection*{State: Lookup}
-In diesem State verschafft sich das Programm über die entsprechende Initialisierung Zugriff auf die SD-Karte der Anwendung. Falls der Mikrocontroller nicht auf die SD-Karte zugreifen kann, wird eine Fehlermeldung ausgegeben und die Funktion wird beendet. Anderenfalls wird dem Mikrocontroller signalisiert, dass der Zugriff geglückt ist und die eigentliche Funktion wird gestartet. Dazu werden die beiden Minor- und Majorzahlen in ein hexadezimales Zahlensystem gewandelt, welche dann als Vergleichskriterium verwendet werden. Falls die Nummer gefunden wird, kann das entsprechend zugehörige Audio-File über den Mikrocontroller ausgegeben werden. Verglichen wird jeweils zeilenweise, weshalb auch ein Fehlerhandling eingebaut wurde. Damit wird erkannt, ob sich das Textfile am Ende befindet. Somit lässt sich dann die Suche wiederholen, oder einen Fehler ausgeben. Die nachfolgende Abbildung \ref{fig:lookupState} zeigt den detaillierten Funktionsablauf im Lookup-State. Wichtig ist an dieser Stelle die Erkenntnis, dass der Lookup-State die Verbindung zwischen Bluetooth und dem Audio-File repräsentiert.
+In diesem State verschafft sich das Programm über die entsprechende Initialisierung Zugriff auf die SD-Karte der Anwendung. Falls der Mikrocontroller nicht auf die SD-Karte zugreifen kann, wird eine Fehlermeldung ausgegeben und die Funktion wird beendet. Anderenfalls wird dem Mikrocontroller signalisiert, dass der Zugriff geglückt ist und die eigentliche Funktion wird gestartet. Dazu werden die beiden Minor- und Majorzahlen in ein hexadezimales Zahlensystem gewandelt, welche dann als Vergleichskriterium verwendet werden. Falls die Nummer gefunden wird, kann das entsprechend zugehörige Audio-File über den Mikrocontroller ausgegeben werden. Verglichen wird jeweils zeilenweise, weshalb auch ein Fehlerhandling eingebaut wurde. Damit wird erkannt, ob sich das Textfile am Ende befindet. Somit lässt sich dann die Suche wiederholen, oder einen Fehler ausgeben. Die nachfolgende Abbildung \ref{fig:lookupState} zeigt den detaillierten Funktionsablauf im Lookup-State. Wichtig ist an dieser Stelle die Erkenntnis, dass der Lookup-State die Verbindung zwischen Bluetooth und der Audiodatei repräsentiert.
 
 \begin{figure}[htbp!!!!]
 	\centering
@@ -36,7 +36,7 @@ Special Beacon dient hauptsächlich zur Unterscheidung der verschiedenen Beacons
 
 \subsubsection*{State: Pause}
 
-Dieser State pausiert das Sound-File und wartet auf ein weiteres Play-Event, um die Audiodatei wieder abzuspielen.
+Dieser State pausiert die Audioausgabe und wartet auf ein weiteres Play-Event, um die Audiodatei wieder abzuspielen.
 
 \subsubsection*{State: Init Buffer und Bufferreload}
 Diese beiden States sind für das Initialisieren des Buffers und für den Start der PWM-Funktion verantwortlich. Für weitere Informationen dazu, wird auf das Kapitel \ref{sec:sdKarte} verwiesen.
@@ -47,7 +47,7 @@ Dieser State löscht die Likes, um für den nächsten User bereit zu sein. Ansch
 
 \subsubsection*{State: Change Language}
 
-Dieser State ist für die Sprachauswahl verantwortlich. Aufgrund des Zahlenwertes in Minor [1] wird zwischen den Landessprachen der Schweiz ausgewählt. Dabei wird die Vergleichstabelle in Form einer Datei kopiert und mit einem Kürzel entsprechend der Sprache versehen. Danach springt das Programm wieder in den Lookup-State.
+Dieser State ist für die Sprachauswahl verantwortlich. Aufgrund des Zahlenwertes im Datenarray Minor [1] wird zwischen den Landessprachen der Schweiz ausgewählt. Dabei wird die Vergleichstabelle in Form einer Datei kopiert und mit einem Kürzel entsprechend der Sprache versehen. Danach springt das Programm wieder in den Lookup-State.
 
 \begin{figure}[htbp!!!!]
 	\centering
@@ -69,7 +69,7 @@ Wird ein Beacon erkannt, dann wird der New Beacon State aufgerufen. Ist das aktu
 
 \subsubsection*{State: Like}
 
-Wird in diesem State über einen Button ein Like-Ereignis ausgelöst, springt das Programm in den Signal to User State und speichert den entsprechenden Namen des Audio-Files auf die SD-Karte. Findet kein Ereignis statt, springt das Programm in den Wait-State.
+Wird in diesem State über einen Button ein Like-Ereignis ausgelöst, springt das Programm in den Signal to User State und speichert den entsprechenden Namen der Audiodatei auf die SD-Karte. Findet kein Ereignis statt, springt das Programm in den Wait-State.
 
 \subsubsection*{State: Signal to User}
 
