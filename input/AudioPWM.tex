@@ -62,8 +62,14 @@ Bei der PWM-Initialisierung wurde die PWM-Instanz, die Config und der Eventhandl
 \textbf{Berechnung top\_value}\\
 Da die clock Frequenz (in Tabelle \ref{table:config}  base\_clock) des PWM Moduls auf $16MHz$ gesetzt wurde, beträgt der top\_value für eine Audiodatei mit Abtastfrequenz von $32kHz \;  500$. Dies berechnet sich wie folgt:
 \begin{equation}
-32kHz = \frac{16MHz}{top\_value}
- \Rightarrow \; top\_value = \frac{16MHz}{32kHz} = 500
+Abtastfrequenz = \frac{base\_clock}{top\_value}
+\label{eq:abtastfrequenz}
+\end{equation}
+
+Die Gleichung \ref{eq:abtastfrequenz} kann nach top\_value umgeformt werden.
+
+\begin{equation}
+top\_value = \frac{base\_clock}{Abtastfrequenz} = \frac{16MHz}{32kHz} = 500
 \end{equation}
 
 \subsubsection*{Sequenzen laden}\label{sec:Sequenzen befüllen}
